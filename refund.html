@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us - Shri Ballon Decor</title>
+<title>Refund Policy - Shri Ballon Decor</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -22,15 +22,34 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:ce
 .nav-cta:hover{background:#c41678}
 .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
 .ham span{width:24px;height:2px;background:#fff;display:block}
+
+/* DROPDOWN */
 .has-drop{position:relative}
 .drop-btn{color:rgba(255,255,255,.75);text-decoration:none;font-size:13.5px;font-weight:500;transition:color .2s;display:flex;align-items:center;gap:5px;cursor:pointer;background:none;border:none;padding:0;font-family:inherit}
 .drop-btn:hover,.has-drop:hover .drop-btn{color:var(--pink-lt)}
 .drop-arrow{font-size:10px;transition:transform .25s;display:inline-block}
 .has-drop:hover .drop-arrow{transform:rotate(180deg)}
-.dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(20,18,40,0.98);backdrop-filter:blur(16px);border:1px solid rgba(233,30,140,.25);border-radius:16px;padding:18px;padding-top:24px;min-width:680px;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s,visibility .22s;box-shadow:0 20px 60px rgba(0,0,0,.5);z-index:2000}
-.has-drop:hover .dropdown{opacity:1;visibility:visible;pointer-events:auto}
-.dropdown::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px}
-.drop-item{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:10px;text-decoration:none;color:rgba(255,255,255,.78);font-size:12.5px;font-weight:500;transition:background .18s,color .18s;white-space:nowrap}
+.dropdown{
+  position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  background:rgba(20,18,40,0.98);backdrop-filter:blur(16px);
+  border:1px solid rgba(233,30,140,.25);border-radius:16px;
+  padding:18px;padding-top:24px;min-width:680px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:4px;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .22s,visibility .22s;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+  z-index:2000;
+}
+.has-drop:hover .dropdown{opacity:1;visibility:visible;pointer-events:auto;}
+.dropdown::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;}
+.drop-item{
+  display:flex;align-items:center;gap:9px;
+  padding:9px 11px;border-radius:10px;
+  text-decoration:none;color:rgba(255,255,255,.78);
+  font-size:12.5px;font-weight:500;
+  transition:background .18s,color .18s;
+  white-space:nowrap;
+}
 .drop-item:hover{background:rgba(233,30,140,.18);color:#fff}
 .drop-item .di{font-size:16px;flex-shrink:0}
 .drop-item .dt{display:flex;flex-direction:column;gap:1px}
@@ -40,58 +59,37 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:ce
 .drop-header span{color:rgba(255,255,255,.5);font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase}
 .drop-header a{color:var(--pink-lt);font-size:11.5px;font-weight:600;text-decoration:none}
 .drop-header a:hover{text-decoration:underline}
+
+/* MOBILE MENU */
 .mob-menu{display:none;position:fixed;inset:0;background:rgba(20,18,40,.98);z-index:1999;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:80px;gap:0;overflow-y:auto}
 .mob-menu.open{display:flex}
 .mob-close{position:fixed;top:18px;right:22px;background:rgba(255,255,255,.1);border:none;color:#fff;font-size:22px;cursor:pointer;width:40px;height:40px;border-radius:50%;display:grid;place-items:center}
 .mob-nav-item{width:100%;max-width:380px}
-.mob-nav-item > a,.mob-nav-item > button{display:flex;align-items:center;justify-content:space-between;padding:15px 22px;color:#fff;font-size:15px;font-weight:600;text-decoration:none;background:none;border:none;width:100%;border-bottom:1px solid rgba(255,255,255,.07);cursor:pointer;font-family:inherit}
+.mob-nav-item > a,.mob-nav-item > button{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:15px 22px;color:#fff;font-size:15px;font-weight:600;
+  text-decoration:none;background:none;border:none;width:100%;
+  border-bottom:1px solid rgba(255,255,255,.07);cursor:pointer;
+  font-family:inherit;
+}
 .mob-nav-item > a:hover,.mob-nav-item > button:hover{color:var(--pink-lt)}
 .mob-sub{display:none;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.07)}
 .mob-sub.open{display:block}
 .mob-sub a{display:flex;align-items:center;gap:10px;padding:11px 28px;color:rgba(255,255,255,.7);font-size:13.5px;text-decoration:none}
 .mob-sub a:hover{color:var(--pink-lt)}
 .mob-sub a span{font-size:15px}
-.ch{background:linear-gradient(135deg,var(--pink),#9b59b6);padding:80px 20px 60px;text-align:center;color:#fff;margin-top:68px}
-.ch h1{font-family:'Playfair Display',serif;font-size:42px;margin-bottom:15px}
-.ch p{font-size:16px;opacity:.95;max-width:600px;margin:0 auto 35px}
-.quick-contact{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;max-width:900px;margin:0 auto}
-.qc-btn{background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border:none;padding:20px 30px;border-radius:16px;display:flex;align-items:center;gap:15px;text-decoration:none;transition:.3s;box-shadow:0 4px 15px rgba(0,0,0,.15);min-width:200px}
-.qc-btn:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(0,0,0,.25)}
-.qc-btn.whatsapp{background:linear-gradient(135deg,#25D366,#128C7E)}
-.qc-btn.whatsapp .qc-icon,.qc-btn.whatsapp .qc-text{color:#fff}
-.qc-btn.call{background:linear-gradient(135deg,var(--pink),#c41678)}
-.qc-btn.call .qc-icon,.qc-btn.call .qc-text{color:#fff}
-.qc-btn.form{background:#fff}
-.qc-btn.form .qc-icon{font-size:32px}
-.qc-btn.form .qc-text{color:var(--dark)}
-.qc-icon{font-size:36px;flex-shrink:0}
-.qc-text{text-align:left}
-.qc-title{font-size:16px;font-weight:700;margin-bottom:3px}
-.qc-sub{font-size:12px;opacity:.85}
-.contact-wrap{max-width:1100px;margin:60px auto;padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
-.contact-info h2{font-family:'Playfair Display',serif;font-size:28px;margin-bottom:25px;color:var(--dark)}
-.ci-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:22px;padding:18px;background:var(--gray);border-radius:12px;transition:.3s;border:2px solid transparent}
-.ci-item:hover{background:#fff;transform:translateX(3px);border-color:var(--pink);box-shadow:0 4px 15px rgba(233,30,140,.1)}
-.ci-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--pink),#c41678);border-radius:50%;display:grid;place-items:center;font-size:22px;flex-shrink:0}
-.ci-content h3{font-size:15px;font-weight:600;color:var(--dark);margin-bottom:6px}
-.ci-content p{font-size:13.5px;color:var(--muted);line-height:1.6}
-.ci-content a{color:var(--pink);text-decoration:none;font-weight:600}
-.ci-content a:hover{text-decoration:underline}
-.contact-form{background:#fff;padding:35px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.08);border:1px solid #f0f0f0}
-.contact-form h2{font-family:'Playfair Display',serif;font-size:28px;margin-bottom:8px;color:var(--dark)}
-.contact-form .subtext{color:var(--muted);font-size:13.5px;margin-bottom:25px}
-.form-group{margin-bottom:18px}
-.form-group label{display:block;font-size:13.5px;font-weight:600;color:var(--dark);margin-bottom:7px}
-.form-group input,.form-group textarea,.form-group select{width:100%;padding:11px 15px;border:2px solid #e8e0f0;border-radius:10px;font-family:inherit;font-size:13.5px;transition:.3s;background:#fafafa}
-.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--pink);background:#fff}
-.form-group textarea{resize:vertical;min-height:110px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.submit-btn{background:linear-gradient(135deg,var(--pink),#c41678);color:#fff;border:none;padding:13px 30px;border-radius:25px;font-size:14px;font-weight:600;cursor:pointer;transition:.3s;width:100%;margin-top:10px;display:inline-flex;align-items:center;justify-content:center;gap:8px}
-.submit-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(233,30,140,.35)}
-.map-section{background:var(--gray);padding:50px 20px}
-.map-section h2{font-family:'Playfair Display',serif;font-size:28px;text-align:center;margin-bottom:35px;color:var(--dark)}
-.map-container{max-width:1100px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.08)}
-.map-container iframe{width:100%;height:400px;border:none;display:block}
+
+.page-header{background:linear-gradient(135deg,var(--pink),#9b59b6);padding:100px 20px 60px;text-align:center;color:#fff;margin-top:68px}
+.page-header h1{font-family:'Playfair Display',serif;font-size:48px;margin-bottom:15px}
+.page-header p{font-size:18px;opacity:.95;max-width:700px;margin:0 auto}
+.content{max-width:900px;margin:60px auto;padding:0 20px}
+.content h2{font-family:'Playfair Display',serif;font-size:28px;color:var(--dark);margin-top:40px;margin-bottom:15px}
+.content h3{font-size:20px;color:var(--dark);margin-top:25px;margin-bottom:12px}
+.content p{font-size:15px;line-height:1.8;color:var(--muted);margin-bottom:15px}
+.content ul{margin-left:25px;margin-bottom:15px}
+.content ul li{font-size:15px;line-height:1.8;color:var(--muted);margin-bottom:8px}
+.highlight{background:var(--gray);padding:20px;border-radius:12px;border-left:4px solid var(--pink);margin:25px 0}
+.highlight p{color:var(--dark);font-weight:600;margin-bottom:0}
 footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 .fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:46px;margin-bottom:48px}
 .fbrand .flogo{display:flex;align-items:center;gap:10px;margin-bottom:15px}
@@ -106,28 +104,14 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 .fci{display:flex;gap:10px;margin-bottom:11px;font-size:.85rem}
 .fci .icon{color:var(--pink);flex-shrink:0}
 .fbot{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px}
-.wa{position:fixed;bottom:25px;right:25px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 15px rgba(0,0,0,.3);z-index:100;text-decoration:none;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 4px 15px rgba(37,211,102,.3)}50%{box-shadow:0 4px 25px rgba(37,211,102,.6)}}
-@media(max-width:900px){
-.contact-wrap{grid-template-columns:1fr;gap:35px;margin:40px auto}
-.form-row{grid-template-columns:1fr}
-.ch{padding:70px 20px 50px}
-.ch h1{font-size:28px}
-.ch p{font-size:14px;margin-bottom:25px}
-.quick-contact{flex-direction:column;gap:15px;padding:0 10px}
-.qc-btn{min-width:auto;width:100%;max-width:350px;margin:0 auto;padding:18px 25px}
-.qc-icon{font-size:32px}
-.qc-title{font-size:15px}
-.qc-sub{font-size:11px}
+.wa{position:fixed;bottom:25px;right:25px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 15px rgba(0,0,0,.3);z-index:100;text-decoration:none}
+@media(max-width:768px){
+.page-header h1{font-size:32px}
 .nav-links,.nav-cta{display:none}
 .ham{display:flex}
-.ci-item{flex-direction:row;text-align:left;align-items:flex-start}
-.ci-content{text-align:left}
-.contact-form{padding:25px 20px}
-.contact-form h2{font-size:24px}
-.map-section h2{font-size:24px}
-.map-container iframe{height:300px}
-.fg{grid-template-columns:1fr}
+.fg{grid-template-columns:1fr;gap:28px}
+.content{padding:0 15px;margin:40px auto}
+.content h2{font-size:24px}
 }
 </style>
 </head>
@@ -135,7 +119,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="index.html">
+  <a class="nav-logo" href="#">
     <div class="li">🎈</div>
     <span>Shri <em>Ballon</em></span>
   </a>
@@ -147,7 +131,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
       <div class="dropdown">
         <div class="drop-header">
           <span>🎈 All Decoration Services</span>
-          <a href="index.html#categories">View All →</a>
+          <a href="#categories">View All →</a>
         </div>
         <a href="birthday.html" class="drop-item"><span class="di">🎂</span><div class="dt"><span class="dn">Birthday</span><span class="dp">From ₹999</span></div></a>
         <a href="kids-birthday.html" class="drop-item"><span class="di">🧒</span><div class="dt"><span class="dn">Kids Birthday</span><span class="dp">From ₹1,199</span></div></a>
@@ -168,7 +152,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
       </div>
     </li>
     <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="contact.html" class="active">Contact</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
   <a href="https://wa.me/919876543210" class="nav-cta">💬 Book Now</a>
   <button class="ham" onclick="document.getElementById('mobMenu').classList.toggle('open')"><span></span><span></span><span></span></button>
@@ -206,150 +190,100 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
   </div>
 </div>
 
-<!-- HEADER -->
-<div class="ch">
-  <h1>💬 Get In Touch With Us</h1>
-  <p>Book your dream balloon decoration in just a few easy steps. We're available 24/7 to help you!</p>
-  
-  <div class="quick-contact">
-    <a href="https://wa.me/919876543210" class="qc-btn whatsapp">
-      <span class="qc-icon">💬</span>
-      <div class="qc-text">
-        <div class="qc-title">WhatsApp Us</div>
-        <div class="qc-sub">Instant Reply</div>
-      </div>
-    </a>
-    <a href="tel:+919876543210" class="qc-btn call">
-      <span class="qc-icon">📞</span>
-      <div class="qc-text">
-        <div class="qc-title">Call Now</div>
-        <div class="qc-sub">+91 98765 43210</div>
-      </div>
-    </a>
-    <a href="#contactForm" class="qc-btn form">
-      <span class="qc-icon">✍️</span>
-      <div class="qc-text">
-        <div class="qc-title">Fill Form</div>
-        <div class="qc-sub">Get Free Quote</div>
-      </div>
-    </a>
-  </div>
+<div class="page-header">
+  <h1>💰 Refund & Cancellation Policy</h1>
+  <p>Transparent refund terms for your peace of mind</p>
 </div>
 
-<!-- CONTACT SECTION -->
-<div class="contact-wrap">
-  <!-- Contact Info -->
-  <div class="contact-info">
-    <h2>Contact Information</h2>
-    
-    <div class="ci-item">
-      <div class="ci-icon">📞</div>
-      <div class="ci-content">
-        <h3>Phone Number</h3>
-        <p>Call us anytime (Mon-Sun, 9 AM – 9 PM)<br><a href="tel:+919876543210">+91 98765 43210</a></p>
-      </div>
-    </div>
+<div class="content">
+  <p><strong>Effective Date:</strong> January 1, 2024</p>
 
-    <div class="ci-item">
-      <div class="ci-icon">💬</div>
-      <div class="ci-content">
-        <h3>WhatsApp</h3>
-        <p>Quick response within 30 minutes<br><a href="https://wa.me/919876543210" target="_blank">Chat on WhatsApp</a></p>
-      </div>
-    </div>
+  <h2>1. Cancellation Policy</h2>
+  <p>We understand that plans can change. Here's our cancellation policy based on when you notify us:</p>
 
-    <div class="ci-item">
-      <div class="ci-icon">✉️</div>
-      <div class="ci-content">
-        <h3>Email Address</h3>
-        <p>Send us your requirements anytime<br><a href="mailto:hello@shriballondecor.com">hello@shriballondecor.com</a></p>
-      </div>
-    </div>
+  <h3>Full Refund (100%)</h3>
+  <ul>
+    <li>Cancellations made <strong>7 days or more</strong> before the event date</li>
+    <li>Full advance payment will be refunded within 5-7 business days</li>
+  </ul>
 
-    <div class="ci-item">
-      <div class="ci-icon">📍</div>
-      <div class="ci-content">
-        <h3>Location</h3>
-        <p>Indore, India<br>Serving 50+ cities across India</p>
-      </div>
-    </div>
+  <h3>Partial Refund (50%)</h3>
+  <ul>
+    <li>Cancellations made <strong>3-6 days</strong> before the event date</li>
+    <li>50% of the advance payment will be refunded</li>
+    <li>Materials already prepared for your event cannot be refunded</li>
+  </ul>
 
-    <div class="ci-item">
-      <div class="ci-icon">🕐</div>
-      <div class="ci-content">
-        <h3>Working Hours</h3>
-        <p>Monday – Sunday<br>9:00 AM – 9:00 PM</p>
-      </div>
-    </div>
+  <h3>No Refund</h3>
+  <ul>
+    <li>Cancellations made <strong>less than 48 hours</strong> before the event</li>
+    <li>No-shows on the event day</li>
+    <li>Cancellations after our team has reached the venue</li>
+  </ul>
+
+  <h2>2. Rescheduling Policy</h2>
+  <p>We offer flexible rescheduling options:</p>
+  <ul>
+    <li><strong>Free rescheduling:</strong> Available up to <strong>5 days</strong> before the event</li>
+    <li><strong>₹500 rescheduling fee:</strong> For changes made <strong>2-4 days</strong> before the event</li>
+    <li><strong>Not available:</strong> Rescheduling within 48 hours of the event</li>
+    <li>Subject to availability on the new date</li>
+  </ul>
+
+  <h2>3. Weather-Related Cancellations</h2>
+  <p>For outdoor events affected by severe weather:</p>
+  <ul>
+    <li>We offer <strong>free rescheduling</strong> to another date</li>
+    <li>Or a <strong>full refund</strong> if rescheduling is not possible</li>
+    <li>Must be notified at least 6 hours before the scheduled setup time</li>
+  </ul>
+
+  <h2>4. Service Issues or Defects</h2>
+  <p>If there are issues with the decoration quality or service:</p>
+  <ul>
+    <li>Notify us <strong>immediately</strong> via WhatsApp with photos</li>
+    <li>We will send our team to fix the issue within 2 hours</li>
+    <li>If unable to resolve, we offer a <strong>partial or full refund</strong> depending on the severity</li>
+    <li>Claims must be made <strong>within 24 hours</strong> of the event</li>
+  </ul>
+
+  <h2>5. Non-Refundable Items</h2>
+  <p>The following items are <strong>non-refundable</strong>:</p>
+  <ul>
+    <li>Custom name boards, banners, or personalized items</li>
+    <li>Special-order balloons or imported decorations</li>
+    <li>Additional services like photography or cleanup</li>
+    <li>Delivery charges</li>
+  </ul>
+
+  <h2>6. How to Request a Refund</h2>
+  <p>To cancel your booking and request a refund:</p>
+  <ul>
+    <li>Contact us via <strong>WhatsApp (+91 98765 43210)</strong> or email</li>
+    <li>Provide your booking reference number</li>
+    <li>State the reason for cancellation</li>
+    <li>Refunds are processed within <strong>5-7 business days</strong> to your original payment method</li>
+  </ul>
+
+  <div class="highlight">
+    <p>⚠️ Important: Please ensure you notify us as early as possible to avoid cancellation charges. We recommend reviewing your event plans before confirming your booking.</p>
   </div>
 
-  <!-- Contact Form -->
-  <div class="contact-form">
-    <h2>Send us a Message</h2>
-    <p class="subtext">Fill out the form below and we'll get back to you within 30 minutes!</p>
-    
-    <form id="contactForm" onsubmit="handleSubmit(event)">
-      <div class="form-row">
-        <div class="form-group">
-          <label>Your Name *</label>
-          <input type="text" name="name" placeholder="Enter your name" required>
-        </div>
-        <div class="form-group">
-          <label>Phone Number *</label>
-          <input type="tel" name="phone" placeholder="+91 98765 43210" required>
-        </div>
-      </div>
+  <h2>7. Force Majeure</h2>
+  <p>In case of unforeseen circumstances beyond our control (natural disasters, pandemics, government restrictions), we will work with you to reschedule or provide a full refund.</p>
 
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" name="email" placeholder="your@email.com">
-      </div>
+  <h2>8. Disputes</h2>
+  <p>Any disputes regarding refunds will be handled on a case-by-case basis. We are committed to finding a fair resolution.</p>
 
-      <div class="form-row">
-        <div class="form-group">
-          <label>Event Type *</label>
-          <select name="event" required>
-            <option value="">Select Event Type</option>
-            <option value="birthday">🎂 Birthday</option>
-            <option value="kids">🧒 Kids Birthday</option>
-            <option value="baby">👶 Baby Shower</option>
-            <option value="anniversary">❤️ Anniversary</option>
-            <option value="wedding">💍 Wedding/First Night</option>
-            <option value="stage">🎪 Stage Decoration</option>
-            <option value="corporate">🏢 Corporate Event</option>
-            <option value="other">🎈 Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Event Date</label>
-          <input type="date" name="date">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>City *</label>
-        <input type="text" name="city" placeholder="Mumbai, Delhi, Bangalore..." required>
-      </div>
-
-      <div class="form-group">
-        <label>Your Message</label>
-        <textarea name="message" placeholder="Tell us about your event, preferred colors, theme, budget, etc."></textarea>
-      </div>
-
-      <button type="submit" class="submit-btn">📨 Send Message</button>
-    </form>
-  </div>
+  <h2>9. Contact Us</h2>
+  <p>For any questions about cancellations or refunds, please contact us:</p>
+  <ul>
+    <li><strong>Phone:</strong> +91 98765 43210</li>
+    <li><strong>Email:</strong> hello@shriballondecor.com</li>
+    <li><strong>WhatsApp:</strong> +91 98765 43210</li>
+  </ul>
 </div>
 
-<!-- MAP SECTION -->
-<div class="map-section">
-  <h2>📍 Find Us on Map</h2>
-  <div class="map-container">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241316.64333632406!2d72.74109995301355!3d19.08219783958221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
-  </div>
-</div>
-
-<!-- FOOTER -->
 <footer id="contact">
   <div class="fg">
     <div class="fbrand">
@@ -394,40 +328,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
   </div>
 </footer>
 
-<!-- WhatsApp Float -->
 <a href="https://wa.me/919876543210" class="wa" target="_blank" title="Chat on WhatsApp">💬</a>
 
-<script>
-function handleSubmit(e) {
-  e.preventDefault();
-  const form = e.target;
-  const formData = new FormData(form);
-  
-  const name = formData.get('name');
-  const phone = formData.get('phone');
-  const email = formData.get('email');
-  const event = formData.get('event');
-  const date = formData.get('date');
-  const city = formData.get('city');
-  const message = formData.get('message');
-  
-  // Create WhatsApp message
-  let whatsappMsg = `*New Enquiry from Website*%0A%0A`;
-  whatsappMsg += `*Name:* ${name}%0A`;
-  whatsappMsg += `*Phone:* ${phone}%0A`;
-  if(email) whatsappMsg += `*Email:* ${email}%0A`;
-  whatsappMsg += `*Event Type:* ${event}%0A`;
-  if(date) whatsappMsg += `*Event Date:* ${date}%0A`;
-  whatsappMsg += `*City:* ${city}%0A`;
-  if(message) whatsappMsg += `*Message:* ${message}%0A`;
-  
-  // Redirect to WhatsApp
-  window.open(`https://wa.me/919876543210?text=${whatsappMsg}`, '_blank');
-  
-  // Reset form
-  form.reset();
-  alert('Thank you! Redirecting to WhatsApp...');
-}
-</script>
 </body>
 </html>

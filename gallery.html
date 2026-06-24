@@ -70,14 +70,27 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:ce
 .modal-c{position:relative;max-width:90%;max-height:90%}
 .modal-c img{max-width:100%;max-height:90vh;border-radius:8px}
 .modal-close{position:absolute;top:-40px;right:0;background:var(--pink);color:#fff;border:none;font-size:30px;width:40px;height:40px;border-radius:50%;cursor:pointer}
-.footer{background:var(--dark);color:#fff;padding:40px 20px;text-align:center}
-.footer a{color:var(--pink);text-decoration:none}
+footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:46px;margin-bottom:48px}
+.fbrand .flogo{display:flex;align-items:center;gap:10px;margin-bottom:15px}
+.fbrand .flogo .fi{width:36px;height:36px;background:var(--pink);border-radius:50%;display:grid;place-items:center;font-size:17px}
+.fbrand .flogo span{color:#fff;font-family:'Playfair Display',serif;font-size:19px;font-weight:700}
+.fbrand p{font-size:.85rem;line-height:1.75;max-width:230px}
+.fcol h4{color:#fff;font-size:.93rem;font-weight:600;margin-bottom:16px}
+.fcol ul{list-style:none}
+.fcol ul li{margin-bottom:9px}
+.fcol ul a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.85rem;transition:color .2s}
+.fcol ul a:hover{color:var(--pink-lt)}
+.fci{display:flex;gap:10px;margin-bottom:11px;font-size:.85rem}
+.fci .icon{color:var(--pink);flex-shrink:0}
+.fbot{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px}
 .wa{position:fixed;bottom:25px;right:25px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 15px rgba(0,0,0,.3);z-index:100;text-decoration:none}
 @media(max-width:768px){
 .gh h1{font-size:32px}
 .nav-links,.nav-cta{display:none}
 .ham{display:flex}
 .gg{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:15px}
+.fg{grid-template-columns:1fr;gap:28px}
 }
 </style>
 </head>
@@ -353,9 +366,48 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:ce
 </div>
 
 <!-- FOOTER -->
-<footer class="footer">
-  <p>© 2024 Shri Ballon Decor & Event Organiser. All Rights Reserved.</p>
-  <p style="margin-top:10px">📞 <a href="tel:+919876543210">+91 98765 43210</a> | ✉️ <a href="mailto:hello@shriballondecor.com">hello@shriballondecor.com</a></p>
+<footer id="contact">
+  <div class="fg">
+    <div class="fbrand">
+      <div class="flogo"><div class="fi">🎈</div><span>Shri Ballon</span></div>
+      <p>India's most loved balloon & event decoration service. Making celebrations unforgettable across 50+ cities.</p>
+    </div>
+    <div class="fcol">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="birthday.html">Birthday Decoration</a></li>
+        <li><a href="kids-birthday.html">Kids Birthday</a></li>
+        <li><a href="baby-shower.html">Baby Shower</a></li>
+        <li><a href="anniversary.html">Anniversary</a></li>
+        <li><a href="first-night.html">First Night</a></li>
+        <li><a href="stage.html">Stage Decoration</a></li>
+        <li><a href="welcome-baby.html">Welcome Baby</a></li>
+        <li><a href="housewarming.html">House Warming</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html#why">Why Us</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="refund.html">Refund Policy</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Contact Us</h4>
+      <div class="fci"><span class="icon">📞</span> +91 98765 43210</div>
+      <div class="fci"><span class="icon">✉️</span> hello@shriballondecor.com</div>
+      <div class="fci"><span class="icon">📍</span> Mumbai, Maharashtra, India</div>
+      <div class="fci"><span class="icon">🕐</span> Mon–Sun: 9 AM – 9 PM</div>
+      <div style="margin-top:14px">
+        <a href="https://wa.me/919876543210" style="background:var(--pink);color:#fff;padding:10px 20px;border-radius:22px;text-decoration:none;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:7px">💬 Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div class="fbot">
+    <span>© 2024 Shri Ballon Decor & Event Organiser. All Rights Reserved.</span>
+  </div>
 </footer>
 
 <!-- WhatsApp Float -->
