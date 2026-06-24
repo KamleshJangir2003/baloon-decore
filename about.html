@@ -66,10 +66,24 @@
 
 @media(max-width:768px){
   .stats-bar{grid-template-columns:repeat(2,1fr)}
-  .story-inner{grid-template-columns:1fr}
+  .story-inner{grid-template-columns:1fr;gap:32px}
   .story-img{order:-1}
-  .story-img img{height:280px}
+  .story-img img{height:260px}
+  .story-img::after{display:none}
   .mile-list::before{left:18px}
+  .val-grid{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .about-hero{padding:100px 4% 60px}
+  .story,.values,.team,.milestones{padding:60px 4%}
+  .about-cta{padding:60px 4%}
+}
+@media(max-width:480px){
+  .stats-bar{grid-template-columns:repeat(2,1fr);padding:28px 4%}
+  .sbar-item .num{font-size:1.7rem}
+  .val-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}
+  .about-hero h1{font-size:1.7rem}
+  .mile-item{gap:16px}
 }
 </style>
 </head>
