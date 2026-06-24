@@ -86,18 +86,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:ce
 .mob-sub a span{font-size:15px}
 
 /* HERO SLIDER */
-.hero{position:relative;min-height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero{position:relative;height:100vh;min-height:560px;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .hslides{position:absolute;inset:0;display:flex;transition:transform .8s cubic-bezier(.4,0,.2,1)}
 .hslide{min-width:100%;position:relative;background-size:cover;background-position:center;display:flex;align-items:center}
 .hslide::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,8,30,.88) 0%,rgba(10,8,30,.55) 50%,rgba(10,8,30,.18) 100%)}
 /* per-slide text overlay */
-.hslide-txt{position:absolute;z-index:2;left:6%;top:50%;transform:translateY(-50%);max-width:480px;text-align:left}
-.hslide-tag{display:inline-block;background:var(--pink);color:#fff;padding:5px 16px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:14px;letter-spacing:.5px}
-.hslide-h{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4.5vw,3.2rem);font-weight:700;color:#fff;line-height:1.18;margin-bottom:10px}
+.hslide-txt{position:absolute;z-index:2;left:6%;top:50%;transform:translateY(-50%);max-width:520px;text-align:left}
+.hslide-tag{display:inline-block;background:var(--pink);color:#fff;padding:6px 16px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:16px;letter-spacing:.5px}
+.hslide-h{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;line-height:1.18;margin-bottom:12px}
 .hslide-h span{color:var(--pink-lt)}
-.hslide-sub{color:rgba(255,255,255,.78);font-size:.92rem;line-height:1.7;margin-bottom:18px}
-.hslide-price{display:inline-block;background:rgba(233,30,140,.2);border:1.5px solid var(--pink);color:var(--pink-lt);padding:5px 16px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:22px}
-.hslide-btn{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:#fff;padding:11px 26px;border-radius:28px;font-size:14px;font-weight:600;text-decoration:none;transition:.2s;box-shadow:0 6px 20px rgba(233,30,140,.4)}
+.hslide-sub{color:rgba(255,255,255,.82);font-size:.95rem;line-height:1.72;margin-bottom:18px}
+.hslide-price{display:inline-block;background:rgba(233,30,140,.2);border:1.5px solid var(--pink);color:var(--pink-lt);padding:6px 16px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:24px}
+.hslide-btn{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:#fff;padding:12px 28px;border-radius:28px;font-size:14px;font-weight:600;text-decoration:none;transition:.2s;box-shadow:0 6px 20px rgba(233,30,140,.4)}
 .hslide-btn:hover{background:#c41678;transform:translateY(-2px)}
 /* center fixed content */
 .hero-content{position:relative;z-index:3;width:100%;padding:0 5%;display:flex;flex-direction:column;align-items:flex-end;text-align:right;pointer-events:none}
@@ -359,7 +359,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <span class="hslide-tag">🎂 Birthday Decoration</span>
         <div class="hslide-h">Celebrate Every <span>Birthday</span><br>With Balloon Magic</div>
         <div class="hslide-sub">Vibrant balloon setups, arches & themed arrangements tailored to your style.</div>
-        <div class="hslide-price">Starting ₹999</div><br>
+        <div class="hslide-price">Starting ₹999</div>
         <a href="birthday.html" class="hslide-btn">🎉 View Designs</a>
       </div>
     </div>
@@ -369,7 +369,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <span class="hslide-tag">🧒 Kids Birthday</span>
         <div class="hslide-h">Unicorn, Superhero &<br><span>100+ Fun Themes</span></div>
         <div class="hslide-sub">Cocomelon, Frozen, Jungle & more — kids themes that spark pure joy.</div>
-        <div class="hslide-price">Starting ₹1,199</div><br>
+        <div class="hslide-price">Starting ₹1,199</div>
         <a href="kids-birthday.html" class="hslide-btn">🎉 View Designs</a>
       </div>
     </div>
@@ -379,7 +379,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <span class="hslide-tag">❤️ Anniversary Decoration</span>
         <div class="hslide-h">Surprise Your Partner<br>with <span>Romantic Setup</span></div>
         <div class="hslide-sub">Heart arches, rose petals, candles & personalized name banners.</div>
-        <div class="hslide-price">Starting ₹1,299</div><br>
+        <div class="hslide-price">Starting ₹1,299</div>
         <a href="anniversary.html" class="hslide-btn">❤️ View Designs</a>
       </div>
     </div>
@@ -389,7 +389,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <span class="hslide-tag">🎦 Stage Decoration</span>
         <div class="hslide-h">Grand Stage Setups<br>for <span>Every Occasion</span></div>
         <div class="hslide-sub">Weddings, engagements & events with balloon arches, drapes & florals.</div>
-        <div class="hslide-price">Starting ₹2,499</div><br>
+        <div class="hslide-price">Starting ₹2,499</div>
         <a href="stage.html" class="hslide-btn">🎦 View Designs</a>
       </div>
     </div>
@@ -399,7 +399,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <span class="hslide-tag">👶 Baby Shower</span>
         <div class="hslide-h">Welcome the Little One<br>with <span>Beautiful Decor</span></div>
         <div class="hslide-sub">Pink & blue setups, gender reveal, foil balloons & photo backdrops.</div>
-        <div class="hslide-price">Starting ₹1,499</div><br>
+        <div class="hslide-price">Starting ₹1,499</div>
         <a href="baby-shower.html" class="hslide-btn">👶 View Designs</a>
       </div>
     </div>
@@ -409,7 +409,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <span class="hslide-tag">🏢 Corporate Event</span>
         <div class="hslide-h">Professional Decor<br>for <span>Corporate Events</span></div>
         <div class="hslide-sub">Product launches, office parties & brand activations done right.</div>
-        <div class="hslide-price">Starting ₹2,999</div><br>
+        <div class="hslide-price">Starting ₹2,999</div>
         <a href="corporate.html" class="hslide-btn">🏢 View Designs</a>
       </div>
     </div>
