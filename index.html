@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Balloon Decoration – HORA Event & Balloon Decoration Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --pink:#e91e8c;--pink-lt:#ff6bb5;--gold:#f7c948;
+  --dark:#1a1a2e;--dark2:#16213e;--white:#ffffff;
+  --gray:#f8f4f9;--text:#333344;--muted:#777788;--radius:14px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:68px;background:rgba(26,26,46,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(233,30,140,.2)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo .li{width:38px;height:38px;background:var(--pink);border-radius:50%;display:grid;place-items:center;font-size:18px;flex-shrink:0}
+.nav-logo span{color:#fff;font-family:'Playfair Display',serif;font-size:22px;font-weight:700}
+.nav-logo span em{color:var(--pink-lt);font-style:normal}
+.nav-links{display:flex;gap:26px;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:13.5px;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--pink-lt)}
+.nav-cta{background:var(--pink);color:#fff;border:none;padding:9px 22px;border-radius:25px;font-size:13.5px;font-weight:600;cursor:pointer;transition:.2s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.nav-cta:hover{background:#c41678}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.ham span{width:24px;height:2px;background:#fff;display:block}
+
+/* DROPDOWN */
+.has-drop{position:relative}
+.drop-btn{color:rgba(255,255,255,.75);text-decoration:none;font-size:13.5px;font-weight:500;transition:color .2s;display:flex;align-items:center;gap:5px;cursor:pointer;background:none;border:none;padding:0;font-family:inherit}
+.drop-btn:hover,.has-drop:hover .drop-btn{color:var(--pink-lt)}
+.drop-arrow{font-size:10px;transition:transform .25s;display:inline-block}
+.has-drop:hover .drop-arrow{transform:rotate(180deg)}
+.dropdown{
+  position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  background:rgba(20,18,40,0.98);backdrop-filter:blur(16px);
+  border:1px solid rgba(233,30,140,.25);border-radius:16px;
+  padding:18px;padding-top:24px;min-width:680px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:4px;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .22s,visibility .22s;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+  z-index:2000;
+}
+.has-drop:hover .dropdown{opacity:1;visibility:visible;pointer-events:auto;}
+.dropdown::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;}
+.drop-item{
+  display:flex;align-items:center;gap:9px;
+  padding:9px 11px;border-radius:10px;
+  text-decoration:none;color:rgba(255,255,255,.78);
+  font-size:12.5px;font-weight:500;
+  transition:background .18s,color .18s;
+  white-space:nowrap;
+}
+.drop-item:hover{background:rgba(233,30,140,.18);color:#fff}
+.drop-item .di{font-size:16px;flex-shrink:0}
+.drop-item .dt{display:flex;flex-direction:column;gap:1px}
+.drop-item .dn{font-weight:600;font-size:12.5px;color:#fff}
+.drop-item .dp{font-size:10.5px;color:rgba(255,255,255,.45)}
+.drop-header{grid-column:1/-1;padding:0 2px 10px;margin-bottom:2px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center}
+.drop-header span{color:rgba(255,255,255,.5);font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase}
+.drop-header a{color:var(--pink-lt);font-size:11.5px;font-weight:600;text-decoration:none}
+.drop-header a:hover{text-decoration:underline}
+
+/* MOBILE MENU */
+.mob-menu{display:none;position:fixed;inset:0;background:rgba(20,18,40,.98);z-index:1999;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:80px;gap:0;overflow-y:auto}
+.mob-menu.open{display:flex}
+.mob-close{position:fixed;top:18px;right:22px;background:rgba(255,255,255,.1);border:none;color:#fff;font-size:22px;cursor:pointer;width:40px;height:40px;border-radius:50%;display:grid;place-items:center}
+.mob-nav-item{width:100%;max-width:380px}
+.mob-nav-item > a,.mob-nav-item > button{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:15px 22px;color:#fff;font-size:15px;font-weight:600;
+  text-decoration:none;background:none;border:none;width:100%;
+  border-bottom:1px solid rgba(255,255,255,.07);cursor:pointer;
+  font-family:inherit;
+}
+.mob-nav-item > a:hover,.mob-nav-item > button:hover{color:var(--pink-lt)}
+.mob-sub{display:none;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.07)}
+.mob-sub.open{display:block}
+.mob-sub a{display:flex;align-items:center;gap:10px;padding:11px 28px;color:rgba(255,255,255,.7);font-size:13.5px;text-decoration:none}
+.mob-sub a:hover{color:var(--pink-lt)}
+.mob-sub a span{font-size:15px}
+
+/* HERO SLIDER */
+.hero{position:relative;min-height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hslides{position:absolute;inset:0;display:flex;transition:transform .8s cubic-bezier(.4,0,.2,1)}
+.hslide{min-width:100%;position:relative;background-size:cover;background-position:center;display:flex;align-items:center}
+.hslide::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,8,30,.88) 0%,rgba(10,8,30,.55) 50%,rgba(10,8,30,.18) 100%)}
+/* per-slide text overlay */
+.hslide-txt{position:absolute;z-index:2;left:6%;top:50%;transform:translateY(-50%);max-width:480px;text-align:left}
+.hslide-tag{display:inline-block;background:var(--pink);color:#fff;padding:5px 16px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:14px;letter-spacing:.5px}
+.hslide-h{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4.5vw,3.2rem);font-weight:700;color:#fff;line-height:1.18;margin-bottom:10px}
+.hslide-h span{color:var(--pink-lt)}
+.hslide-sub{color:rgba(255,255,255,.78);font-size:.92rem;line-height:1.7;margin-bottom:18px}
+.hslide-price{display:inline-block;background:rgba(233,30,140,.2);border:1.5px solid var(--pink);color:var(--pink-lt);padding:5px 16px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:22px}
+.hslide-btn{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:#fff;padding:11px 26px;border-radius:28px;font-size:14px;font-weight:600;text-decoration:none;transition:.2s;box-shadow:0 6px 20px rgba(233,30,140,.4)}
+.hslide-btn:hover{background:#c41678;transform:translateY(-2px)}
+/* center fixed content */
+.hero-content{position:relative;z-index:3;width:100%;padding:0 5%;display:flex;flex-direction:column;align-items:flex-end;text-align:right;pointer-events:none}
+.hero-stats{display:flex;flex-direction:column;gap:18px;align-items:flex-end}
+.stat{text-align:right}
+.stat .num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--pink-lt);display:block}
+.stat .lbl{font-size:11px;color:rgba(255,255,255,.55);margin-top:2px}
+/* arrows */
+.harr{position:absolute;top:50%;z-index:4;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;font-size:20px;cursor:pointer;display:grid;place-items:center;transition:.2s;backdrop-filter:blur(6px)}
+.harr:hover{background:var(--pink);border-color:var(--pink)}
+.harr.prev{left:18px}
+.harr.next{right:18px}
+/* dots */
+.hdots{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:4;display:flex;gap:8px}
+.hdot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:.25s}
+.hdot.active{background:#fff;width:22px;border-radius:4px}
+/* btn-p btn-s kept for other sections */
+.btn-p{background:var(--pink);color:#fff;padding:14px 32px;border-radius:30px;font-size:15px;font-weight:600;text-decoration:none;transition:.2s;display:inline-flex;align-items:center;gap:8px;box-shadow:0 6px 20px rgba(233,30,140,.4)}
+.btn-p:hover{background:#c41678;transform:translateY(-2px)}
+.btn-s{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5);padding:14px 32px;border-radius:30px;font-size:15px;font-weight:600;text-decoration:none;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.btn-s:hover{border-color:#fff;background:rgba(255,255,255,.08);transform:translateY(-2px)}
+@media(max-width:640px){.harr{display:none}.hslide-txt{left:4%;max-width:90%}.hero-content{display:none}}
+
+/* SECTION */
+section{padding:88px 5%}
+.stag{display:inline-block;background:rgba(233,30,140,.1);color:var(--pink);padding:5px 16px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:12px}
+.stitle{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.7rem);font-weight:700;line-height:1.2;margin-bottom:14px;color:var(--dark)}
+.ssub{font-size:.97rem;color:var(--muted);line-height:1.78;max-width:580px;margin:0 auto}
+.tc{text-align:center}
+.sdiv{width:56px;height:4px;background:var(--pink);border-radius:2px;margin:16px auto 0}
+
+/* CATEGORIES */
+.cats{background:var(--gray)}
+.cat-scroll{display:flex;gap:12px;overflow-x:auto;padding:14px 0 6px;scrollbar-width:none;margin-bottom:40px}
+.cat-scroll::-webkit-scrollbar{display:none}
+.cat-chip{flex-shrink:0;padding:8px 20px;border-radius:22px;border:1.5px solid #e0d8ea;background:#fff;font-size:13px;font-weight:600;cursor:pointer;transition:.2s;white-space:nowrap;color:var(--text)}
+.cat-chip:hover,.cat-chip.active{background:var(--pink);border-color:var(--pink);color:#fff}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:22px}
+.cat-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 3px 18px rgba(0,0,0,.07);transition:.25s;cursor:pointer;text-decoration:none;display:block}
+.cat-card:hover{transform:translateY(-6px);box-shadow:0 12px 38px rgba(233,30,140,.16)}
+.cat-img{width:100%;height:200px;object-fit:cover;display:block;background:#f5eef8}
+.cat-badge{position:absolute;top:12px;right:12px;background:var(--pink);color:#fff;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:700}
+.cat-wrap{position:relative}
+.cat-body{padding:18px 20px 22px}
+.cat-body h3{font-family:'Playfair Display',serif;font-size:1.13rem;font-weight:700;margin-bottom:7px;color:var(--dark)}
+.cat-body p{font-size:.85rem;color:var(--muted);line-height:1.65}
+.cat-price{display:inline-block;margin-top:12px;background:rgba(233,30,140,.08);color:var(--pink);padding:4px 12px;border-radius:10px;font-size:12.5px;font-weight:700}
+.cat-link{display:inline-flex;align-items:center;gap:5px;margin-top:12px;color:var(--pink);font-size:13px;font-weight:600;text-decoration:none;transition:gap .2s}
+.cat-link:hover{gap:9px}
+
+/* WHY */
+.why{background:var(--dark)}
+.why .stitle,.why .ssub{color:#fff}
+.why .stag{background:rgba(233,30,140,.22);color:var(--pink-lt)}
+.why .sdiv{background:var(--pink-lt)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:26px;margin-top:54px}
+.wcard{background:rgba(255,255,255,.05);border:1px solid rgba(233,30,140,.2);border-radius:var(--radius);padding:30px 26px;transition:.25s}
+.wcard:hover{background:rgba(233,30,140,.1);border-color:var(--pink)}
+.wcard .wi{font-size:38px;margin-bottom:16px}
+.wcard h3{color:#fff;font-size:1rem;font-weight:600;margin-bottom:9px}
+.wcard p{color:rgba(255,255,255,.6);font-size:.85rem;line-height:1.68}
+
+/* HOW */
+.how{background:#fff}
+.steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:30px;margin-top:54px}
+.step{text-align:center;padding:18px}
+.snum{width:58px;height:58px;border-radius:50%;background:var(--pink);color:#fff;font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;display:inline-flex;align-items:center;justify-content:center;margin-bottom:15px;box-shadow:0 6px 22px rgba(233,30,140,.35)}
+.step h3{font-weight:700;font-size:.97rem;margin-bottom:9px;color:var(--dark)}
+.step p{font-size:.85rem;color:var(--muted);line-height:1.68}
+
+/* GALLERY */
+.gallery{background:var(--gray)}
+.gal-filter{display:flex;gap:10px;overflow-x:auto;padding:14px 0 6px;scrollbar-width:none;margin-bottom:30px;margin-top:36px}
+.gal-filter::-webkit-scrollbar{display:none}
+.gal-chip{flex-shrink:0;padding:7px 18px;border-radius:22px;border:1.5px solid #e0d8ea;background:#fff;font-size:13px;font-weight:600;cursor:pointer;transition:.2s;white-space:nowrap;color:var(--text)}
+.gal-chip:hover,.gal-chip.active{background:var(--pink);border-color:var(--pink);color:#fff}
+.gal-grid{columns:3;column-gap:14px}
+.gal-item{break-inside:avoid;margin-bottom:14px;border-radius:12px;overflow:hidden;position:relative;cursor:pointer}
+.gal-item img{width:100%;display:block;transition:transform .35s}
+.gal-item:hover img{transform:scale(1.04)}
+.gal-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,46,.8) 0%,transparent 55%);opacity:0;transition:.3s;display:flex;align-items:flex-end;padding:14px}
+.gal-item:hover .gal-ov{opacity:1}
+.gal-ov p{color:#fff;font-size:13px;font-weight:600}
+
+/* TESTIMONIALS */
+.testi{background:var(--dark)}
+.testi .stitle{color:#fff}
+.testi .ssub{color:rgba(255,255,255,.6)}
+.testi .stag{background:rgba(233,30,140,.22);color:var(--pink-lt)}
+.testi{overflow:hidden}
+.tslider{position:relative;overflow:hidden;margin-top:54px}
+.ttrack{display:flex;gap:20px;align-items:center;width:max-content;animation:tscroll 28s linear infinite}
+.ttrack:hover{animation-play-state:paused}
+@keyframes tscroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.tcard{
+  width:200px;height:200px;flex-shrink:0;
+  border-radius:50%;border:2px solid rgba(233,30,140,.4);
+  background:rgba(255,255,255,.06);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:22px 18px;box-sizing:border-box;
+  transition:transform .3s,border-color .3s,background .3s;
+}
+.tcard:hover{transform:scale(1.08);border-color:var(--pink);background:rgba(233,30,140,.14)}
+.tcard .stars{color:var(--gold);font-size:12px;margin-bottom:6px;letter-spacing:1px}
+.tcard .txt{color:rgba(255,255,255,.82);font-size:.7rem;line-height:1.55;margin-bottom:10px;font-style:italic;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tcard .av{width:32px;height:32px;border-radius:50%;background:var(--pink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin:0 auto 4px}
+.tcard .aname{color:#fff;font-weight:600;font-size:.7rem}
+.tcard .aevent{color:var(--pink-lt);font-size:.62rem}
+.tslider-nav{display:none}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,var(--pink) 0%,#a8006a 100%);padding:78px 5%;text-align:center}
+.cta h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);color:#fff;font-weight:700;margin-bottom:14px}
+.cta p{color:rgba(255,255,255,.85);font-size:1rem;margin-bottom:34px}
+.cta .bw{background:#fff;color:var(--pink);padding:14px 36px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 26px rgba(0,0,0,.2);transition:.2s}
+.cta .bw:hover{transform:translateY(-2px)}
+.cta .ph{display:block;margin-top:18px;color:rgba(255,255,255,.8);font-size:.875rem}
+.cta .ph a{color:#fff;font-weight:700;text-decoration:none}
+
+/* FAQ */
+.faq{background:#fff}
+.faq-list{max-width:740px;margin:54px auto 0}
+.fitem{background:var(--gray);border-radius:12px;margin-bottom:10px;border:1.5px solid #e8e0f0;overflow:hidden}
+.fq{padding:18px 22px;font-weight:600;font-size:.93rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--dark);user-select:none;transition:color .2s}
+.fq:hover{color:var(--pink)}
+.fq .arr{font-size:17px;transition:transform .3s}
+.fa{padding:0 22px;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s}
+.fa p{color:var(--muted);font-size:.875rem;line-height:1.75;padding-bottom:18px}
+.fitem.open .fa{max-height:300px}
+.fitem.open .fq .arr{transform:rotate(180deg)}
+.fitem.open .fq{color:var(--pink)}
+
+/* FOOTER */
+footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:46px;margin-bottom:48px}
+.fbrand .flogo{display:flex;align-items:center;gap:10px;margin-bottom:15px}
+.fbrand .flogo .fi{width:36px;height:36px;background:var(--pink);border-radius:50%;display:grid;place-items:center;font-size:17px}
+.fbrand .flogo span{color:#fff;font-family:'Playfair Display',serif;font-size:19px;font-weight:700}
+.fbrand p{font-size:.85rem;line-height:1.75;max-width:230px}
+.fbrand .soc{display:flex;gap:9px;margin-top:18px}
+.fbrand .soc a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;font-size:14px;display:grid;place-items:center;text-decoration:none;transition:.2s}
+.fbrand .soc a:hover{background:var(--pink)}
+.fcol h4{color:#fff;font-size:.93rem;font-weight:600;margin-bottom:16px}
+.fcol ul{list-style:none}
+.fcol ul li{margin-bottom:9px}
+.fcol ul a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.85rem;transition:color .2s}
+.fcol ul a:hover{color:var(--pink-lt)}
+.fci{display:flex;gap:10px;margin-bottom:11px;font-size:.85rem}
+.fci .icon{color:var(--pink);flex-shrink:0}
+.fbot{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px}
+
+/* WA */
+.wa{position:fixed;bottom:26px;right:26px;z-index:999;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(37,211,102,.5);text-decoration:none;font-size:26px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 6px 22px rgba(37,211,102,.5)}50%{box-shadow:0 6px 34px rgba(37,211,102,.8)}}
+
+/* RESPONSIVE */
+@media(max-width:900px){.fg{grid-template-columns:1fr 1fr}.gal-grid{columns:2}}
+@media(max-width:640px){.nav-links,.nav-cta{display:none}.ham{display:flex}.gal-grid{columns:1}.fg{grid-template-columns:1fr}.hero-stats{gap:28px}.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:1100px){.dropdown{min-width:560px;grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){.dropdown{min-width:440px;grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="li">🎈</div>
+    <span>H<em>ORA</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="has-drop">
+      <button class="drop-btn">Decorations <span class="drop-arrow"></span></button>
+      <div class="dropdown">
+        <div class="drop-header">
+          <span>🎈 All Decoration Services</span>
+          <a href="#categories">View All →</a>
+        </div>
+        <a href="birthday.html" class="drop-item"><span class="di">🎂</span><div class="dt"><span class="dn">Birthday</span><span class="dp">From ₹999</span></div></a>
+        <a href="kids-birthday.html" class="drop-item"><span class="di">🧒</span><div class="dt"><span class="dn">Kids Birthday</span><span class="dp">From ₹1,199</span></div></a>
+        <a href="baby-shower.html" class="drop-item"><span class="di">👶</span><div class="dt"><span class="dn">Baby Shower</span><span class="dp">From ₹1,499</span></div></a>
+        <a href="anniversary.html" class="drop-item"><span class="di">❤️</span><div class="dt"><span class="dn">Anniversary</span><span class="dp">From ₹1,299</span></div></a>
+        <a href="first-night.html" class="drop-item"><span class="di">💍</span><div class="dt"><span class="dn">First Night</span><span class="dp">From ₹1,672</span></div></a>
+        <a href="stage.html" class="drop-item"><span class="di">🎪</span><div class="dt"><span class="dn">Stage Decoration</span><span class="dp">From ₹2,499</span></div></a>
+        <a href="welcome-baby.html" class="drop-item"><span class="di">🍼</span><div class="dt"><span class="dn">Welcome Baby</span><span class="dp">From ₹1,199</span></div></a>
+        <a href="naming.html" class="drop-item"><span class="di">🌸</span><div class="dt"><span class="dn">Naming Ceremony</span><span class="dp">From ₹999</span></div></a>
+        <a href="housewarming.html" class="drop-item"><span class="di">🏠</span><div class="dt"><span class="dn">House Warming</span><span class="dp">From ₹1,499</span></div></a>
+        <a href="corporate.html" class="drop-item"><span class="di">🏢</span><div class="dt"><span class="dn">Corporate Event</span><span class="dp">From ₹2,999</span></div></a>
+        <a href="car.html" class="drop-item"><span class="di">🚗</span><div class="dt"><span class="dn">Car Decoration</span><span class="dp">From ₹799</span></div></a>
+        <a href="bachelorette.html" class="drop-item"><span class="di">👰</span><div class="dt"><span class="dn">Bachelorette/Haldi</span><span class="dp">From ₹1,299</span></div></a>
+        <a href="festival.html" class="drop-item"><span class="di">🪔</span><div class="dt"><span class="dn">Festival Decor</span><span class="dp">From ₹999</span></div></a>
+        <a href="pet.html" class="drop-item"><span class="di">🐾</span><div class="dt"><span class="dn">Pet Decoration</span><span class="dp">From ₹799</span></div></a>
+        <a href="new-opening.html" class="drop-item"><span class="di">🎊</span><div class="dt"><span class="dn">New Opening</span><span class="dp">From ₹1,499</span></div></a>
+        <a href="showroom.html" class="drop-item"><span class="di">🏪</span><div class="dt"><span class="dn">Showroom</span><span class="dp">From ₹2,999</span></div></a>
+      </div>
+    </li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/919876543210" class="nav-cta">💬 Book Now</a>
+  <button class="ham" onclick="document.getElementById('mobMenu').classList.toggle('open')"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" onclick="document.getElementById('mobMenu').classList.remove('open')">✕</button>
+  <div class="mob-nav-item"><a href="index.html">🏠 Home</a></div>
+  <div class="mob-nav-item">
+    <button onclick="this.nextElementSibling.classList.toggle('open')">🎈 Services <span>▼</span></button>
+    <div class="mob-sub">
+      <a href="birthday.html"><span>🎂</span>Birthday</a>
+      <a href="kids-birthday.html"><span>🧒</span>Kids Birthday</a>
+      <a href="baby-shower.html"><span>👶</span>Baby Shower</a>
+      <a href="anniversary.html"><span>❤️</span>Anniversary</a>
+      <a href="first-night.html"><span>💍</span>First Night</a>
+      <a href="stage.html"><span>🎪</span>Stage Decoration</a>
+      <a href="welcome-baby.html"><span>🍼</span>Welcome Baby</a>
+      <a href="naming.html"><span>🌸</span>Naming Ceremony</a>
+      <a href="housewarming.html"><span>🏠</span>House Warming</a>
+      <a href="corporate.html"><span>🏢</span>Corporate</a>
+      <a href="car.html"><span>🚗</span>Car Decoration</a>
+      <a href="bachelorette.html"><span>👰</span>Bachelorette/Haldi</a>
+      <a href="festival.html"><span>🪔</span>Festival</a>
+      <a href="pet.html"><span>🐾</span>Pet Decoration</a>
+      <a href="new-opening.html"><span>🎊</span>New Opening</a>
+      <a href="showroom.html"><span>🏪</span>Showroom</a>
+    </div>
+  </div>
+  <div class="mob-nav-item"><a href="#gallery">🖼️ Gallery</a></div>
+  <div class="mob-nav-item"><a href="#contact">📍 Contact</a></div>
+  <div style="padding:20px;width:100%;max-width:380px;margin-top:8px">
+    <a href="https://wa.me/919876543210" style="display:block;text-align:center;background:var(--pink);color:#fff;padding:14px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none">💬 Book Now on WhatsApp</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hslides" id="hslides">
+
+    <div class="hslide" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80')">
+      <div class="hslide-txt">
+        <span class="hslide-tag">🎂 Birthday Decoration</span>
+        <div class="hslide-h">Celebrate Every <span>Birthday</span><br>With Balloon Magic</div>
+        <div class="hslide-sub">Vibrant balloon setups, arches & themed arrangements tailored to your style.</div>
+        <div class="hslide-price">Starting ₹999</div><br>
+        <a href="birthday.html" class="hslide-btn">🎉 View Designs</a>
+      </div>
+    </div>
+
+    <div class="hslide" style="background-image:url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1600&q=80')">
+      <div class="hslide-txt">
+        <span class="hslide-tag">🧒 Kids Birthday</span>
+        <div class="hslide-h">Unicorn, Superhero &<br><span>100+ Fun Themes</span></div>
+        <div class="hslide-sub">Cocomelon, Frozen, Jungle & more — kids themes that spark pure joy.</div>
+        <div class="hslide-price">Starting ₹1,199</div><br>
+        <a href="kids-birthday.html" class="hslide-btn">🎉 View Designs</a>
+      </div>
+    </div>
+
+    <div class="hslide" style="background-image:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1600&q=80')">
+      <div class="hslide-txt">
+        <span class="hslide-tag">❤️ Anniversary Decoration</span>
+        <div class="hslide-h">Surprise Your Partner<br>with <span>Romantic Setup</span></div>
+        <div class="hslide-sub">Heart arches, rose petals, candles & personalized name banners.</div>
+        <div class="hslide-price">Starting ₹1,299</div><br>
+        <a href="anniversary.html" class="hslide-btn">❤️ View Designs</a>
+      </div>
+    </div>
+
+    <div class="hslide" style="background-image:url('https://images.unsplash.com/photo-1519671282429-b8b82d8ec753?w=1600&q=80')">
+      <div class="hslide-txt">
+        <span class="hslide-tag">🎦 Stage Decoration</span>
+        <div class="hslide-h">Grand Stage Setups<br>for <span>Every Occasion</span></div>
+        <div class="hslide-sub">Weddings, engagements & events with balloon arches, drapes & florals.</div>
+        <div class="hslide-price">Starting ₹2,499</div><br>
+        <a href="stage.html" class="hslide-btn">🎦 View Designs</a>
+      </div>
+    </div>
+
+    <div class="hslide" style="background-image:url('https://images.unsplash.com/photo-1544982503-9f984c14501a?w=1600&q=80')">
+      <div class="hslide-txt">
+        <span class="hslide-tag">👶 Baby Shower</span>
+        <div class="hslide-h">Welcome the Little One<br>with <span>Beautiful Decor</span></div>
+        <div class="hslide-sub">Pink & blue setups, gender reveal, foil balloons & photo backdrops.</div>
+        <div class="hslide-price">Starting ₹1,499</div><br>
+        <a href="baby-shower.html" class="hslide-btn">👶 View Designs</a>
+      </div>
+    </div>
+
+    <div class="hslide" style="background-image:url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1600&q=80')">
+      <div class="hslide-txt">
+        <span class="hslide-tag">🏢 Corporate Event</span>
+        <div class="hslide-h">Professional Decor<br>for <span>Corporate Events</span></div>
+        <div class="hslide-sub">Product launches, office parties & brand activations done right.</div>
+        <div class="hslide-price">Starting ₹2,999</div><br>
+        <a href="corporate.html" class="hslide-btn">🏢 View Designs</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Right side stats -->
+  <!-- <div class="hero-content">
+    <div class="hero-stats">
+      <div class="stat"><span class="num">5000+</span><div class="lbl">Events Decorated</div></div>
+      <div class="stat"><span class="num">1000+</span><div class="lbl">Unique Designs</div></div>
+      <div class="stat"><span class="num">500+</span><div class="lbl">Happy Clients</div></div>
+      <div class="stat"><span class="num">50+</span><div class="lbl">Cities Served</div></div>
+    </div>
+  </div> -->
+
+  <button class="harr prev" onclick="hMove(-1)">&#8592;</button>
+  <button class="harr next" onclick="hMove(1)">&#8594;</button>
+  <div class="hdots" id="hdots"></div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="cats" id="categories">
+  <div class="tc">
+    <div class="stag">Balloon Decoration</div>
+    <h2 class="stitle">Choose Your Occasion</h2>
+    <div class="sdiv"></div>
+    <p class="ssub" style="margin-top:14px">1000+ unique designs for every celebration. Get your venue decorated in just 2 hours, indoors or outdoors.</p>
+  </div>
+
+  <!-- Category Filter Pills -->
+  <div class="cat-scroll" style="margin-top:36px">
+    <div class="cat-chip active" onclick="filterCats('all',this)">All</div>
+    <div class="cat-chip" onclick="filterCats('birthday',this)">🎂 Birthday</div>
+    <div class="cat-chip" onclick="filterCats('kids',this)">🧒 Kids Birthday</div>
+    <div class="cat-chip" onclick="filterCats('baby-shower',this)">👶 Baby Shower</div>
+    <div class="cat-chip" onclick="filterCats('anniversary',this)">❤️ Anniversary</div>
+    <div class="cat-chip" onclick="filterCats('first-night',this)">💍 First Night</div>
+    <div class="cat-chip" onclick="filterCats('stage',this)">🎪 Stage Decoration</div>
+    <div class="cat-chip" onclick="filterCats('welcome-baby',this)">🍼 Welcome Baby</div>
+    <div class="cat-chip" onclick="filterCats('naming',this)">🌸 Naming Ceremony</div>
+    <div class="cat-chip" onclick="filterCats('housewarming',this)">🏠 House Warming</div>
+    <div class="cat-chip" onclick="filterCats('corporate',this)">🏢 Corporate</div>
+    <div class="cat-chip" onclick="filterCats('car',this)">🚗 Car Decoration</div>
+    <div class="cat-chip" onclick="filterCats('bachelorette',this)">👰 Bachelorette</div>
+    <div class="cat-chip" onclick="filterCats('festival',this)">🪔 Festivals</div>
+    <div class="cat-chip" onclick="filterCats('pet',this)">🐾 Pet</div>
+    <div class="cat-chip" onclick="filterCats('new-opening',this)">🎊 New Opening</div>
+    <div class="cat-chip" onclick="filterCats('showroom',this)">🏪 Showroom</div>
+  </div>
+
+  <div class="cat-grid" id="catGrid">
+
+    <!-- Birthday -->
+    <div class="cat-card" data-cat="birthday" onclick="location.href='birthday.html'">
+      <div class="cat-wrap">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Birthday Balloon Decoration" loading="lazy"/>
+        <span class="cat-badge">⭐ Popular</span>
+      </div>
+      <div class="cat-body">
+        <h3>Birthday Decoration</h3>
+        <p>Vibrant balloon setups, arches, bouquets & themed arrangements tailored to your birthday style & colour.</p>
+        <div class="cat-price">Starting ₹999</div>
+        <a href="birthday.html" class="cat-link">View Designs →</a>
+      </div>
+    </div>
+
+    <!-- Kids Birthday -->
+    <div class="cat-card" data-cat="kids" onclick="location.href='kids-birthday.html'">
+      <div class="cat-wrap">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80" alt="Kids Birthday Theme Decoration" loading="lazy"/>
+        <span class="cat-badge">🔥 Trending</span>
+      </div>
+      <div class="cat-body">
+        <h3>Kids Birthday Decoration</h3>
+        <p>Cocomelon, Unicorn, Jungle, Superhero, Frozen, Princess themes & 100+ more fun kids themes.</p>
+        <div class="cat-price">Starting ₹1,199</div>
+        <a href="kids-birthday.html" class="cat-link">View Designs →</a>
+      </div>
+    </div>
+
+    <!-- Baby Shower -->
+    <div class="cat-card" data-cat="baby-shower" onclick="location.href='baby-shower.html'">
+      <div class="cat-wrap">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1544982503-9f984c14501a?w=600&q=80" alt="Baby Shower Decoration" loading="lazy"/>
+      </div>
+      <div class="cat-body">
+        <h3>Baby Shower Decoration</h3>
+        <p>Adorable pink & blue setups, gender reveal arrangements, foil balloons & customized photo backdrops.</p>
+        <div class="cat-price">Starting ₹1,499</div>
+        <a href="baby-shower.html" class="cat-link">View Designs →</a>
+      </div>
+    </div>
+
+    <!-- Anniversary -->
+    <div class="cat-card" data-cat="anniversary" onclick="location.href='anniversary.html'">
+      <div class="cat-wrap">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80" alt="Anniversary Balloon Decoration" loading="lazy"/>
+        <span class="cat-badge">❤️ Romantic</span>
+      </div>
+      <div class="cat-body">
+        <h3>Anniversary Decoration</h3>
+        <p>Surprise your partner with romantic balloon room setup, heart arches, rose petals & personalized name banners.</p>
+        <div class="cat-price">Starting ₹1,299</div>
+        <a href="anniversary.html" class="cat-link">View Designs →</a>
+      </div>
+    </div>
+
+    <!-- First Night -->
+    <div class="cat-card" data-cat="first-night" onclick="location.href='first-night.html'">
+      <div class="cat-wrap">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?w=600&q=80" alt="First Night Wedding Room Decoration" loading="lazy"/>
+        <span class="cat-badge">💍 Special</span>
+      </div>
+      <div class="cat-body">
+        <h3>First Night Decoration</h3>
+        <p>Make your first wedding night magical with beautiful balloon & rose petal decorations, candles & fairy lights.</p>
+        <div class="cat-price">Starting ₹1,672</div>
+        <a href="first-night.html" class="cat-link">View Designs →</a>
+      </div>
+    </div>
+
+    <!-- Stage Decoration -->
+    <div class="cat-card" data-cat="stage" onclick="location.href='stage.html'">
+      <div class="cat-wrap">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1519671282429-b8b82d8ec753?w=600&q=80" alt="Stage Balloon Decoration" loading="lazy"/>
+      </div>
+      <div class="cat-body">
+        <h3>Stage Decoration</h3>
+        <p>Grand stage setups for weddings, engagements & events with balloon arches, drapes & floral arrangements.</p>
+        <div class="cat-price">Starting ₹2,499</div>
+        <a href="stage.html" class="cat-link">View Designs →</a>
+      </div>
+    </div>
+
+    <!-- Welcome Baby -->
+    <div class="cat-card" data-cat="welcome-baby" onclick="location.href='welcome-baby.html'">
+      <div class="cat-wrap">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&q=80" alt="Welcome Baby Decoration" loading="lazy"/>
+      </div>
+      <div class="cat-body">
+        <h3>Welcome Baby Decoration</h3>
+        <p>Celebrate the arrival of your newborn with personalised name boards, balloon arches & welcoming entrance decor.</p>
+        <div class="cat-price">Starting ₹1,199</div>
+        <a href="welcome-baby.html" class="cat-link">View Designs →</a>
+      </div>
+    </div>
+
+    <!-- Naming Ceremony -->
+    <div class="cat-card" data-cat="naming" onclick="location.href='naming.html'">
+      <div class="cat-wrap">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1607962837359-5e7e89f86776?w=600&q=80" alt="Naming Ceremony Decoration" loading="lazy"/>
+      </div>
+      <div class="cat-body">
+        <h3>Naming Ceremony</h3>
+        <p>Traditional & modern naamkaran setups with foil letter balloons, flower decoration & custom welcome boards.</p>
+        <div class="cat-price">Starting ₹999</div>
+        <a href="naming.html" class="cat-link">View Designs →</a>
+      </div>
+    </div>
+
+    <!-- House Warming -->
+    <div class="cat-card" data-cat="housewarming" onclick="location.href='housewarming.html'">
+      <div class="cat-wrap">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=600&q=80" alt="Housewarming Decoration" loading="lazy"/>
+      </div>
+      <div class="cat-body">
+        <h3>House Warming Decoration</h3>
+        <p>Griha Pravesh celebration setups with flowers, balloons, marigold garlands & traditional decorative elements.</p>
+        <div class="cat-price">Starting ₹1,499</div>
+        <a href="housewarming.html" class="cat-link">View Designs →</a>
+      </div>
+    </div>
+
+    <!-- Corporate -->
+    <div class="cat-card" data-cat="corporate" onclick="location.href='corporate.html'">
+      <div class="cat-wrap">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80" alt="Corporate Event Decoration" loading="lazy"/>
+      </div>
+      <div class="cat-body">
+        <h3>Corporate / Showroom Decoration</h3>
+        <p>Professional setups for product launches, office parties, brand activations & corporate milestones.</p>
+        <div class="cat-price">Starting ₹2,999</div>
+        <a href="corporate.html" class="cat-link">View Designs →</a>
+      </div>
+    </div>
+
+    <!-- Car Decoration -->
+    <div class="cat-card" data-cat="car" onclick="location.href='car.html'">
+      <div class="cat-wrap">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80" alt="Car Decoration Wedding" loading="lazy"/>
+      </div>
+      <div class="cat-body">
+        <h3>Car Decoration</h3>
+        <p>Wedding car & get-away vehicle decoration with floral arrangements, ribbons, balloons & "Just Married" boards.</p>
+        <div class="cat-price">Starting ₹799</div>
+        <a href="car.html" class="cat-link">View Designs →</a>
+      </div>
+    </div>
+
+    <!-- Bachelorette -->
+    <div class="cat-card" data-cat="bachelorette" onclick="location.href='bachelorette.html'">
+      <div class="cat-wrap">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&q=80" alt="Bachelorette Party Decoration" loading="lazy"/>
+        <span class="cat-badge">🎉 Fun</span>
+      </div>
+      <div class="cat-body">
+        <h3>Bachelorette / Haldi / Mehandi</h3>
+        <p>Pre-wedding fun setups for bachelorette, haldi & mehndi ceremonies with bright, festive decorations.</p>
+        <div class="cat-price">Starting ₹1,299</div>
+        <a href="bachelorette.html" class="cat-link">View Designs →</a>
+      </div>
+    </div>
+
+    <!-- Festival -->
+    <div class="cat-card" data-cat="festival" onclick="location.href='festival.html'">
+      <div class="cat-wrap">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1604423043492-41893ecadf08?w=600&q=80" alt="Festival Decoration" loading="lazy"/>
+      </div>
+      <div class="cat-body">
+        <h3>Festival Decoration</h3>
+        <p>Diwali, Christmas, New Year, Holi & all festival celebration setups with themed balloons & lights.</p>
+        <div class="cat-price">Starting ₹999</div>
+        <a href="festival.html" class="cat-link">View Designs →</a>
+      </div>
+    </div>
+
+    <!-- Pet Decoration -->
+    <div class="cat-card" data-cat="pet" onclick="location.href='pet.html'">
+      <div class="cat-wrap">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80" alt="Pet Birthday Decoration" loading="lazy"/>
+        <span class="cat-badge">🐾 Cute</span>
+      </div>
+      <div class="cat-body">
+        <h3>Pet Decoration</h3>
+        <p>Cute & safe balloon decorations for your furry friend's birthday or gotcha day celebrations.</p>
+        <div class="cat-price">Starting ₹799</div>
+        <a href="pet.html" class="cat-link">View Designs →</a>
+      </div>
+    </div>
+    <!-- New Opening -->
+    <div class="cat-card" data-cat="new-opening" onclick="location.href='new-opening.html'">
+      <div class="cat-wrap">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=600&q=80" alt="New Opening Grand Decoration" loading="lazy"/>
+        <span class="cat-badge">🎊 Grand</span>
+      </div>
+      <div class="cat-body">
+        <h3>New Opening Decoration</h3>
+        <p>Grand opening, ribbon cutting, shop launch & inauguration decoration with balloon arches, banners & festive setups.</p>
+        <div class="cat-price">Starting ₹1,499</div>
+        <a href="new-opening.html" class="cat-link">View Designs →</a>
+      </div>
+    </div>
+
+    <!-- Corporate Showroom -->
+    <div class="cat-card" data-cat="showroom" onclick="location.href='showroom.html'">
+      <div class="cat-wrap">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Corporate Showroom Decoration" loading="lazy"/>
+        <span class="cat-badge">🏪 Premium</span>
+      </div>
+      <div class="cat-body">
+        <h3>Corporate Showroom Decoration</h3>
+        <p>Professional showroom launch, branding activations & premium event decoration for corporate milestones.</p>
+        <div class="cat-price">Starting ₹2,999</div>
+        <a href="showroom.html" class="cat-link">View Designs →</a>
+      </div>
+    </div>
+
+
+
+  </div>
+</section>
+
+<!-- WHY HORA -->
+<section class="why" id="why">
+  <div class="tc">
+    <div class="stag">Why Choose HORA</div>
+    <h2 class="stitle" style="color:#fff">Why India Trusts HORA</h2>
+    <div class="sdiv"></div>
+    <p class="ssub" style="margin-top:14px">We don't just decorate – we create memories. Here's why HORA is the #1 choice across India.</p>
+  </div>
+  <div class="why-grid">
+    <div class="wcard"><div class="wi">🎨</div><h3>1000+ Unique Designs</h3><p>Every decoration is tailor-made to match your theme, colour & vision. No two events are ever the same.</p></div>
+    <div class="wcard"><div class="wi">⚡</div><h3>Setup in 2 Hours</h3><p>We guarantee timely setup. Our team arrives early & ensures everything is picture-perfect before guests arrive.</p></div>
+    <div class="wcard"><div class="wi">💰</div><h3>Prices from ₹999</h3><p>Premium quality decorations at prices that fit every budget. Transparent pricing – no hidden charges.</p></div>
+    <div class="wcard"><div class="wi">👨‍🎨</div><h3>Professional Decorators</h3><p>Trained and verified balloon artists bring creativity and precision to every setup, big or small.</p></div>
+    <div class="wcard"><div class="wi">📦</div><h3>Premium Materials</h3><p>We use only high-quality, durable balloons & decoration materials that look stunning throughout your event.</p></div>
+    <div class="wcard"><div class="wi">🌟</div><h3>5-Star Rated Service</h3><p>Rated 5 stars by 500+ happy customers. Our commitment ensures your celebration is nothing short of magical.</p></div>
+    <div class="wcard"><div class="wi">💬</div><h3>Easy WhatsApp Booking</h3><p>Book in 3 simple steps via WhatsApp or website. We'll handle all the planning and execution for you.</p></div>
+    <div class="wcard"><div class="wi">🌍</div><h3>50+ Cities Across India</h3><p>Mumbai, Delhi, Bangalore, Pune, Hyderabad, Chennai & 40+ more cities. HORA is always near you.</p></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="tc">
+    <div class="stag">Process</div>
+    <h2 class="stitle">How It Works</h2>
+    <div class="sdiv"></div>
+    <p class="ssub" style="margin-top:14px">Booking with HORA is quick, easy & stress-free. We handle everything from planning to cleanup.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="snum">1</div><h3>Contact Us</h3><p>Reach out via WhatsApp, call or website. Tell us your event date, location & requirements.</p></div>
+    <div class="step"><div class="snum">2</div><h3>Choose Design</h3><p>Browse 1000+ designs or share your vision. We'll create a custom quote tailored to your needs.</p></div>
+    <div class="step"><div class="snum">3</div><h3>Confirm Booking</h3><p>Finalise your date, theme & design. Pay a small advance to instantly confirm your slot.</p></div>
+    <div class="step"><div class="snum">4</div><h3>We Decorate! 🎉</h3><p>Our team arrives on time, sets up your dream decoration & you simply enjoy your celebration!</p></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="tc">
+    <div class="stag">Our Work</div>
+    <h2 class="stitle">Decoration Gallery</h2>
+    <div class="sdiv"></div>
+    <p class="ssub" style="margin-top:14px">A glimpse of our most stunning setups. Real events, real smiles.</p>
+  </div>
+
+  <div class="gal-filter">
+    <div class="gal-chip active" onclick="filterGal('all',this)">All</div>
+    <div class="gal-chip" onclick="filterGal('birthday',this)">🎂 Birthday</div>
+    <div class="gal-chip" onclick="filterGal('kids',this)">🧒 Kids Birthday</div>
+    <div class="gal-chip" onclick="filterGal('baby-shower',this)">👶 Baby Shower</div>
+    <div class="gal-chip" onclick="filterGal('anniversary',this)">❤️ Anniversary</div>
+    <div class="gal-chip" onclick="filterGal('first-night',this)">💍 First Night</div>
+    <div class="gal-chip" onclick="filterGal('stage',this)">🎪 Stage</div>
+    <div class="gal-chip" onclick="filterGal('welcome-baby',this)">🍼 Welcome Baby</div>
+    <div class="gal-chip" onclick="filterGal('naming',this)">🌸 Naming</div>
+    <div class="gal-chip" onclick="filterGal('housewarming',this)">🏠 House Warming</div>
+    <div class="gal-chip" onclick="filterGal('corporate',this)">🏢 Corporate</div>
+    <div class="gal-chip" onclick="filterGal('car',this)">🚗 Car</div>
+    <div class="gal-chip" onclick="filterGal('bachelorette',this)">👰 Bachelorette</div>
+    <div class="gal-chip" onclick="filterGal('festival',this)">🪔 Festival</div>
+    <div class="gal-chip" onclick="filterGal('pet',this)">🐾 Pet</div>
+    <div class="gal-chip" onclick="filterGal('new-opening',this)">🎊 New Opening</div>
+    <div class="gal-chip" onclick="filterGal('showroom',this)">🏪 Showroom</div>
+  </div>
+
+  <div class="gal-grid" id="galGrid">
+    <!-- Birthday -->
+    <div class="gal-item" data-gcat="birthday"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt="Birthday" loading="lazy"/><div class="gal-ov"><p>🎂 Birthday – Mumbai</p></div></div>
+    <div class="gal-item" data-gcat="birthday"><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=500&q=80" alt="Birthday Balloons" loading="lazy"/><div class="gal-ov"><p>🎂 Birthday – Delhi</p></div></div>
+    <div class="gal-item" data-gcat="birthday"><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500&q=80" alt="Birthday Party" loading="lazy"/><div class="gal-ov"><p>🎂 Birthday – Pune</p></div></div>
+
+    <!-- Kids Birthday -->
+    <div class="gal-item" data-gcat="kids"><img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=500&q=80" alt="Kids Birthday" loading="lazy"/><div class="gal-ov"><p>🧒 Kids Birthday – Pune</p></div></div>
+    <div class="gal-item" data-gcat="kids"><img src="https://images.unsplash.com/photo-1587765789593-7c0958bb6b0e?w=500&q=80" alt="Kids Theme" loading="lazy"/><div class="gal-ov"><p>🧒 Kids Theme – Mumbai</p></div></div>
+    <div class="gal-item" data-gcat="kids"><img src="https://images.unsplash.com/photo-1602631985686-1bb0e6a8696e?w=500&q=80" alt="Kids Party" loading="lazy"/><div class="gal-ov"><p>🧒 Kids Party – Bangalore</p></div></div>
+
+    <!-- Baby Shower -->
+    <div class="gal-item" data-gcat="baby-shower"><img src="https://images.unsplash.com/photo-1544982503-9f984c14501a?w=500&q=80" alt="Baby Shower" loading="lazy"/><div class="gal-ov"><p>👶 Baby Shower – Bangalore</p></div></div>
+    <div class="gal-item" data-gcat="baby-shower"><img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=500&q=80" alt="Baby Shower Decor" loading="lazy"/><div class="gal-ov"><p>👶 Baby Shower – Hyderabad</p></div></div>
+    <div class="gal-item" data-gcat="baby-shower"><img src="https://images.unsplash.com/photo-1607962837359-5e7e89f86776?w=500&q=80" alt="Gender Reveal" loading="lazy"/><div class="gal-ov"><p>👶 Gender Reveal – Chennai</p></div></div>
+
+    <!-- Anniversary -->
+    <div class="gal-item" data-gcat="anniversary"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&q=80" alt="Anniversary" loading="lazy"/><div class="gal-ov"><p>❤️ Anniversary – Delhi</p></div></div>
+    <div class="gal-item" data-gcat="anniversary"><img src="https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?w=500&q=80" alt="Romantic Setup" loading="lazy"/><div class="gal-ov"><p>❤️ Romantic Setup – Mumbai</p></div></div>
+    <div class="gal-item" data-gcat="anniversary"><img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=500&q=80" alt="Anniversary Decor" loading="lazy"/><div class="gal-ov"><p>❤️ Anniversary – Pune</p></div></div>
+
+    <!-- First Night -->
+    <div class="gal-item" data-gcat="first-night"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=500&q=80" alt="First Night" loading="lazy"/><div class="gal-ov"><p>💍 First Night – Mumbai</p></div></div>
+    <div class="gal-item" data-gcat="first-night"><img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=500&q=80" alt="Bridal Room" loading="lazy"/><div class="gal-ov"><p>💍 Bridal Room – Delhi</p></div></div>
+
+    <!-- Stage -->
+    <div class="gal-item" data-gcat="stage"><img src="https://images.unsplash.com/photo-1519671282429-b8b82d8ec753?w=500&q=80" alt="Stage Decoration" loading="lazy"/><div class="gal-ov"><p>🎪 Stage Decor – Hyderabad</p></div></div>
+    <div class="gal-item" data-gcat="stage"><img src="https://images.unsplash.com/photo-1478147427282-58a87a433a7a?w=500&q=80" alt="Wedding Stage" loading="lazy"/><div class="gal-ov"><p>🎪 Wedding Stage – Bangalore</p></div></div>
+
+    <!-- Welcome Baby -->
+    <div class="gal-item" data-gcat="welcome-baby"><img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=500&q=80" alt="Welcome Baby" loading="lazy"/><div class="gal-ov"><p>🍼 Welcome Baby – Mumbai</p></div></div>
+    <div class="gal-item" data-gcat="welcome-baby"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500&q=80" alt="Newborn Welcome" loading="lazy"/><div class="gal-ov"><p>🍼 Newborn Welcome – Pune</p></div></div>
+
+    <!-- Naming -->
+    <div class="gal-item" data-gcat="naming"><img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=500&q=80" alt="Naming Ceremony" loading="lazy"/><div class="gal-ov"><p>🌸 Naming Ceremony – Chennai</p></div></div>
+    <div class="gal-item" data-gcat="naming"><img src="https://images.unsplash.com/photo-1567693641659-43ed88c6c28a?w=500&q=80" alt="Naamkaran" loading="lazy"/><div class="gal-ov"><p>🌸 Naamkaran – Delhi</p></div></div>
+
+    <!-- Housewarming -->
+    <div class="gal-item" data-gcat="housewarming"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=600&q=80" alt="Housewarming" loading="lazy"/><div class="gal-ov"><p>🏠 House Warming – Bangalore</p></div></div>
+    <div class="gal-item" data-gcat="housewarming"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=80" alt="Griha Pravesh" loading="lazy"/><div class="gal-ov"><p>🏠 Griha Pravesh – Jaipur</p></div></div>
+
+    <!-- Corporate -->
+    <div class="gal-item" data-gcat="corporate"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=500&q=80" alt="Corporate Event" loading="lazy"/><div class="gal-ov"><p>🏢 Corporate – Chennai</p></div></div>
+    <div class="gal-item" data-gcat="corporate"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&q=80" alt="Corporate Office" loading="lazy"/><div class="gal-ov"><p>🏢 Office Party – Mumbai</p></div></div>
+
+    <!-- Car -->
+    <div class="gal-item" data-gcat="car"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=500&q=80" alt="Car Decoration" loading="lazy"/><div class="gal-ov"><p>🚗 Car Decor – Delhi</p></div></div>
+    <div class="gal-item" data-gcat="car"><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=500&q=80" alt="Wedding Car" loading="lazy"/><div class="gal-ov"><p>🚗 Wedding Car – Pune</p></div></div>
+
+    <!-- Bachelorette -->
+    <div class="gal-item" data-gcat="bachelorette"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=500&q=80" alt="Bachelorette" loading="lazy"/><div class="gal-ov"><p>👰 Bachelorette – Mumbai</p></div></div>
+    <div class="gal-item" data-gcat="bachelorette"><img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=500&q=80" alt="Haldi Decor" loading="lazy"/><div class="gal-ov"><p>👰 Haldi – Bangalore</p></div></div>
+
+    <!-- Festival -->
+    <div class="gal-item" data-gcat="festival"><img src="https://images.unsplash.com/photo-1604423043492-41893ecadf08?w=500&q=80" alt="Festival Decor" loading="lazy"/><div class="gal-ov"><p>🪔 Festival – Jaipur</p></div></div>
+    <div class="gal-item" data-gcat="festival"><img src="https://images.unsplash.com/photo-1577083552792-a0d461cb1dd6?w=500&q=80" alt="Diwali Decor" loading="lazy"/><div class="gal-ov"><p>🪔 Diwali – Delhi</p></div></div>
+
+    <!-- Pet -->
+    <div class="gal-item" data-gcat="pet"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=500&q=80" alt="Pet Birthday" loading="lazy"/><div class="gal-ov"><p>🐾 Pet Birthday – Mumbai</p></div></div>
+    <div class="gal-item" data-gcat="pet"><img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=500&q=80" alt="Pet Party" loading="lazy"/><div class="gal-ov"><p>🐾 Pet Party – Bangalore</p></div></div>
+
+    <!-- New Opening -->
+    <div class="gal-item" data-gcat="new-opening"><img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=500&q=80" alt="New Opening" loading="lazy"/><div class="gal-ov"><p>🎊 Grand Opening – Mumbai</p></div></div>
+    <div class="gal-item" data-gcat="new-opening"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=500&q=80" alt="Shop Launch" loading="lazy"/><div class="gal-ov"><p>🎊 Shop Launch – Delhi</p></div></div>
+
+    <!-- Showroom -->
+    <div class="gal-item" data-gcat="showroom"><img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=500&q=80" alt="Showroom Decor" loading="lazy"/><div class="gal-ov"><p>🏪 Showroom – Hyderabad</p></div></div>
+    <div class="gal-item" data-gcat="showroom"><img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=500&q=80" alt="Showroom Launch" loading="lazy"/><div class="gal-ov"><p>🏪 Showroom Launch – Pune</p></div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi" id="testimonials">
+  <div class="tc">
+    <div class="stag">Customer Reviews</div>
+    <h2 class="stitle">What Our Clients Say</h2>
+    <div class="sdiv"></div>
+    <p class="ssub" style="margin-top:14px">Real stories from real celebrations. See why 500+ families choose HORA.</p>
+  </div>
+  <div class="tslider">
+    <div class="ttrack" id="ttrack">
+      <div class="tcard"><div class="stars">★★★★★</div><p class="txt">“Absolutely wonderful service! HORA transformed our living room into a magical wonderland for my daughter's birthday. On time, and the setup looked even better than the photos!”</p><div class="av">P</div><div class="aname">Priya Sharma</div><div class="aevent">Birthday – Mumbai</div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p class="txt">“Hora truly exceeded our expectations! The balloon decorations were stunning. Punctual and very attentive. Highly recommend!”</p><div class="av">R</div><div class="aname">Rohini Kapoor</div><div class="aevent">Anniversary – Delhi</div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p class="txt">“The balloon arch for our wedding was a showstopper! It added a magical touch to our special day. Truly top-notch!”</p><div class="av">A</div><div class="aname">Arjun &amp; Naina</div><div class="aevent">Wedding – Bangalore</div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p class="txt">“Colourful, fun, and perfectly themed. The team was punctual, professional, and made everything easy for our child's birthday!”</p><div class="av">S</div><div class="aname">Sneha Patel</div><div class="aevent">Kids Birthday – Pune</div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p class="txt">“Very responsive to communication. Team were very polite. Reasonable prices too! Highly recommend!!”</p><div class="av">V</div><div class="aname">Vivek Rajan</div><div class="aevent">Baby Shower – Hyderabad</div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p class="txt">“From floral arrangements to custom branding, everything was flawless. The attention to detail impressed everyone!”</p><div class="av">M</div><div class="aname">Meenakshi Rao</div><div class="aevent">Corporate – Chennai</div></div>
+      <!-- duplicate for infinite loop -->
+      <div class="tcard"><div class="stars">★★★★★</div><p class="txt">“Absolutely wonderful service! HORA transformed our living room into a magical wonderland for my daughter's birthday. On time, and the setup looked even better than the photos!”</p><div class="av">P</div><div class="aname">Priya Sharma</div><div class="aevent">Birthday – Mumbai</div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p class="txt">“Hora truly exceeded our expectations! The balloon decorations were stunning. Punctual and very attentive. Highly recommend!”</p><div class="av">R</div><div class="aname">Rohini Kapoor</div><div class="aevent">Anniversary – Delhi</div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p class="txt">“The balloon arch for our wedding was a showstopper! It added a magical touch to our special day. Truly top-notch!”</p><div class="av">A</div><div class="aname">Arjun &amp; Naina</div><div class="aevent">Wedding – Bangalore</div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p class="txt">“Colourful, fun, and perfectly themed. The team was punctual, professional, and made everything easy for our child's birthday!”</p><div class="av">S</div><div class="aname">Sneha Patel</div><div class="aevent">Kids Birthday – Pune</div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p class="txt">“Very responsive to communication. Team were very polite. Reasonable prices too! Highly recommend!!”</p><div class="av">V</div><div class="aname">Vivek Rajan</div><div class="aevent">Baby Shower – Hyderabad</div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p class="txt">“From floral arrangements to custom branding, everything was flawless. The attention to detail impressed everyone!”</p><div class="av">M</div><div class="aname">Meenakshi Rao</div><div class="aevent">Corporate – Chennai</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>🎈 Ready to Make Your Event Unforgettable?</h2>
+  <p>Get in touch now to book your date & receive a free custom quote within 30 minutes!</p>
+  <a href="https://wa.me/919876543210" class="bw">💬 WhatsApp Us Now</a>
+  <span class="ph">Or call us: <a href="tel:+919876543210">+91 98765 43210</a></span>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="tc">
+    <div class="stag">FAQ</div>
+    <h2 class="stitle">Frequently Asked Questions</h2>
+    <div class="sdiv"></div>
+  </div>
+  <div class="faq-list">
+    <div class="fitem">
+      <div class="fq" onclick="tf(this)">Do you offer same-day decoration service? <span class="arr">▼</span></div>
+      <div class="fa"><p>Yes! We offer same-day decoration services based on availability. For best results, book at least 2-3 days in advance. For urgent bookings, WhatsApp us and we'll try our best to accommodate you.</p></div>
+    </div>
+    <div class="fitem">
+      <div class="fq" onclick="tf(this)">Do you only provide materials, or do you also decorate? <span class="arr">▼</span></div>
+      <div class="fa"><p>We provide complete end-to-end decoration service – our trained decorators come to your venue with all materials and set everything up for you. You don't need to lift a finger!</p></div>
+    </div>
+    <div class="fitem">
+      <div class="fq" onclick="tf(this)">How much time do you take to setup the decoration? <span class="arr">▼</span></div>
+      <div class="fa"><p>Most decorations are completed within 1.5–2 hours. Complex or grand setups may take 3–4 hours. Our team coordinates arrival time with you to ensure everything is ready before your guests arrive.</p></div>
+    </div>
+    <div class="fitem">
+      <div class="fq" onclick="tf(this)">Do you offer custom themes and colour combinations? <span class="arr">▼</span></div>
+      <div class="fa"><p>Yes! Every decoration is fully customizable. Share your theme, colour palette & inspiration photos on WhatsApp and our design team will bring your exact vision to life with 1000+ design options.</p></div>
+    </div>
+    <div class="fitem">
+      <div class="fq" onclick="tf(this)">How Early Should I Book Your Decoration Services? <span class="arr">▼</span></div>
+      <div class="fa"><p>We recommend booking 3–5 days in advance for regular setups, and 1–2 weeks ahead for large events like weddings. Weekend slots fill up fast – book early to secure your preferred date!</p></div>
+    </div>
+    <div class="fitem">
+      <div class="fq" onclick="tf(this)">What cities do you serve? <span class="arr">▼</span></div>
+      <div class="fa"><p>HORA serves 50+ cities across India including Mumbai, Delhi, Bangalore, Pune, Hyderabad, Chennai, Kolkata, Jaipur, Indore, Ahmedabad & many more. Contact us to confirm availability in your city.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="fg">
+    <div class="fbrand">
+      <div class="flogo"><div class="fi">🎈</div><span>HORA</span></div>
+      <p>India's most loved balloon & event decoration service. Making celebrations unforgettable across 50+ cities.</p>
+
+    </div>
+    <div class="fcol">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="#">Birthday Decoration</a></li>
+        <li><a href="#">Kids Birthday</a></li>
+        <li><a href="#">Baby Shower</a></li>
+        <li><a href="#">Anniversary</a></li>
+        <li><a href="#">First Night</a></li>
+        <li><a href="#">Stage Decoration</a></li>
+        <li><a href="#">Welcome Baby</a></li>
+        <li><a href="#">House Warming</a></li>
+      </ul>
+    </div>
+
+    <div class="fcol">
+      <h4>Contact Us</h4>
+      <div class="fci"><span class="icon">📞</span> +91 98765 43210</div>
+      <div class="fci"><span class="icon">✉️</span> hello@horaservices.com</div>
+      <div class="fci"><span class="icon">📍</span> Mumbai, Maharashtra, India</div>
+      <div class="fci"><span class="icon">🕐</span> Mon–Sun: 9 AM – 9 PM</div>
+      <div style="margin-top:14px">
+        <a href="https://wa.me/919876543210" style="background:var(--pink);color:#fff;padding:10px 20px;border-radius:22px;text-decoration:none;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:7px">💬 Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div class="fbot">
+    <span>© 2024 HORA Event & Balloon Decoration Services. All Rights Reserved.</span>
+
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/919876543210" class="wa" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<script>
+// Hero Slider
+(function(){
+  const slides=document.getElementById('hslides');
+  const dotsEl=document.getElementById('hdots');
+  const total=slides.querySelectorAll('.hslide').length;
+  let cur=0;
+
+  for(let i=0;i<total;i++){
+    const d=document.createElement('div');
+    d.className='hdot'+(i===0?' active':'');
+    d.onclick=(idx=>()=>go(idx))(i);
+    dotsEl.appendChild(d);
+  }
+
+  function go(idx){
+    cur=(idx+total)%total;
+    slides.style.transform=`translateX(-${cur*100}%)`;
+    dotsEl.querySelectorAll('.hdot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+  }
+
+  window.hMove=dir=>go(cur+dir);
+  let hauto=setInterval(()=>go(cur+1),4500);
+  slides.addEventListener('mouseenter',()=>clearInterval(hauto));
+  slides.addEventListener('mouseleave',()=>{hauto=setInterval(()=>go(cur+1),4500);});
+})();
+
+function tf(el){
+  const item=el.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.fitem').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+function filterGal(cat, el){
+  document.querySelectorAll('.gal-chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.gal-item[data-gcat]').forEach(item=>{
+    item.style.display=(cat==='all'||item.dataset.gcat===cat)?'':'none';
+  });
+}
+
+function filterCats(cat, el){
+  document.querySelectorAll('.cat-chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.cat-card').forEach(card=>{
+    if(cat==='all'||card.dataset.cat===cat){
+      card.style.display='';
+    } else {
+      card.style.display='none';
+    }
+  });
+}
+
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}
+  });
+},{threshold:0.1});
+document.querySelectorAll('.cat-card,.wcard,.step').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(28px)';
+  el.style.transition='opacity .5s ease, transform .5s ease';
+  obs.observe(el);
+});
+
+// Active nav
+const secs=document.querySelectorAll('section[id]');
+const nls=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-100)cur=s.id});
+  nls.forEach(a=>{a.classList.remove('active');if(a.getAttribute('href')==='#'+cur)a.classList.add('active')});
+});
+</script>
+</body>
+</html>
