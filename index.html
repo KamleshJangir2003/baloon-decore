@@ -131,7 +131,15 @@ section{padding:88px 5%}
 
 /* CATEGORIES */
 .cats{background:var(--gray)}
-.cat-scroll{display:flex;gap:12px;overflow-x:auto;padding:14px 0 6px;scrollbar-width:none;margin-bottom:40px}
+.cat-scroll-wrap{position:relative;margin-bottom:40px}
+.cat-scroll-wrap::before,.cat-scroll-wrap::after{content:'';position:absolute;top:0;bottom:0;width:60px;pointer-events:none;z-index:2}
+.cat-scroll-wrap::before{left:0;background:linear-gradient(to right,var(--gray) 0%,transparent 100%)}
+.cat-scroll-wrap::after{right:0;background:linear-gradient(to left,var(--gray) 0%,transparent 100%)}
+.cat-sarr{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:32px;height:32px;border-radius:50%;background:#fff;border:1.5px solid #e0d8ea;color:var(--pink);font-size:16px;cursor:pointer;display:grid;place-items:center;box-shadow:0 2px 10px rgba(0,0,0,.12);transition:.2s;line-height:1}
+.cat-sarr:hover{background:var(--pink);color:#fff;border-color:var(--pink)}
+.cat-sarr.left{left:4px}
+.cat-sarr.right{right:4px}
+.cat-scroll{display:flex;gap:12px;overflow-x:auto;padding:14px 44px 6px;scrollbar-width:none}
 .cat-scroll::-webkit-scrollbar{display:none}
 .cat-chip{flex-shrink:0;padding:8px 20px;border-radius:22px;border:1.5px solid #e0d8ea;background:#fff;font-size:13px;font-weight:600;cursor:pointer;transition:.2s;white-space:nowrap;color:var(--text)}
 .cat-chip:hover,.cat-chip.active{background:var(--pink);border-color:var(--pink);color:#fff}
@@ -170,7 +178,15 @@ section{padding:88px 5%}
 
 /* GALLERY */
 .gallery{background:var(--gray)}
-.gal-filter{display:flex;gap:10px;overflow-x:auto;padding:14px 0 6px;scrollbar-width:none;margin-bottom:30px;margin-top:36px}
+.gal-filter-wrap{position:relative;margin-bottom:30px;margin-top:36px}
+.gal-filter-wrap::before,.gal-filter-wrap::after{content:'';position:absolute;top:0;bottom:0;width:60px;pointer-events:none;z-index:2}
+.gal-filter-wrap::before{left:0;background:linear-gradient(to right,var(--gray) 0%,transparent 100%)}
+.gal-filter-wrap::after{right:0;background:linear-gradient(to left,var(--gray) 0%,transparent 100%)}
+.gal-sarr{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:32px;height:32px;border-radius:50%;background:#fff;border:1.5px solid #e0d8ea;color:var(--pink);font-size:16px;cursor:pointer;display:grid;place-items:center;box-shadow:0 2px 10px rgba(0,0,0,.12);transition:.2s;line-height:1}
+.gal-sarr:hover{background:var(--pink);color:#fff;border-color:var(--pink)}
+.gal-sarr.left{left:4px}
+.gal-sarr.right{right:4px}
+.gal-filter{display:flex;gap:10px;overflow-x:auto;padding:14px 44px 6px;scrollbar-width:none}
 .gal-filter::-webkit-scrollbar{display:none}
 .gal-chip{flex-shrink:0;padding:7px 18px;border-radius:22px;border:1.5px solid #e0d8ea;background:#fff;font-size:13px;font-weight:600;cursor:pointer;transition:.2s;white-space:nowrap;color:var(--text)}
 .gal-chip:hover,.gal-chip.active{background:var(--pink);border-color:var(--pink);color:#fff}
@@ -425,7 +441,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
   </div>
 
   <!-- Category Filter Pills -->
-  <div class="cat-scroll" style="margin-top:36px">
+  <div class="cat-scroll-wrap" style="margin-top:36px">
+  <button class="cat-sarr left" onclick="document.getElementById('catScroll').scrollBy({left:-220,behavior:'smooth'})">&#8592;</button>
+  <button class="cat-sarr right" onclick="document.getElementById('catScroll').scrollBy({left:220,behavior:'smooth'})">&#8594;</button>
+  <div class="cat-scroll" id="catScroll">
     <div class="cat-chip active" onclick="filterCats('all',this)">All</div>
     <div class="cat-chip" onclick="filterCats('birthday',this)">🎂 Birthday</div>
     <div class="cat-chip" onclick="filterCats('kids',this)">🧒 Kids Birthday</div>
@@ -443,6 +462,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
     <div class="cat-chip" onclick="filterCats('pet',this)">🐾 Pet</div>
     <div class="cat-chip" onclick="filterCats('new-opening',this)">🎊 New Opening</div>
     <div class="cat-chip" onclick="filterCats('showroom',this)">🏪 Showroom</div>
+  </div>
   </div>
 
   <div class="cat-grid" id="catGrid">
@@ -712,7 +732,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
     <p class="ssub" style="margin-top:14px">A glimpse of our most stunning setups. Real events, real smiles.</p>
   </div>
 
-  <div class="gal-filter">
+  <div class="gal-filter-wrap">
+  <button class="gal-sarr left" onclick="document.getElementById('galFilter').scrollBy({left:-220,behavior:'smooth'})">&#8592;</button>
+  <button class="gal-sarr right" onclick="document.getElementById('galFilter').scrollBy({left:220,behavior:'smooth'})">&#8594;</button>
+  <div class="gal-filter" id="galFilter">
     <div class="gal-chip active" onclick="filterGal('all',this)">All</div>
     <div class="gal-chip" onclick="filterGal('birthday',this)">🎂 Birthday</div>
     <div class="gal-chip" onclick="filterGal('kids',this)">🧒 Kids Birthday</div>
@@ -730,6 +753,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
     <div class="gal-chip" onclick="filterGal('pet',this)">🐾 Pet</div>
     <div class="gal-chip" onclick="filterGal('new-opening',this)">🎊 New Opening</div>
     <div class="gal-chip" onclick="filterGal('showroom',this)">🏪 Showroom</div>
+  </div>
   </div>
 
   <div class="gal-grid" id="galGrid">
