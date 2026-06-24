@@ -349,6 +349,90 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 .wa{position:fixed;bottom:26px;right:26px;z-index:999;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(37,211,102,.5);text-decoration:none;font-size:26px;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{box-shadow:0 6px 22px rgba(37,211,102,.5)}50%{box-shadow:0 6px 34px rgba(37,211,102,.8)}}
 
+/* CIRCLE CATEGORIES */
+.ccat{background:#fff;padding:60px 5%}
+.ccat-scroll{display:flex;gap:22px;overflow-x:auto;padding:30px 5px 10px;scrollbar-width:none}
+.ccat-scroll::-webkit-scrollbar{display:none}
+.ccat-item{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer}
+.ccat-img{width:90px;height:90px;border-radius:50%;object-fit:cover;border:3px solid #f0e8f8;box-shadow:0 6px 22px rgba(155,90,166,.18);transition:.25s}
+.ccat-item:hover .ccat-img{border-color:#9B5AA6;transform:scale(1.07)}
+.ccat-lbl{font-size:12px;font-weight:600;color:#333;text-align:center;white-space:nowrap}
+
+/* FEATURED CARDS */
+.feat{background:#FAF3F3;padding:70px 5%}
+.feat-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;margin-top:36px}
+.feat-big,.feat-sm{border-radius:24px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.10);background:#fff;cursor:pointer;transition:.25s}
+.feat-big:hover,.feat-sm:hover{transform:translateY(-5px);box-shadow:0 16px 44px rgba(155,90,166,.18)}
+.feat-big img{width:100%;height:320px;object-fit:cover;display:block}
+.feat-right{display:flex;flex-direction:column;gap:18px}
+.feat-sm img{width:100%;height:140px;object-fit:cover;display:block}
+.feat-body{padding:14px 18px 18px}
+.feat-body h3{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#1a1a2e;margin-bottom:4px}
+.feat-body p{font-size:.8rem;color:#777;margin-bottom:8px}
+.feat-body a{font-size:.8rem;color:#9B5AA6;font-weight:600;text-decoration:underline}
+.feat-see{display:block;margin:28px auto 0;padding:13px 36px;background:#9B5AA6;color:#fff;border:none;border-radius:28px;font-size:14px;font-weight:700;cursor:pointer;transition:.2s;text-decoration:none;text-align:center;width:fit-content}
+.feat-see:hover{background:#7a3d88}
+
+/* WEDDING */
+.wed{background:#F5E6D7;padding:70px 5%}
+.wed-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
+.wed-big{grid-column:1/-1;border-radius:24px;overflow:hidden;position:relative;cursor:pointer}
+.wed-big img{width:100%;height:280px;object-fit:cover;display:block}
+.wed-big-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,30,.7) 0%,transparent 55%);display:flex;align-items:flex-end;padding:24px}
+.wed-big-ov h3{color:#fff;font-family:'Playfair Display',serif;font-size:1.3rem}
+.wed-sm{border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 4px 18px rgba(0,0,0,.08);cursor:pointer;transition:.25s}
+.wed-sm:hover{transform:translateY(-4px)}
+.wed-sm img{width:100%;height:130px;object-fit:cover;display:block}
+.wed-sm-body{padding:12px 14px}
+.wed-sm-body h4{font-size:.88rem;font-weight:700;color:#1a1a2e}
+.wed-sm-body p{font-size:.75rem;color:#888;margin-top:3px}
+
+/* LOVE US STATS */
+.loveus{background:#fff;padding:70px 5%}
+.loveus-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:36px}
+.loveus-card{text-align:center;padding:28px 16px;border-radius:20px;background:#FAF3F3;box-shadow:0 4px 18px rgba(155,90,166,.08)}
+.loveus-icon{font-size:28px;margin-bottom:8px}
+.loveus-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#9B5AA6;line-height:1.1}
+.loveus-lbl{font-size:.78rem;color:#777;margin-top:4px;font-weight:500}
+
+/* GREEN CTA */
+.gcta{background:#B7F25A;padding:60px 5%;text-align:center}
+.gcta h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:#1a1a2e;margin-bottom:6px}
+.gcta p{font-size:1rem;color:#2a2a2a;margin-bottom:30px}
+.gcta-wa{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:15px 40px;border-radius:35px;font-size:16px;font-weight:700;text-decoration:none;box-shadow:0 6px 24px rgba(37,211,102,.4);transition:.2s}
+.gcta-wa:hover{background:#1aad54;transform:translateY(-2px)}
+
+/* SERVICE GRID */
+.svcgrid{background:#FAF3F3;padding:70px 5%}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.svc-card{border-radius:20px;overflow:hidden;position:relative;aspect-ratio:1;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.08)}
+.svc-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.svc-card:hover img{transform:scale(1.06)}
+.svc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,30,.72) 0%,transparent 55%);display:flex;align-items:flex-end;padding:14px}
+.svc-ov span{color:#fff;font-size:.85rem;font-weight:700}
+
+/* PRODUCT SECTIONS */
+.prodsec{padding:60px 5%;background:#fff}
+.prodsec.alt{background:#FAF3F3}
+.prod-banner{width:100%;border-radius:20px;overflow:hidden;margin-bottom:28px;position:relative}
+.prod-banner img{width:100%;height:180px;object-fit:cover;display:block}
+.prod-banner-ov{position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,8,30,.7) 0%,transparent 60%);display:flex;align-items:center;padding:0 28px}
+.prod-banner-ov h2{color:#fff;font-family:'Playfair Display',serif;font-size:clamp(1.2rem,3vw,1.8rem)}
+.prod-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.prod-hdr h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:#1a1a2e}
+.prod-hdr a{color:#9B5AA6;font-size:.85rem;font-weight:600;text-decoration:none}
+.prod-scroll{display:flex;gap:16px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
+.prod-scroll::-webkit-scrollbar{display:none}
+.prod-card{flex-shrink:0;width:200px;border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 4px 18px rgba(0,0,0,.08);cursor:pointer;transition:.25s}
+.prod-card:hover{transform:translateY(-5px);box-shadow:0 10px 32px rgba(155,90,166,.15)}
+.prod-card-img{position:relative}
+.prod-card-img img{width:100%;height:140px;object-fit:cover;display:block}
+.prod-badge{position:absolute;top:10px;left:10px;background:#e91e8c;color:#fff;padding:3px 9px;border-radius:10px;font-size:11px;font-weight:700}
+.prod-info{padding:12px 14px}
+.prod-info h4{font-size:.85rem;font-weight:700;color:#1a1a2e;margin-bottom:4px}
+.prod-price{font-size:.88rem;font-weight:700;color:#9B5AA6}
+.prod-strike{font-size:.78rem;color:#aaa;text-decoration:line-through;margin-left:6px}
+
 /* RESPONSIVE */
 @media(max-width:900px){
   .fg{grid-template-columns:1fr 1fr}
@@ -380,6 +464,13 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
   .cta{padding:56px 4%}
   .cat-scroll-wrap::before,.cat-scroll-wrap::after{width:36px}
   .gal-filter-wrap::before,.gal-filter-wrap::after{width:36px}
+  .feat-grid{grid-template-columns:1fr}
+  .feat-big img{height:220px}
+  .feat-sm img{height:120px}
+  .wed-grid{grid-template-columns:1fr}
+  .wed-big img{height:200px}
+  .loveus-grid{grid-template-columns:repeat(2,1fr)}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:400px){
   .steps{grid-template-columns:1fr}
@@ -544,6 +635,286 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
   <button class="harr prev" onclick="hMove(-1)">&#8592;</button>
   <button class="harr next" onclick="hMove(1)">&#8594;</button>
   <div class="hdots" id="hdots"></div>
+</section>
+
+<!-- CIRCLE CATEGORIES -->
+<section class="ccat">
+  <div class="tc">
+    <div class="stag">Quick Browse</div>
+    <h2 class="stitle">Decoration for Every Occasion</h2>
+    <div class="sdiv"></div>
+  </div>
+  <div class="ccat-scroll">
+    <div class="ccat-item" onclick="location.href='birthday.html'">
+      <img class="ccat-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&q=80" alt="Birthday" loading="lazy"/>
+      <span class="ccat-lbl">🎂 Birthday</span>
+    </div>
+    <div class="ccat-item" onclick="location.href='kids-birthday.html'">
+      <img class="ccat-img" src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=200&q=80" alt="Kids Birthday" loading="lazy"/>
+      <span class="ccat-lbl">🧒 Kids Birthday</span>
+    </div>
+    <div class="ccat-item" onclick="location.href='baby-shower.html'">
+      <img class="ccat-img" src="https://images.unsplash.com/photo-1544982503-9f984c14501a?w=200&q=80" alt="Baby Shower" loading="lazy"/>
+      <span class="ccat-lbl">👶 Baby Shower</span>
+    </div>
+    <div class="ccat-item" onclick="location.href='stage.html'">
+      <img class="ccat-img" src="https://images.unsplash.com/photo-1519671282429-b8b82d8ec753?w=200&q=80" alt="Stage Decoration" loading="lazy"/>
+      <span class="ccat-lbl">🎪 Stage Decor</span>
+    </div>
+    <div class="ccat-item" onclick="location.href='welcome-baby.html'">
+      <img class="ccat-img" src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=200&q=80" alt="Welcome Baby" loading="lazy"/>
+      <span class="ccat-lbl">🍼 Welcome Baby</span>
+    </div>
+    <div class="ccat-item" onclick="location.href='first-night.html'">
+      <img class="ccat-img" src="https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?w=200&q=80" alt="First Night" loading="lazy"/>
+      <span class="ccat-lbl">💍 First Night</span>
+    </div>
+    <div class="ccat-item" onclick="location.href='anniversary.html'">
+      <img class="ccat-img" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&q=80" alt="Anniversary" loading="lazy"/>
+      <span class="ccat-lbl">❤️ Anniversary</span>
+    </div>
+    <div class="ccat-item" onclick="location.href='bachelorette.html'">
+      <img class="ccat-img" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=200&q=80" alt="Bachelorette" loading="lazy"/>
+      <span class="ccat-lbl">👰 Bachelorette</span>
+    </div>
+    <div class="ccat-item" onclick="location.href='housewarming.html'">
+      <img class="ccat-img" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=200&q=80" alt="Housewarming" loading="lazy"/>
+      <span class="ccat-lbl">🏠 House Warming</span>
+    </div>
+    <div class="ccat-item" onclick="location.href='naming.html'">
+      <img class="ccat-img" src="https://images.unsplash.com/photo-1607962837359-5e7e89f86776?w=200&q=80" alt="Naming Ceremony" loading="lazy"/>
+      <span class="ccat-lbl">🌸 Naming Ceremony</span>
+    </div>
+    <div class="ccat-item" onclick="location.href='corporate.html'">
+      <img class="ccat-img" src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=200&q=80" alt="Corporate" loading="lazy"/>
+      <span class="ccat-lbl">🏢 Corporate</span>
+    </div>
+    <div class="ccat-item" onclick="location.href='car.html'">
+      <img class="ccat-img" src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=200&q=80" alt="Car Decoration" loading="lazy"/>
+      <span class="ccat-lbl">🚗 Car Decoration</span>
+    </div>
+    <div class="ccat-item" onclick="location.href='festival.html'">
+      <img class="ccat-img" src="https://images.unsplash.com/photo-1604423043492-41893ecadf08?w=200&q=80" alt="Festival" loading="lazy"/>
+      <span class="ccat-lbl">🕮 Festival Decor</span>
+    </div>
+    <div class="ccat-item" onclick="location.href='pet.html'">
+      <img class="ccat-img" src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=200&q=80" alt="Pet" loading="lazy"/>
+      <span class="ccat-lbl">🐾 Pet Birthday</span>
+    </div>
+    <div class="ccat-item" onclick="location.href='new-opening.html'">
+      <img class="ccat-img" src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=200&q=80" alt="New Opening" loading="lazy"/>
+      <span class="ccat-lbl">🎊 New Opening</span>
+    </div>
+    <div class="ccat-item" onclick="location.href='showroom.html'">
+      <img class="ccat-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=200&q=80" alt="Showroom" loading="lazy"/>
+      <span class="ccat-lbl">🏪 Showroom</span>
+    </div>
+    <div class="ccat-item" onclick="location.href='bachelorette.html'">
+      <img class="ccat-img" src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=200&q=80" alt="Haldi Mehendi" loading="lazy"/>
+      <span class="ccat-lbl">🌿 Haldi Mehendi</span>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED DECORATION CARDS -->
+<section class="feat">
+  <div class="tc">
+    <div class="stag">Featured Designs</div>
+    <h2 class="stitle">Our Best Decoration Setups</h2>
+    <div class="sdiv"></div>
+  </div>
+  <div class="feat-grid">
+    <div class="feat-big" onclick="location.href='anniversary.html'">
+      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80" alt="Anniversary" loading="lazy"/>
+      <div class="feat-body">
+        <h3>Anniversary Balloon Setup</h3>
+        <p>Romantic balloon room decoration with rose petals & fairy lights</p>
+        <a href="anniversary.html">View More</a>
+      </div>
+    </div>
+    <div class="feat-right">
+      <div class="feat-sm" onclick="location.href='birthday.html'">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt="Birthday" loading="lazy"/>
+        <div class="feat-body">
+          <h3>Birthday Balloon Decoration</h3>
+          <p>Vibrant arches & themed setups</p>
+          <a href="birthday.html">View More</a>
+        </div>
+      </div>
+      <div class="feat-sm" onclick="location.href='baby-shower.html'">
+        <img src="https://images.unsplash.com/photo-1544982503-9f984c14501a?w=500&q=80" alt="Baby Shower" loading="lazy"/>
+        <div class="feat-body">
+          <h3>Baby Shower Decoration</h3>
+          <p>Pink & blue foil balloon setups</p>
+          <a href="baby-shower.html">View More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#categories" class="feat-see">SEE MORE</a>
+</section>
+
+<!-- WEDDING SECTION -->
+<section class="wed">
+  <div class="tc">
+    <div class="stag">Wedding Decoration</div>
+    <h2 class="stitle">Your Dream Wedding Starts Here</h2>
+    <div class="sdiv"></div>
+  </div>
+  <div class="wed-grid">
+    <div class="wed-big" onclick="location.href='stage.html'">
+      <img src="https://images.unsplash.com/photo-1519671282429-b8b82d8ec753?w=1200&q=80" alt="Wedding Stage" loading="lazy"/>
+      <div class="wed-big-ov"><h3>Grand Wedding Stage Decoration</h3></div>
+    </div>
+    <div class="wed-sm" onclick="location.href='first-night.html'">
+      <img src="https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?w=500&q=80" alt="First Night" loading="lazy"/>
+      <div class="wed-sm-body"><h4>💍 First Night Decoration</h4><p>Starting ₹1,672</p></div>
+    </div>
+    <div class="wed-sm" onclick="location.href='car.html'">
+      <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=500&q=80" alt="Car Decoration" loading="lazy"/>
+      <div class="wed-sm-body"><h4>🚗 Car Decoration</h4><p>Starting ₹799</p></div>
+    </div>
+    <div class="wed-sm" onclick="location.href='bachelorette.html'">
+      <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=500&q=80" alt="Bachelorette" loading="lazy"/>
+      <div class="wed-sm-body"><h4>👰 Bachelorette / Haldi</h4><p>Starting ₹1,299</p></div>
+    </div>
+    <div class="wed-sm" onclick="location.href='anniversary.html'">
+      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&q=80" alt="Anniversary" loading="lazy"/>
+      <div class="wed-sm-body"><h4>❤️ Anniversary Setup</h4><p>Starting ₹1,299</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY PEOPLE LOVE US -->
+<section class="loveus">
+  <div class="tc">
+    <div class="stag">Our Numbers</div>
+    <h2 class="stitle">Why People Love Us</h2>
+    <div class="sdiv"></div>
+  </div>
+  <div class="loveus-grid">
+    <div class="loveus-card"><div class="loveus-icon">🎈</div><div class="loveus-num">20k+</div><div class="loveus-lbl">Balloon Designs</div></div>
+    <div class="loveus-card"><div class="loveus-icon">🎉</div><div class="loveus-num">5000+</div><div class="loveus-lbl">Events Decorated</div></div>
+    <div class="loveus-card"><div class="loveus-icon">😊</div><div class="loveus-num">500+</div><div class="loveus-lbl">Happy Clients</div></div>
+    <div class="loveus-card"><div class="loveus-icon">🌍</div><div class="loveus-num">50+</div><div class="loveus-lbl">Cities Served</div></div>
+  </div>
+</section>
+
+<!-- GREEN CTA -->
+<section class="gcta">
+  <h2>Easy Customize &amp; Customer Support</h2>
+  <p>Tell us your theme, colour & budget — we'll handle everything. 24/7 WhatsApp support.</p>
+  <a href="https://wa.me/919876543210" class="gcta-wa">💬 Chat on WhatsApp</a>
+</section>
+
+<!-- SERVICE GRID -->
+<section class="svcgrid">
+  <div class="tc">
+    <div class="stag">All Services</div>
+    <h2 class="stitle">Choose Your Decoration</h2>
+    <div class="sdiv"></div>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card" onclick="location.href='birthday.html'"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Birthday" loading="lazy"/><div class="svc-ov"><span>🎂 Birthday</span></div></div>
+    <div class="svc-card" onclick="location.href='baby-shower.html'"><img src="https://images.unsplash.com/photo-1544982503-9f984c14501a?w=400&q=80" alt="Baby Shower" loading="lazy"/><div class="svc-ov"><span>👶 Baby Shower</span></div></div>
+    <div class="svc-card" onclick="location.href='kids-birthday.html'"><img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&q=80" alt="Kids Birthday" loading="lazy"/><div class="svc-ov"><span>🧒 Kids Birthday</span></div></div>
+    <div class="svc-card" onclick="location.href='welcome-baby.html'"><img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&q=80" alt="Welcome Baby" loading="lazy"/><div class="svc-ov"><span>🍼 Welcome Baby</span></div></div>
+    <div class="svc-card" onclick="location.href='stage.html'"><img src="https://images.unsplash.com/photo-1519671282429-b8b82d8ec753?w=400&q=80" alt="Stage" loading="lazy"/><div class="svc-ov"><span>🎪 Stage Decoration</span></div></div>
+    <div class="svc-card" onclick="location.href='bachelorette.html'"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=80" alt="Bachelorette" loading="lazy"/><div class="svc-ov"><span>👰 Bachelorette</span></div></div>
+    <div class="svc-card" onclick="location.href='bachelorette.html'"><img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=400&q=80" alt="Haldi Mehendi" loading="lazy"/><div class="svc-ov"><span>🌿 Haldi Mehendi</span></div></div>
+    <div class="svc-card" onclick="location.href='first-night.html'"><img src="https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?w=400&q=80" alt="First Night" loading="lazy"/><div class="svc-ov"><span>💍 First Night</span></div></div>
+    <div class="svc-card" onclick="location.href='anniversary.html'"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80" alt="Anniversary" loading="lazy"/><div class="svc-ov"><span>❤️ Anniversary</span></div></div>
+  </div>
+</section>
+
+<!-- PRODUCT: BIRTHDAY -->
+<section class="prodsec">
+  <div class="prod-banner">
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80" alt="Birthday" loading="lazy"/>
+    <div class="prod-banner-ov"><h2>🎂 Birthday Decoration</h2></div>
+  </div>
+  <div class="prod-hdr">
+    <h3>Birthday Packages</h3>
+    <a href="birthday.html">View All →</a>
+  </div>
+  <div class="prod-scroll">
+    <div class="prod-card" onclick="location.href='birthday.html'">
+      <div class="prod-card-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="" loading="lazy"/><span class="prod-badge">20% OFF</span></div>
+      <div class="prod-info"><h4>Basic Balloon Setup</h4><span class="prod-price">₹999</span><span class="prod-strike">₹1,299</span></div>
+    </div>
+    <div class="prod-card" onclick="location.href='birthday.html'">
+      <div class="prod-card-img"><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&q=80" alt="" loading="lazy"/><span class="prod-badge">Popular</span></div>
+      <div class="prod-info"><h4>Balloon Arch + Backdrop</h4><span class="prod-price">₹1,499</span><span class="prod-strike">₹1,999</span></div>
+    </div>
+    <div class="prod-card" onclick="location.href='birthday.html'">
+      <div class="prod-card-img"><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=400&q=80" alt="" loading="lazy"/></div>
+      <div class="prod-info"><h4>Full Room Decoration</h4><span class="prod-price">₹2,499</span><span class="prod-strike">₹3,199</span></div>
+    </div>
+    <div class="prod-card" onclick="location.href='birthday.html'">
+      <div class="prod-card-img"><img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&q=80" alt="" loading="lazy"/></div>
+      <div class="prod-info"><h4>Theme Party Setup</h4><span class="prod-price">₹3,499</span><span class="prod-strike">₹4,499</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT: ANNIVERSARY -->
+<section class="prodsec alt">
+  <div class="prod-banner">
+    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1200&q=80" alt="Anniversary" loading="lazy"/>
+    <div class="prod-banner-ov"><h2>❤️ Anniversary Decoration</h2></div>
+  </div>
+  <div class="prod-hdr">
+    <h3>Anniversary Packages</h3>
+    <a href="anniversary.html">View All →</a>
+  </div>
+  <div class="prod-scroll">
+    <div class="prod-card" onclick="location.href='anniversary.html'">
+      <div class="prod-card-img"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80" alt="" loading="lazy"/><span class="prod-badge">15% OFF</span></div>
+      <div class="prod-info"><h4>Romantic Rose Setup</h4><span class="prod-price">₹1,299</span><span class="prod-strike">₹1,599</span></div>
+    </div>
+    <div class="prod-card" onclick="location.href='anniversary.html'">
+      <div class="prod-card-img"><img src="https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?w=400&q=80" alt="" loading="lazy"/><span class="prod-badge">Popular</span></div>
+      <div class="prod-info"><h4>Heart Balloon Arch</h4><span class="prod-price">₹1,799</span><span class="prod-strike">₹2,299</span></div>
+    </div>
+    <div class="prod-card" onclick="location.href='anniversary.html'">
+      <div class="prod-card-img"><img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=400&q=80" alt="" loading="lazy"/></div>
+      <div class="prod-info"><h4>Candle + Balloon Combo</h4><span class="prod-price">₹2,199</span><span class="prod-strike">₹2,799</span></div>
+    </div>
+    <div class="prod-card" onclick="location.href='anniversary.html'">
+      <div class="prod-card-img"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&q=80" alt="" loading="lazy"/></div>
+      <div class="prod-info"><h4>Premium Room Decor</h4><span class="prod-price">₹3,299</span><span class="prod-strike">₹3,999</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT: BABY SHOWER -->
+<section class="prodsec">
+  <div class="prod-banner">
+    <img src="https://images.unsplash.com/photo-1544982503-9f984c14501a?w=1200&q=80" alt="Baby Shower" loading="lazy"/>
+    <div class="prod-banner-ov"><h2>👶 Baby Shower Decoration</h2></div>
+  </div>
+  <div class="prod-hdr">
+    <h3>Baby Shower Packages</h3>
+    <a href="baby-shower.html">View All →</a>
+  </div>
+  <div class="prod-scroll">
+    <div class="prod-card" onclick="location.href='baby-shower.html'">
+      <div class="prod-card-img"><img src="https://images.unsplash.com/photo-1544982503-9f984c14501a?w=400&q=80" alt="" loading="lazy"/><span class="prod-badge">New</span></div>
+      <div class="prod-info"><h4>Pink/Blue Balloon Setup</h4><span class="prod-price">₹1,499</span><span class="prod-strike">₹1,899</span></div>
+    </div>
+    <div class="prod-card" onclick="location.href='baby-shower.html'">
+      <div class="prod-card-img"><img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&q=80" alt="" loading="lazy"/><span class="prod-badge">Popular</span></div>
+      <div class="prod-info"><h4>Gender Reveal Setup</h4><span class="prod-price">₹1,999</span><span class="prod-strike">₹2,499</span></div>
+    </div>
+    <div class="prod-card" onclick="location.href='baby-shower.html'">
+      <div class="prod-card-img"><img src="https://images.unsplash.com/photo-1607962837359-5e7e89f86776?w=400&q=80" alt="" loading="lazy"/></div>
+      <div class="prod-info"><h4>Foil Balloon Backdrop</h4><span class="prod-price">₹2,299</span><span class="prod-strike">₹2,999</span></div>
+    </div>
+    <div class="prod-card" onclick="location.href='baby-shower.html'">
+      <div class="prod-card-img"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&q=80" alt="" loading="lazy"/></div>
+      <div class="prod-info"><h4>Full Venue Decoration</h4><span class="prod-price">₹3,499</span><span class="prod-strike">₹4,299</span></div>
+    </div>
+  </div>
 </section>
 
 <!-- CATEGORIES -->
