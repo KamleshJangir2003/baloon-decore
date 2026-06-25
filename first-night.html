@@ -5,6 +5,58 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>First Night Room Decoration – Shri Services</title>
 <link rel="stylesheet" href="category.css"/>
+<style>
+  .hslide-btns{
+display:flex;
+gap:10px;
+margin-top:14px;
+width:100%;
+}
+
+.hslide-btns a{
+flex:1;
+text-align:center;
+padding:12px 14px;
+border-radius:14px;
+text-decoration:none;
+font-size:15px;
+font-weight:700;
+transition:.3s;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.hbtn-call{
+background:#ffffff;
+color:#16a34a;
+border:2px solid #16a34a;
+}
+
+.hbtn-call:hover{
+background:#16a34a;
+color:#fff;
+transform:translateY(-2px);
+}
+
+.hbtn-wa{
+background:#e91e8c;
+color:#fff;
+}
+
+.hbtn-wa:hover{
+background:#d10d78;
+transform:translateY(-2px);
+}
+
+@media(max-width:768px){
+
+.hslide-btns{
+flex-direction:column;
+}
+
+}
+</style>
 </head>
 <body>
 <nav>
@@ -83,25 +135,37 @@
       <div class="dcard-img-wrap"><img src="image/First Night/Romantic Essentials.avif" alt="Basic First Night"/></div>
       <div class="dcard-body"><h3>Romantic Essentials</h3><p>20 red & pink balloons, rose petals on bed & floor, heart candles, "Just Married" banner & fairy lights.</p>
         <div class="dcard-meta"><span class="dcard-price">₹1,672 onwards</span><span class="dcard-tag">💕 Starter</span></div>
-        <a href="https://wa.me/919876543210?text=Hi! Romantic Essentials First Night setup book karna hai" class="dcard-btn">💬 Book Now</a></div>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div></div>
     </div>
     <div class="dcard">
       <div class="dcard-img-wrap"><img src="image/First Night/Premium Bridal Room.jpg" alt="Premium First Night"/><span class="dcard-badge">💍 Popular</span></div>
       <div class="dcard-body"><h3>Premium Bridal Room</h3><p>Heart balloon arch, bed rose petals, floor petal path, fairy lights, couple name LED banner & candles.</p>
         <div class="dcard-meta"><span class="dcard-price">₹3,499 onwards</span><span class="dcard-tag">✨ Premium</span></div>
-        <a href="https://wa.me/919876543210?text=Hi! Premium Bridal Room setup book karna hai" class="dcard-btn">💬 Book Now</a></div>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div></div>
     </div>
     <div class="dcard">
       <div class="dcard-img-wrap"><img src="image/First Night/Royal Luxury Setup.jpg" alt="Royal First Night"/></div>
       <div class="dcard-body"><h3>Royal Luxury Setup</h3><p>80 ceiling balloons, full backdrop wall, rose petal art, floating candles, LED curtains & monogram.</p>
         <div class="dcard-meta"><span class="dcard-price">₹5,999 onwards</span><span class="dcard-tag">👑 Royal</span></div>
-        <a href="https://wa.me/919876543210?text=Hi! Royal Luxury First Night setup book karna hai" class="dcard-btn">💬 Book Now</a></div>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div></div>
     </div>
     <div class="dcard">
       <div class="dcard-img-wrap"><img src="image/First Night/Hotel Room Setup.webp" alt="Hotel First Night"/></div>
       <div class="dcard-body"><h3>Hotel Room Setup</h3><p>Portable balloon kit, rose petals, candles, personalised banner & hotel coordination handled.</p>
         <div class="dcard-meta"><span class="dcard-price">₹2,299 onwards</span><span class="dcard-tag">🏨 Hotel</span></div>
-        <a href="https://wa.me/919876543210?text=Hi! Hotel Room First Night setup book karna hai" class="dcard-btn">💬 Book Now</a></div>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div></div>
     </div>
   </div>
 </section>
@@ -139,7 +203,11 @@
   </div>
   <div class="fbot"><span>© 2024 Shri Event & Balloon Decoration Services. All Rights Reserved.</span><span>Privacy Policy · Terms of Service</span></div>
 </footer>
-<a href="https://wa.me/919876543210" class="wa" target="_blank">💬</a>
+<!-- Floating Buttons -->
+<div class="float-btns">
+  <a href="tel:+919876543210" class="float-btn call" title="Call Now">📞</a>
+  <a href="https://wa.me/919876543210" class="float-btn wa" target="_blank" title="Chat on WhatsApp">💬</a>
+</div>
 <script>function tf(el){const i=el.parentElement,o=i.classList.contains('open');document.querySelectorAll('.fitem').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open')}document.querySelectorAll('.dcard,.inc-card,.proc-step,.rcard').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(24px)';el.style.transition='opacity .5s ease,transform .5s ease';new IntersectionObserver(([e])=>{if(e.isIntersecting){el.style.opacity='1';el.style.transform='translateY(0)'}},{threshold:.1}).observe(el)})</script>
 </body>
 </html>

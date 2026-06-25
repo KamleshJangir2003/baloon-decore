@@ -99,6 +99,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:ce
 .hslide-price{display:inline-block;background:rgba(233,30,140,.2);border:1.5px solid var(--pink);color:var(--pink-lt);padding:6px 16px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:24px}
 .hslide-btn{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:#fff;padding:12px 28px;border-radius:28px;font-size:14px;font-weight:600;text-decoration:none;transition:.2s;box-shadow:0 6px 20px rgba(233,30,140,.4)}
 .hslide-btn:hover{background:#c41678;transform:translateY(-2px)}
+.hslide-btns{display:flex;gap:10px;align-items:center}
+.hslide-btns a{flex:1;padding:11px 18px;border-radius:24px;font-size:13px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:.2s}
+.hslide-btns .hbtn-call{background:#e91e8c;color:#fff;border:2px solid #e91e8c}
+.hslide-btns .hbtn-wa{background:#25d366;color:#fff;border:2px solid #25d366}
+.hslide-btns .hbtn-call:hover{background:#c41678;border-color:#c41678}
+.hslide-btns .hbtn-wa:hover{background:#1aad54;border-color:#1aad54}
 /* center fixed content */
 .hero-content{position:relative;z-index:3;width:100%;padding:0 5%;display:flex;flex-direction:column;align-items:flex-end;text-align:right;pointer-events:none}
 .hero-stats{display:flex;flex-direction:column;gap:18px;align-items:flex-end}
@@ -274,9 +280,13 @@ section{padding:88px 5%}
 .gal-item{break-inside:avoid;margin-bottom:14px;border-radius:12px;overflow:hidden;position:relative;cursor:pointer}
 .gal-item img{width:100%;display:block;transition:transform .35s}
 .gal-item:hover img{transform:scale(1.04)}
-.gal-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,46,.8) 0%,transparent 55%);opacity:0;transition:.3s;display:flex;align-items:flex-end;padding:14px}
+.gal-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,46,.85) 0%,transparent 55%);opacity:0;transition:.3s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:14px}
 .gal-item:hover .gal-ov{opacity:1}
 .gal-ov p{color:#fff;font-size:13px;font-weight:600}
+.gal-overlay-btns{display:flex;gap:8px}
+.gal-overlay-btns a{padding:8px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:.2s;box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.gal-overlay-btns .gcall{background:#e91e8c;color:#fff}
+.gal-overlay-btns .gwa{background:#25d366;color:#fff}
 
 /* TESTIMONIALS */
 .testi{background:var(--dark)}
@@ -345,23 +355,39 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 .fci .icon{color:var(--pink);flex-shrink:0}
 .fbot{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px}
 
-/* WA */
-.wa{position:fixed;bottom:26px;right:26px;z-index:999;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(37,211,102,.5);text-decoration:none;font-size:26px;animation:pulse 2s infinite}
+/* FLOATING BUTTONS */
+.float-btns{position:fixed;bottom:26px;right:26px;z-index:999;display:flex;flex-direction:column;gap:12px}
+.float-btn{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(0,0,0,.3);text-decoration:none;font-size:26px;transition:.2s}
+.float-btn.wa{background:#25d366;animation:pulse 2s infinite}
+.float-btn.call{background:#e91e8c}
+.float-btn:hover{transform:scale(1.08)}
 @keyframes pulse{0%,100%{box-shadow:0 6px 22px rgba(37,211,102,.5)}50%{box-shadow:0 6px 34px rgba(37,211,102,.8)}}
+/* CARD BUTTONS */
+.card-btns{display:flex;gap:8px;margin-top:12px}
+.btn-call,.btn-wa{flex:1;padding:8px 16px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:.2s}
+.btn-call{background:#e91e8c;color:#fff;border:1.5px solid #e91e8c}
+.btn-wa{background:#25d366;color:#fff;border:1.5px solid #25d366}
+.btn-call:hover{background:#c41678;border-color:#c41678}
+.btn-wa:hover{background:#1aad54;border-color:#1aad54}
 
 /* CIRCLE CATEGORIES */
 .ccat{background:#fff;padding:60px 5%}
 .ccat-scroll{display:flex;gap:22px;overflow-x:auto;padding:30px 5px 10px;scrollbar-width:none}
 .ccat-scroll::-webkit-scrollbar{display:none}
-.ccat-item{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer}
+.ccat-item{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer;position:relative}
 .ccat-img{width:90px;height:90px;border-radius:50%;object-fit:cover;border:3px solid #f0e8f8;box-shadow:0 6px 22px rgba(155,90,166,.18);transition:.25s}
 .ccat-item:hover .ccat-img{border-color:#9B5AA6;transform:scale(1.07)}
 .ccat-lbl{font-size:12px;font-weight:600;color:#333;text-align:center;white-space:nowrap}
+.ccat-btns{display:flex;gap:6px;opacity:0;transition:.25s}
+.ccat-item:hover .ccat-btns{opacity:1}
+.ccat-btns a{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;text-decoration:none;transition:.2s}
+.ccat-btns .ccall{background:#e91e8c;color:#fff}
+.ccat-btns .cwa{background:#25d366;color:#fff}
 
 /* FEATURED CARDS */
 .feat{background:#FAF3F3;padding:70px 5%}
 .feat-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;margin-top:36px}
-.feat-big,.feat-sm{border-radius:24px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.10);background:#fff;cursor:pointer;transition:.25s}
+.feat-big,.feat-sm{border-radius:24px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.10);background:#fff;cursor:pointer;transition:.25s;position:relative}
 .feat-big:hover,.feat-sm:hover{transform:translateY(-5px);box-shadow:0 16px 44px rgba(155,90,166,.18)}
 .feat-big img{width:100%;height:320px;object-fit:cover;display:block}
 .feat-right{display:flex;flex-direction:column;gap:18px}
@@ -372,6 +398,11 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 .feat-body a{font-size:.8rem;color:#9B5AA6;font-weight:600;text-decoration:underline}
 .feat-see{display:block;margin:28px auto 0;padding:13px 36px;background:#9B5AA6;color:#fff;border:none;border-radius:28px;font-size:14px;font-weight:700;cursor:pointer;transition:.2s;text-decoration:none;text-align:center;width:fit-content}
 .feat-see:hover{background:#7a3d88}
+.feat-overlay-btns{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;gap:10px;opacity:0;transition:.25s;z-index:5;pointer-events:none}
+.feat-big:hover .feat-overlay-btns,.feat-sm:hover .feat-overlay-btns{opacity:1;pointer-events:auto}
+.feat-overlay-btns a{padding:10px 20px;border-radius:24px;font-size:13px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:.2s;box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.feat-overlay-btns .fcall{background:#e91e8c;color:#fff}
+.feat-overlay-btns .fwa{background:#25d366;color:#fff}
 
 /* WEDDING */
 .wed{background:#F5E6D7;padding:70px 5%}
@@ -380,12 +411,17 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 .wed-big img{width:100%;height:280px;object-fit:cover;display:block}
 .wed-big-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,30,.7) 0%,transparent 55%);display:flex;align-items:flex-end;padding:24px}
 .wed-big-ov h3{color:#fff;font-family:'Playfair Display',serif;font-size:1.3rem}
-.wed-sm{border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 4px 18px rgba(0,0,0,.08);cursor:pointer;transition:.25s}
+.wed-sm{border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 4px 18px rgba(0,0,0,.08);cursor:pointer;transition:.25s;position:relative}
 .wed-sm:hover{transform:translateY(-4px)}
 .wed-sm img{width:100%;height:130px;object-fit:cover;display:block}
 .wed-sm-body{padding:12px 14px}
 .wed-sm-body h4{font-size:.88rem;font-weight:700;color:#1a1a2e}
 .wed-sm-body p{font-size:.75rem;color:#888;margin-top:3px}
+.wed-overlay-btns{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;gap:8px;opacity:0;transition:.25s;z-index:5;pointer-events:none}
+.wed-big:hover .wed-overlay-btns,.wed-sm:hover .wed-overlay-btns{opacity:1;pointer-events:auto}
+.wed-overlay-btns a{padding:9px 18px;border-radius:22px;font-size:12px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:.2s;box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.wed-overlay-btns .wcall{background:#e91e8c;color:#fff}
+.wed-overlay-btns .wwa{background:#25d366;color:#fff}
 
 /* LOVE US STATS */
 .loveus{background:#fff;padding:70px 5%}
@@ -410,6 +446,11 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 .svc-card:hover img{transform:scale(1.06)}
 .svc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,30,.72) 0%,transparent 55%);display:flex;align-items:flex-end;padding:14px}
 .svc-ov span{color:#fff;font-size:.85rem;font-weight:700}
+.svc-overlay-btns{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;gap:10px;opacity:0;transition:.25s;z-index:5;pointer-events:none}
+.svc-card:hover .svc-overlay-btns{opacity:1;pointer-events:auto}
+.svc-overlay-btns a{padding:9px 18px;border-radius:22px;font-size:12px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:.2s;box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.svc-overlay-btns .scall{background:#e91e8c;color:#fff}
+.svc-overlay-btns .swa{background:#25d366;color:#fff}
 
 /* PRODUCT SECTIONS */
 .prodsec{padding:60px 5%;background:#fff}
@@ -423,7 +464,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 .prod-hdr a{color:#9B5AA6;font-size:.85rem;font-weight:600;text-decoration:none}
 .prod-scroll{display:flex;gap:16px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
 .prod-scroll::-webkit-scrollbar{display:none}
-.prod-card{flex-shrink:0;width:200px;border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 4px 18px rgba(0,0,0,.08);cursor:pointer;transition:.25s}
+.prod-card{flex-shrink:0;width:200px;border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 4px 18px rgba(0,0,0,.08);cursor:pointer;transition:.25s;position:relative}
 .prod-card:hover{transform:translateY(-5px);box-shadow:0 10px 32px rgba(155,90,166,.15)}
 .prod-card-img{position:relative}
 .prod-card-img img{width:100%;height:140px;object-fit:cover;display:block}
@@ -432,6 +473,11 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 .prod-info h4{font-size:.85rem;font-weight:700;color:#1a1a2e;margin-bottom:4px}
 .prod-price{font-size:.88rem;font-weight:700;color:#9B5AA6}
 .prod-strike{font-size:.78rem;color:#aaa;text-decoration:line-through;margin-left:6px}
+.prod-overlay-btns{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;gap:8px;opacity:0;transition:.25s;z-index:5;pointer-events:none}
+.prod-card:hover .prod-overlay-btns{opacity:1;pointer-events:auto}
+.prod-overlay-btns a{padding:8px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:.2s;box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.prod-overlay-btns .pcall{background:#e91e8c;color:#fff}
+.prod-overlay-btns .pwa{background:#25d366;color:#fff}
 
 /* RESPONSIVE */
 @media(max-width:900px){
@@ -520,7 +566,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="https://wa.me/919876543210" class="nav-cta">💬 Book Now</a>
+  <div style="display:flex;gap:8px;align-items:center">
+    <a href="tel:+919876543210" class="nav-cta" style="background:#e91e8c">📞 Call</a>
+    <a href="https://wa.me/919876543210" class="nav-cta" style="background:#25d366">💬 Book Now</a>
+  </div>
   <button class="ham" onclick="document.getElementById('mobMenu').classList.toggle('open')"><span></span><span></span><span></span></button>
 </nav>
 
@@ -551,8 +600,9 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
   </div>
   <div class="mob-nav-item"><a href="gallery.html">🖼️ Gallery</a></div>
   <div class="mob-nav-item"><a href="contact.html">📍 Contact</a></div>
-  <div style="padding:20px;width:100%;max-width:380px;margin-top:8px">
-    <a href="https://wa.me/919876543210" style="display:block;text-align:center;background:var(--pink);color:#fff;padding:14px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none">💬 Book Now on WhatsApp</a>
+  <div style="padding:20px;width:100%;max-width:380px;margin-top:8px;display:flex;flex-direction:column;gap:10px">
+    <a href="tel:+919876543210" style="display:block;text-align:center;background:#e91e8c;color:#fff;padding:14px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none">Call Now</a>
+    <a href="https://wa.me/919876543210" style="display:block;text-align:center;background:#25d366;color:#fff;padding:14px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none">💬 Book Now on WhatsApp</a>
   </div>
 </div>
 
@@ -566,7 +616,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <div class="hslide-h">Celebrate Every <span>Birthday</span><br>With Balloon Magic</div>
         <div class="hslide-sub">Vibrant balloon setups, arches & themed arrangements tailored to your style.</div>
         <div class="hslide-price">Starting ₹999</div>
-        <a href="birthday.html" class="hslide-btn">🎉 View Designs</a>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -576,7 +629,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <div class="hslide-h">Surprise Your Partner<br>with <span>Romantic Setup</span></div>
         <div class="hslide-sub">Heart arches, rose petals, candles & personalized name banners.</div>
         <div class="hslide-price">Starting ₹1,299</div>
-        <a href="anniversary.html" class="hslide-btn">❤️ View Designs</a>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -586,7 +642,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <div class="hslide-h">Welcome the Little One<br>with <span>Beautiful Decor</span></div>
         <div class="hslide-sub">Pink & blue setups, gender reveal, foil balloons & photo backdrops.</div>
         <div class="hslide-price">Starting ₹1,499</div>
-        <a href="baby-shower.html" class="hslide-btn">👶 View Designs</a>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -596,7 +655,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <div class="hslide-h">Pre-Wedding <span>Fun</span><br>Celebration</div>
         <div class="hslide-sub">Bachelorette, haldi & mehndi ceremonies with bright decorations.</div>
         <div class="hslide-price">Starting ₹1,299</div>
-        <a href="bachelorette.html" class="hslide-btn">👰 View Designs</a>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -606,7 +668,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <div class="hslide-h">Wedding Car <span>Decoration</span><br>Just Married</div>
         <div class="hslide-sub">Floral arrangements, ribbons, balloons & "Just Married" boards.</div>
         <div class="hslide-price">Starting ₹799</div>
-        <a href="car.html" class="hslide-btn">🚗 View Designs</a>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -616,7 +681,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <div class="hslide-h">Professional Decor<br>for <span>Corporate Events</span></div>
         <div class="hslide-sub">Product launches, office parties & brand activations done right.</div>
         <div class="hslide-price">Starting ₹2,999</div>
-        <a href="corporate.html" class="hslide-btn">🏢 View Designs</a>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -626,7 +694,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <div class="hslide-h">Celebrate <span>Festivals</span><br>With Style</div>
         <div class="hslide-sub">Diwali, Christmas, New Year, Holi & all festival decorations.</div>
         <div class="hslide-price">Starting ₹999</div>
-        <a href="festival.html" class="hslide-btn">🪔 View Designs</a>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -636,7 +707,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <div class="hslide-h">Make Your First Night<br><span>Magical</span></div>
         <div class="hslide-sub">Romantic balloon & rose petal decorations with candles & lights.</div>
         <div class="hslide-price">Starting ₹1,672</div>
-        <a href="first-night.html" class="hslide-btn">💍 View Designs</a>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -646,7 +720,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <div class="hslide-h">Traditional <span>Haldi</span><br>Mehendi Decor</div>
         <div class="hslide-sub">Beautiful pre-wedding ceremony decorations with marigold & flowers.</div>
         <div class="hslide-price">Starting ₹1,299</div>
-        <a href="bachelorette.html" class="hslide-btn">🌿 View Designs</a>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -656,7 +733,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <div class="hslide-h">Griha Pravesh<br><span>Celebration</span></div>
         <div class="hslide-sub">Traditional & modern housewarming decoration with flowers & balloons.</div>
         <div class="hslide-price">Starting ₹1,499</div>
-        <a href="housewarming.html" class="hslide-btn">🏠 View Designs</a>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -666,7 +746,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <div class="hslide-h">Unicorn, Superhero &<br><span>100+ Fun Themes</span></div>
         <div class="hslide-sub">Cocomelon, Frozen, Jungle & more — kids themes that spark pure joy.</div>
         <div class="hslide-price">Starting ₹1,199</div>
-        <a href="kids-birthday.html" class="hslide-btn">🎉 View Designs</a>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -676,7 +759,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <div class="hslide-h">Beautiful <span>Naamkaran</span><br>Celebration</div>
         <div class="hslide-sub">Traditional naming ceremony with foil balloons & custom boards.</div>
         <div class="hslide-price">Starting ₹999</div>
-        <a href="naming.html" class="hslide-btn">🌸 View Designs</a>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -686,7 +772,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <div class="hslide-h">Grand Opening<br><span>Decoration</span></div>
         <div class="hslide-sub">Shop launch & inauguration with balloon arches & banners.</div>
         <div class="hslide-price">Starting ₹1,499</div>
-        <a href="new-opening.html" class="hslide-btn">🎊 View Designs</a>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -696,7 +785,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <div class="hslide-h">Celebrate Your<br><span>Furry Friend</span></div>
         <div class="hslide-sub">Cute & safe balloon decorations for pet birthdays & gotcha days.</div>
         <div class="hslide-price">Starting ₹799</div>
-        <a href="pet.html" class="hslide-btn">🐾 View Designs</a>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -706,7 +798,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <div class="hslide-h">Professional<br><span>Showroom</span> Setup</div>
         <div class="hslide-sub">Premium event decoration for corporate showroom launches.</div>
         <div class="hslide-price">Starting ₹2,999</div>
-        <a href="showroom.html" class="hslide-btn">🏪 View Designs</a>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -716,7 +811,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <div class="hslide-h">Grand Stage Setups<br>for <span>Every Occasion</span></div>
         <div class="hslide-sub">Weddings, engagements & events with balloon arches & drapes.</div>
         <div class="hslide-price">Starting ₹2,499</div>
-        <a href="stage.html" class="hslide-btn">🎪 View Designs</a>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -726,7 +824,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <div class="hslide-h">Welcome Your<br><span>Newborn</span></div>
         <div class="hslide-sub">Personalized name boards, balloon arches & entrance decor.</div>
         <div class="hslide-price">Starting ₹1,199</div>
-        <a href="welcome-baby.html" class="hslide-btn">🍼 View Designs</a>
+        <div class="hslide-btns">
+          <a href="tel:+919876543210" class="hbtn-call" onclick="event.stopPropagation()">Call Now</a>
+          <a href="https://wa.me/919876543210" class="hbtn-wa" onclick="event.stopPropagation()">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -914,7 +1015,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 <section class="gcta">
   <h2>Easy Customize &amp; Customer Support</h2>
   <p>Tell us your theme, colour & budget — we'll handle everything. 24/7 WhatsApp support.</p>
-  <a href="https://wa.me/919876543210" class="gcta-wa">💬 Chat on WhatsApp</a>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+    <a href="tel:+919876543210" style="display:inline-flex;align-items:center;gap:10px;background:#e91e8c;color:#fff;padding:15px 40px;border-radius:35px;font-size:16px;font-weight:700;text-decoration:none;box-shadow:0 6px 24px rgba(233,30,140,.4);transition:.2s">Call Now</a>
+    <a href="https://wa.me/919876543210" class="gcta-wa">💬 Chat on WhatsApp</a>
+  </div>
 </section>
 
 <!-- SERVICE GRID -->
@@ -1081,7 +1185,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <h3>Birthday Decoration</h3>
         <p>Vibrant balloon setups, arches, bouquets & themed arrangements tailored to your birthday style & colour.</p>
         <div class="cat-price">Starting ₹999</div>
-        <a href="birthday.html" class="cat-link">View Designs →</a>
+        <div class="card-btns">
+          <a href="tel:+919876543210" class="btn-call">📞 Call</a>
+          <a href="https://wa.me/919876543210" class="btn-wa">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -1095,7 +1202,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <h3>Kids Birthday Decoration</h3>
         <p>Cocomelon, Unicorn, Jungle, Superhero, Frozen, Princess themes & 100+ more fun kids themes.</p>
         <div class="cat-price">Starting ₹1,199</div>
-        <a href="kids-birthday.html" class="cat-link">View Designs →</a>
+        <div class="card-btns">
+          <a href="tel:+919876543210" class="btn-call">📞 Call</a>
+          <a href="https://wa.me/919876543210" class="btn-wa">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -1108,7 +1218,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <h3>Baby Shower Decoration</h3>
         <p>Adorable pink & blue setups, gender reveal arrangements, foil balloons & customized photo backdrops.</p>
         <div class="cat-price">Starting ₹1,499</div>
-        <a href="baby-shower.html" class="cat-link">View Designs →</a>
+        <div class="card-btns">
+          <a href="tel:+919876543210" class="btn-call">📞 Call</a>
+          <a href="https://wa.me/919876543210" class="btn-wa">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -1122,7 +1235,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <h3>Anniversary Decoration</h3>
         <p>Surprise your partner with romantic balloon room setup, heart arches, rose petals & personalized name banners.</p>
         <div class="cat-price">Starting ₹1,299</div>
-        <a href="anniversary.html" class="cat-link">View Designs →</a>
+        <div class="card-btns">
+          <a href="tel:+919876543210" class="btn-call">📞 Call</a>
+          <a href="https://wa.me/919876543210" class="btn-wa">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -1136,7 +1252,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <h3>First Night Decoration</h3>
         <p>Make your first wedding night magical with beautiful balloon & rose petal decorations, candles & fairy lights.</p>
         <div class="cat-price">Starting ₹1,672</div>
-        <a href="first-night.html" class="cat-link">View Designs →</a>
+        <div class="card-btns">
+          <a href="tel:+919876543210" class="btn-call">📞 Call</a>
+          <a href="https://wa.me/919876543210" class="btn-wa">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -1149,7 +1268,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <h3>Stage Decoration</h3>
         <p>Grand stage setups for weddings, engagements & events with balloon arches, drapes & floral arrangements.</p>
         <div class="cat-price">Starting ₹2,499</div>
-        <a href="stage.html" class="cat-link">View Designs →</a>
+        <div class="card-btns">
+          <a href="tel:+919876543210" class="btn-call">📞 Call</a>
+          <a href="https://wa.me/919876543210" class="btn-wa">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -1162,7 +1284,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <h3>Welcome Baby Decoration</h3>
         <p>Celebrate the arrival of your newborn with personalised name boards, balloon arches & welcoming entrance decor.</p>
         <div class="cat-price">Starting ₹1,199</div>
-        <a href="welcome-baby.html" class="cat-link">View Designs →</a>
+        <div class="card-btns">
+          <a href="tel:+919876543210" class="btn-call">📞 Call</a>
+          <a href="https://wa.me/919876543210" class="btn-wa">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -1175,7 +1300,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <h3>Naming Ceremony</h3>
         <p>Traditional & modern naamkaran setups with foil letter balloons, flower decoration & custom welcome boards.</p>
         <div class="cat-price">Starting ₹999</div>
-        <a href="naming.html" class="cat-link">View Designs →</a>
+        <div class="card-btns">
+          <a href="tel:+919876543210" class="btn-call">📞 Call</a>
+          <a href="https://wa.me/919876543210" class="btn-wa">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -1188,7 +1316,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <h3>House Warming Decoration</h3>
         <p>Griha Pravesh celebration setups with flowers, balloons, marigold garlands & traditional decorative elements.</p>
         <div class="cat-price">Starting ₹1,499</div>
-        <a href="housewarming.html" class="cat-link">View Designs →</a>
+        <div class="card-btns">
+          <a href="tel:+919876543210" class="btn-call">📞 Call</a>
+          <a href="https://wa.me/919876543210" class="btn-wa">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -1201,7 +1332,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <h3>Corporate / Showroom Decoration</h3>
         <p>Professional setups for product launches, office parties, brand activations & corporate milestones.</p>
         <div class="cat-price">Starting ₹2,999</div>
-        <a href="corporate.html" class="cat-link">View Designs →</a>
+        <div class="card-btns">
+          <a href="tel:+919876543210" class="btn-call">📞 Call</a>
+          <a href="https://wa.me/919876543210" class="btn-wa">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -1214,7 +1348,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <h3>Car Decoration</h3>
         <p>Wedding car & get-away vehicle decoration with floral arrangements, ribbons, balloons & "Just Married" boards.</p>
         <div class="cat-price">Starting ₹799</div>
-        <a href="car.html" class="cat-link">View Designs →</a>
+        <div class="card-btns">
+          <a href="tel:+919876543210" class="btn-call">📞 Call</a>
+          <a href="https://wa.me/919876543210" class="btn-wa">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -1228,7 +1365,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <h3>Bachelorette / Haldi / Mehandi</h3>
         <p>Pre-wedding fun setups for bachelorette, haldi & mehndi ceremonies with bright, festive decorations.</p>
         <div class="cat-price">Starting ₹1,299</div>
-        <a href="bachelorette.html" class="cat-link">View Designs →</a>
+        <div class="card-btns">
+          <a href="tel:+919876543210" class="btn-call">📞 Call</a>
+          <a href="https://wa.me/919876543210" class="btn-wa">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -1241,7 +1381,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <h3>Festival Decoration</h3>
         <p>Diwali, Christmas, New Year, Holi & all festival celebration setups with themed balloons & lights.</p>
         <div class="cat-price">Starting ₹999</div>
-        <a href="festival.html" class="cat-link">View Designs →</a>
+        <div class="card-btns">
+          <a href="tel:+919876543210" class="btn-call">📞 Call</a>
+          <a href="https://wa.me/919876543210" class="btn-wa">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -1255,7 +1398,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <h3>Pet Decoration</h3>
         <p>Cute & safe balloon decorations for your furry friend's birthday or gotcha day celebrations.</p>
         <div class="cat-price">Starting ₹799</div>
-        <a href="pet.html" class="cat-link">View Designs →</a>
+        <div class="card-btns">
+          <a href="tel:+919876543210" class="btn-call">📞 Call</a>
+          <a href="https://wa.me/919876543210" class="btn-wa">WhatsApp</a>
+        </div>
       </div>
     </div>
     <!-- New Opening -->
@@ -1268,7 +1414,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <h3>New Opening Decoration</h3>
         <p>Grand opening, ribbon cutting, shop launch & inauguration decoration with balloon arches, banners & festive setups.</p>
         <div class="cat-price">Starting ₹1,499</div>
-        <a href="new-opening.html" class="cat-link">View Designs →</a>
+        <div class="card-btns">
+          <a href="tel:+919876543210" class="btn-call">📞 Call</a>
+          <a href="https://wa.me/919876543210" class="btn-wa">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -1282,7 +1431,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <h3>Corporate Showroom Decoration</h3>
         <p>Professional showroom launch, branding activations & premium event decoration for corporate milestones.</p>
         <div class="cat-price">Starting ₹2,999</div>
-        <a href="showroom.html" class="cat-link">View Designs →</a>
+        <div class="card-btns">
+          <a href="tel:+919876543210" class="btn-call">📞 Call</a>
+          <a href="https://wa.me/919876543210" class="btn-wa">WhatsApp</a>
+        </div>
       </div>
     </div>
 
@@ -1362,9 +1514,9 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 
   <div class="gal-grid" id="galGrid">
     <!-- Birthday -->
-    <div class="gal-item" data-gcat="birthday"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt="Birthday" loading="lazy"/><div class="gal-ov"><p>🎂 Birthday – Mumbai</p></div></div>
-    <div class="gal-item" data-gcat="birthday"><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=500&q=80" alt="Birthday Balloons" loading="lazy"/><div class="gal-ov"><p>🎂 Birthday – Delhi</p></div></div>
-    <div class="gal-item" data-gcat="birthday"><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500&q=80" alt="Birthday Party" loading="lazy"/><div class="gal-ov"><p>🎂 Birthday – Pune</p></div></div>
+    <div class="gal-item" data-gcat="birthday"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt="Birthday" loading="lazy"/><div class="gal-ov"><p>🎂 Birthday – Mumbai</p><div class="gal-overlay-btns"><a href="tel:+919876543210" class="gcall" onclick="event.stopPropagation()">📞</a><a href="https://wa.me/919876543210" class="gwa" onclick="event.stopPropagation()">💬</a></div></div></div>
+    <div class="gal-item" data-gcat="birthday"><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=500&q=80" alt="Birthday Balloons" loading="lazy"/><div class="gal-ov"><p>🎂 Birthday – Delhi</p><div class="gal-overlay-btns"><a href="tel:+919876543210" class="gcall" onclick="event.stopPropagation()">📞</a><a href="https://wa.me/919876543210" class="gwa" onclick="event.stopPropagation()">💬</a></div></div></div>
+    <div class="gal-item" data-gcat="birthday"><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500&q=80" alt="Birthday Party" loading="lazy"/><div class="gal-ov"><p>🎂 Birthday – Pune</p><div class="gal-overlay-btns"><a href="tel:+919876543210" class="gcall" onclick="event.stopPropagation()">📞</a><a href="https://wa.me/919876543210" class="gwa" onclick="event.stopPropagation()">💬</a></div></div></div>
 
     <!-- Kids Birthday -->
     <div class="gal-item" data-gcat="kids"><img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=500&q=80" alt="Kids Birthday" loading="lazy"/><div class="gal-ov"><p>🧒 Kids Birthday – Pune</p></div></div>
@@ -1462,8 +1614,11 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 <section class="cta">
   <h2>🎈 Ready to Make Your Event Unforgettable?</h2>
   <p>Get in touch now to book your date & receive a free custom quote within 30 minutes!</p>
-  <a href="https://wa.me/919876543210" class="bw">💬 WhatsApp Us Now</a>
-  <span class="ph">Or call us: <a href="tel:+919876543210">+91 98765 43210</a></span>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
+    <a href="tel:+919876543210" style="background:#e91e8c;color:#fff;padding:14px 36px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 26px rgba(233,30,140,.3);transition:.2s">Call Now</a>
+    <a href="https://wa.me/919876543210" class="bw">WhatsApp Us Now</a>
+  </div>
+  <span class="ph" style="margin-top:14px">Available: <a href="tel:+919876543210">+91 98765 43210</a></span>
 </section>
 
 <!-- FAQ -->
@@ -1539,8 +1694,9 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
       <div class="fci"><span class="icon">✉️</span> hello@shriballondecor.com</div>
       <div class="fci"><span class="icon">📍</span> Mumbai, Maharashtra, India</div>
       <div class="fci"><span class="icon">🕐</span> Mon–Sun: 9 AM – 9 PM</div>
-      <div style="margin-top:14px">
-        <a href="https://wa.me/919876543210" style="background:var(--pink);color:#fff;padding:10px 20px;border-radius:22px;text-decoration:none;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:7px">💬 Chat on WhatsApp</a>
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">
+        <a href="tel:+919876543210" style="background:#e91e8c;color:#fff;padding:10px 20px;border-radius:22px;text-decoration:none;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:7px;justify-content:center">Call Now</a>
+        <a href="https://wa.me/919876543210" style="background:#25d366;color:#fff;padding:10px 20px;border-radius:22px;text-decoration:none;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:7px;justify-content:center">💬 Chat on WhatsApp</a>
       </div>
     </div>
   </div>
@@ -1550,8 +1706,11 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
   </div>
 </footer>
 
-<!-- WhatsApp Float -->
-<a href="https://wa.me/919876543210" class="wa" target="_blank" title="Chat on WhatsApp">💬</a>
+<!-- Floating Buttons -->
+<div class="float-btns">
+  <a href="tel:+919876543210" class="float-btn call" title="Call Now">📞</a>
+  <a href="https://wa.me/919876543210" class="float-btn wa" target="_blank" title="Chat on WhatsApp">💬</a>
+</div>
 
 <script>
 // Hero Slider
