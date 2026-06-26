@@ -52,12 +52,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:ce
 .mob-sub a{display:flex;align-items:center;gap:10px;padding:11px 28px;color:rgba(255,255,255,.7);font-size:13.5px;text-decoration:none}
 .mob-sub a:hover{color:var(--pink-lt)}
 .mob-sub a span{font-size:15px}
-.gh{background:linear-gradient(135deg,var(--pink),#9b59b6);padding:100px 20px 60px;text-align:center;color:#fff;margin-top:68px}
+.gh{line-height:0}
 .gh h1{font-size:48px;margin-bottom:15px}
 .gh p{font-size:18px;opacity:.95}
-.gf{background:#fff;padding:30px 20px;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:68px;z-index:50}
+.gf{background:#fff;padding:14px 20px;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:68px;z-index:50}
 .gf-c{max-width:1200px;margin:0 auto;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.gf-chip{padding:10px 24px;border-radius:30px;border:2px solid var(--pink);background:#fff;color:var(--pink);font-weight:600;cursor:pointer;transition:.3s}
+@media(max-width:768px){.gf{padding:10px 0}.gf-c{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding:0 14px;scrollbar-width:none;gap:8px}.gf-c::-webkit-scrollbar{display:none}}
+.gf-chip{padding:8px 14px;border-radius:30px;border:2px solid var(--pink);background:#fff;color:var(--pink);font-weight:600;cursor:pointer;transition:.3s;white-space:nowrap;font-size:13px}
 .gf-chip.active,.gf-chip:hover{background:var(--pink);color:#fff}
 .gg{max-width:1200px;margin:50px auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
 .gi{position:relative;border-radius:12px;overflow:hidden;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.1);transition:transform .3s}
@@ -179,8 +180,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 
 <!-- HEADER -->
 <div class="gh">
-  <h1>🎈 Decoration Gallery</h1>
-  <p>Explore 1000+ stunning balloon decoration setups from real celebrations across India</p>
+  <img src="image/gallery-banner.png" alt="Gallery Banner" style="width:100%;display:block;margin-top:68px">
 </div>
 
 <!-- FILTERS -->
