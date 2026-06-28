@@ -46,8 +46,8 @@ NEW_NAV = '''<nav>
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <div style="display:flex;gap:8px;align-items:center">
-    <a href="tel:+919876543210" class="nav-cta" style="background:#e91e8c">📞 Call</a>
-    <a href="https://wa.me/919876543210" class="nav-cta" style="background:#25d366">💬 Book Now</a>
+    <a href="tel:+917665062706" class="nav-cta" style="background:#e91e8c">📞 Call</a>
+    <a href="https://wa.me/917665062706" class="nav-cta" style="background:#25d366">💬 Book Now</a>
   </div>
   <button class="ham" onclick="document.getElementById('mobMenu').classList.toggle('open')"><span></span><span></span><span></span></button>
 </nav>
@@ -81,8 +81,8 @@ NEW_NAV = '''<nav>
   <div class="mob-nav-item"><a href="gallery.html">🖼️ Gallery</a></div>
   <div class="mob-nav-item"><a href="contact.html">📍 Contact</a></div>
   <div style="padding:20px;width:100%;max-width:380px;margin-top:8px;display:flex;flex-direction:column;gap:10px">
-    <a href="tel:+919876543210" style="display:block;text-align:center;background:#e91e8c;color:#fff;padding:14px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none">📞 Call Now</a>
-    <a href="https://wa.me/919876543210" style="display:block;text-align:center;background:#25d366;color:#fff;padding:14px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none">💬 Book Now on WhatsApp</a>
+    <a href="tel:+917665062706" style="display:block;text-align:center;background:#e91e8c;color:#fff;padding:14px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none">📞 Call Now</a>
+    <a href="https://wa.me/917665062706" style="display:block;text-align:center;background:#25d366;color:#fff;padding:14px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none">💬 Book Now on WhatsApp</a>
   </div>
 </div>'''
 

@@ -30,10 +30,10 @@ html_files = [
 def update_nav_buttons(content):
     """Update navigation bar buttons"""
     # Replace single Book Now button with Call + Book Now
-    pattern = r'<a href="https://wa\.me/919876543210" class="nav-cta">💬 Book Now</a>'
+    pattern = r'<a href="https://wa\.me/917665062706" class="nav-cta">💬 Book Now</a>'
     replacement = '''<div style="display:flex;gap:8px;align-items:center">
-    <a href="tel:+919876543210" class="nav-cta" style="background:#e91e8c">📞 Call</a>
-    <a href="https://wa.me/919876543210" class="nav-cta" style="background:#25d366">💬 Book Now</a>
+    <a href="tel:+917665062706" class="nav-cta" style="background:#e91e8c">📞 Call</a>
+    <a href="https://wa.me/917665062706" class="nav-cta" style="background:#25d366">💬 Book Now</a>
   </div>'''
     content = re.sub(pattern, replacement, content)
     return content
@@ -41,10 +41,10 @@ def update_nav_buttons(content):
 def update_mobile_menu_buttons(content):
     """Update mobile menu buttons"""
     # Find and replace mobile menu WhatsApp button
-    pattern = r'<div style="padding:20px;width:100%;max-width:380px;margin-top:8px">\s*<a href="https://wa\.me/919876543210"[^>]*>💬 Book Now on WhatsApp</a>\s*</div>'
+    pattern = r'<div style="padding:20px;width:100%;max-width:380px;margin-top:8px">\s*<a href="https://wa\.me/917665062706"[^>]*>💬 Book Now on WhatsApp</a>\s*</div>'
     replacement = '''<div style="padding:20px;width:100%;max-width:380px;margin-top:8px;display:flex;flex-direction:column;gap:10px">
-    <a href="tel:+919876543210" style="display:block;text-align:center;background:#e91e8c;color:#fff;padding:14px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none">📞 Call Now</a>
-    <a href="https://wa.me/919876543210" style="display:block;text-align:center;background:#25d366;color:#fff;padding:14px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none">💬 Book Now on WhatsApp</a>
+    <a href="tel:+917665062706" style="display:block;text-align:center;background:#e91e8c;color:#fff;padding:14px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none">📞 Call Now</a>
+    <a href="https://wa.me/917665062706" style="display:block;text-align:center;background:#25d366;color:#fff;padding:14px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none">💬 Book Now on WhatsApp</a>
   </div>'''
     content = re.sub(pattern, replacement, content, flags=re.DOTALL)
     return content
@@ -52,19 +52,19 @@ def update_mobile_menu_buttons(content):
 def update_cta_buttons(content):
     """Update CTA section buttons"""
     # Main CTA section
-    pattern1 = r'<a href="https://wa\.me/919876543210" class="bw">💬 WhatsApp Us Now</a>\s*<span class="ph">Or call us: <a href="tel:\+919876543210">\+91 80006 43683</a></span>'
+    pattern1 = r'<a href="https://wa\.me/917665062706" class="bw">💬 WhatsApp Us Now</a>\s*<span class="ph">Or call us: <a href="tel:\+917665062706">\+91 76650 62706</a></span>'
     replacement1 = '''<div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
-    <a href="tel:+919876543210" style="background:#e91e8c;color:#fff;padding:14px 36px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 26px rgba(233,30,140,.3);transition:.2s">📞 Call Now</a>
-    <a href="https://wa.me/919876543210" class="bw">💬 WhatsApp Us Now</a>
+    <a href="tel:+917665062706" style="background:#e91e8c;color:#fff;padding:14px 36px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 26px rgba(233,30,140,.3);transition:.2s">📞 Call Now</a>
+    <a href="https://wa.me/917665062706" class="bw">💬 WhatsApp Us Now</a>
   </div>
-  <span class="ph" style="margin-top:14px">Available: <a href="tel:+919876543210">+91 80006 43683</a></span>'''
+  <span class="ph" style="margin-top:14px">Available: <a href="tel:+917665062706">+91 76650 62706</a></span>'''
     content = re.sub(pattern1, replacement1, content)
     
     # Green CTA section
-    pattern2 = r'<a href="https://wa\.me/919876543210" class="gcta-wa">💬 Chat on WhatsApp</a>'
+    pattern2 = r'<a href="https://wa\.me/917665062706" class="gcta-wa">💬 Chat on WhatsApp</a>'
     replacement2 = '''<div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
-    <a href="tel:+919876543210" style="display:inline-flex;align-items:center;gap:10px;background:#e91e8c;color:#fff;padding:15px 40px;border-radius:35px;font-size:16px;font-weight:700;text-decoration:none;box-shadow:0 6px 24px rgba(233,30,140,.4);transition:.2s">📞 Call Now</a>
-    <a href="https://wa.me/919876543210" class="gcta-wa">💬 Chat on WhatsApp</a>
+    <a href="tel:+917665062706" style="display:inline-flex;align-items:center;gap:10px;background:#e91e8c;color:#fff;padding:15px 40px;border-radius:35px;font-size:16px;font-weight:700;text-decoration:none;box-shadow:0 6px 24px rgba(233,30,140,.4);transition:.2s">📞 Call Now</a>
+    <a href="https://wa.me/917665062706" class="gcta-wa">💬 Chat on WhatsApp</a>
   </div>'''
     content = re.sub(pattern2, replacement2, content)
     
@@ -72,10 +72,10 @@ def update_cta_buttons(content):
 
 def update_footer_buttons(content):
     """Update footer buttons"""
-    pattern = r'<div style="margin-top:14px">\s*<a href="https://wa\.me/919876543210"[^>]*>💬 Chat on WhatsApp</a>\s*</div>'
+    pattern = r'<div style="margin-top:14px">\s*<a href="https://wa\.me/917665062706"[^>]*>💬 Chat on WhatsApp</a>\s*</div>'
     replacement = '''<div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">
-        <a href="tel:+919876543210" style="background:#e91e8c;color:#fff;padding:10px 20px;border-radius:22px;text-decoration:none;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:7px;justify-content:center">📞 Call Now</a>
-        <a href="https://wa.me/919876543210" style="background:#25d366;color:#fff;padding:10px 20px;border-radius:22px;text-decoration:none;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:7px;justify-content:center">💬 Chat on WhatsApp</a>
+        <a href="tel:+917665062706" style="background:#e91e8c;color:#fff;padding:10px 20px;border-radius:22px;text-decoration:none;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:7px;justify-content:center">📞 Call Now</a>
+        <a href="https://wa.me/917665062706" style="background:#25d366;color:#fff;padding:10px 20px;border-radius:22px;text-decoration:none;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:7px;justify-content:center">💬 Chat on WhatsApp</a>
       </div>'''
     content = re.sub(pattern, replacement, content, flags=re.DOTALL)
     return content
