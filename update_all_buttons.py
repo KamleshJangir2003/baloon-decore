@@ -52,12 +52,12 @@ def update_mobile_menu_buttons(content):
 def update_cta_buttons(content):
     """Update CTA section buttons"""
     # Main CTA section
-    pattern1 = r'<a href="https://wa\.me/919876543210" class="bw">💬 WhatsApp Us Now</a>\s*<span class="ph">Or call us: <a href="tel:\+919876543210">\+91 98765 43210</a></span>'
+    pattern1 = r'<a href="https://wa\.me/919876543210" class="bw">💬 WhatsApp Us Now</a>\s*<span class="ph">Or call us: <a href="tel:\+919876543210">\+91 80006 43683</a></span>'
     replacement1 = '''<div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
     <a href="tel:+919876543210" style="background:#e91e8c;color:#fff;padding:14px 36px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 26px rgba(233,30,140,.3);transition:.2s">📞 Call Now</a>
     <a href="https://wa.me/919876543210" class="bw">💬 WhatsApp Us Now</a>
   </div>
-  <span class="ph" style="margin-top:14px">Available: <a href="tel:+919876543210">+91 98765 43210</a></span>'''
+  <span class="ph" style="margin-top:14px">Available: <a href="tel:+919876543210">+91 80006 43683</a></span>'''
     content = re.sub(pattern1, replacement1, content)
     
     # Green CTA section
