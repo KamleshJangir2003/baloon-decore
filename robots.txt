@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.shribaloondecorastion.com/sitemap.xml
+Disallow: /tmp.html
+
+Sitemap: https://www.shriballoondecoration.com/sitemap.xml
