@@ -1,5 +1,10 @@
 User-agent: *
 Allow: /
 Disallow: /tmp.html
+Disallow: /remove_prices.py
+Disallow: /update_all_buttons.py
+Disallow: /update_buttons.py
+Disallow: /update_headers.py
+Disallow: /add_schema.ps1
 
 Sitemap: https://www.shriballoondecoration.com/sitemap.xml
