@@ -93,9 +93,8 @@
 }
 </script>
 
-<style>.fab.fa-instagram::before{content:'\f16d'}</style>
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
-<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/brands.min.css"/></noscript>
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
@@ -162,7 +161,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:ce
 .drop-header a:hover{text-decoration:underline}
 
 /* MOBILE MENU */
-.mob-menu{display:none;position:fixed;inset:0;background:rgba(20,18,40,.98);z-index:1999;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:80px;gap:0;overflow-y:auto}
+.mob-menu{display:none;position:fixed;inset:0;background:rgba(20,18,40,.98);z-index:1999;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:52px;gap:0;overflow-y:auto}
 .mob-menu.open{display:flex}
 .mob-close{position:fixed;top:18px;right:22px;background:rgba(255,255,255,.1);border:none;color:#fff;font-size:22px;cursor:pointer;width:40px;height:40px;border-radius:50%;display:grid;place-items:center}
 .mob-nav-item{width:100%;max-width:380px}
@@ -390,7 +389,8 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 .fbot{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px}
 
 /* FLOATING BUTTONS */
-.float-btns{position:fixed;bottom:77px;right:8px;z-index:999;display:flex;flex-direction:column;gap:12px}
+.float-btns{position:fixed;bottom:80px;right:14px;z-index:998;display:flex;flex-direction:column;gap:10px}
+@media(min-width:769px){.float-btns{bottom:26px;right:26px}}
 .float-btn{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(0,0,0,.3);text-decoration:none;font-size:26px;transition:.2s}
 .float-btn.wa{background:#25d366;animation:pulse 2s infinite}
 .float-btn.call{background:#e91e8c}
@@ -583,7 +583,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
   gtag('config', 'G-N4S6GZBBJX');
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N4S6GZBBJX"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 <style>
  /* Desktop par hide */
 /* Desktop Hide */
@@ -751,7 +751,7 @@ body{
   </div>
   <div class="hslides" id="hslides">
 
-    <div class="hslide" id="slide0" data-bg="image/banners/banner1.png" data-bg-mobile="image/banners/banner1-mobile.jpg">
+    <div class="hslide" data-bg="image/banners/banner1.png" data-bg-mobile="image/banners/banner1-mobile.jpg" style="background-image:url('image/banners/banner1.png')">
       <!-- <div class="hslide-txt">
         <span class="hslide-tag">🎂 Birthday Decoration</span>
         <div class="hslide-h">Celebrate Every <span>Birthday</span><br>With Balloon Magic</div>
@@ -1057,7 +1057,7 @@ body{
     <div class="svc-card" onclick="location.href='naming.html'"><img src="image/Naming%20Ceremony.webp" alt="Naming" loading="lazy"/><div class="svc-ov"><span>🌸 Naming Ceremony</span></div></div>
     <div class="svc-card" onclick="location.href='housewarming.html'"><img src="image/house%20warming.webp" alt="Housewarming" loading="lazy"/><div class="svc-ov"><span>🏠 House Warming</span></div></div>
     <div class="svc-card" onclick="location.href='corporate.html'"><img src="image/Corporate%20Event.webp" alt="Corporate" loading="lazy"/><div class="svc-ov"><span>🏢 Corporate Event</span></div></div>
-    <div class="svc-card" onclick="location.href='car.html'"><img src="image/Car Decoration.jpg" alt="Car" loading="lazy"/><div class="svc-ov"><span>🚗 Car Decoration</span></div></div>
+    <div class="svc-card" onclick="location.href='car.html'"><img src="image/car%20decoration.webp" alt="Car" loading="lazy"/><div class="svc-ov"><span>🚗 Car Decoration</span></div></div>
     <div class="svc-card" onclick="location.href='festival.html'"><img src="image/festivel%20decoration.webp" alt="Festival" loading="lazy"/><div class="svc-ov"><span>🪔 Festival Decor</span></div></div>
     <div class="svc-card" onclick="location.href='pet.html'"><img src="image/pet%20birthday.jpg" alt="Pet" loading="lazy"/><div class="svc-ov"><span>🐾 Pet Birthday</span></div></div>
     <div class="svc-card" onclick="location.href='new-opening.html'"><img src="image/new%20opning.jpg" alt="New Opening" loading="lazy"/><div class="svc-ov"><span>🎊 New Opening</span></div></div>
@@ -1348,7 +1348,7 @@ body{
     <!-- Car Decoration -->
     <div class="cat-card" data-cat="car" onclick="location.href='car.html'">
       <div class="cat-wrap">
-        <img class="cat-img" src="image/Car Decoration.jpg" alt="Car Decoration Wedding" loading="lazy"/>
+        <img class="cat-img" src="image/car%20decoration.webp" alt="Car Decoration Wedding" loading="lazy"/>
       </div>
       <div class="cat-body">
         <h3>Car Decoration</h3>
@@ -1794,7 +1794,7 @@ body{
 </footer>
 
 <!-- WELCOME POPUP -->
-<style>
+<!-- <style>
 #wpBox{background:rgba(20,16,40,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1.5px solid rgba(233,30,140,.4);border-radius:18px;padding:22px 20px 20px;max-width:340px;width:92%;text-align:center;position:relative;box-shadow:0 8px 32px rgba(233,30,140,.25)}
 @media(max-width:400px){#wpBox{padding:18px 14px 16px;border-radius:14px}}
 </style>
@@ -1822,7 +1822,7 @@ body{
   setTimeout(closePopup, 5000);
 })();
 function closePopup(){document.getElementById('welcomePopup').style.display='none';}
-</script>
+</script> -->
 
 <!-- Floating Buttons -->
 <div class="float-btns">
@@ -1848,8 +1848,13 @@ function closePopup(){document.getElementById('welcomePopup').style.display='non
     const src=isMob&&slide.dataset.bgMobile?slide.dataset.bgMobile:slide.dataset.bg;
     if(src)slide.style.backgroundImage="url('"+src+"')";
   }
-  // Load first slide immediately
-  loadBg(0);
+  // Mark first slide as loaded (already has inline style)
+  slides.querySelectorAll('.hslide')[0]._bgLoaded=true;
+  // On mobile, replace first slide bg with compressed version
+  if(window.innerWidth<=640){
+    const s0=slides.querySelectorAll('.hslide')[0];
+    if(s0&&s0.dataset.bgMobile)s0.style.backgroundImage="url('"+s0.dataset.bgMobile+"')";
+  }
   // Preload next slide
   function preloadNext(idx){
     loadBg((idx+1)%total);
@@ -1947,7 +1952,7 @@ window.addEventListener('scroll',()=>{
     </a>
 
     <a href="gallery.html" class="nav-item">
-        <i class="far fa-images"></i>
+        <i class="fas fa-images"></i>
         <span>Gallery</span>
     </a>
 
