@@ -390,7 +390,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 .fbot{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px}
 
 /* FLOATING BUTTONS */
-.float-btns{position:fixed;bottom:26px;right:26px;z-index:999;display:flex;flex-direction:column;gap:12px}
+.float-btns{position:fixed;bottom:77px;right:8px;z-index:999;display:flex;flex-direction:column;gap:12px}
 .float-btn{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(0,0,0,.3);text-decoration:none;font-size:26px;transition:.2s}
 .float-btn.wa{background:#25d366;animation:pulse 2s infinite}
 .float-btn.call{background:#e91e8c}
@@ -583,6 +583,58 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
   gtag('config', 'G-N4S6GZBBJX');
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N4S6GZBBJX"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+ /* Desktop par hide */
+.bottom-nav{
+    display:none;
+}
+
+/* Sirf Mobile (768px tak) */
+@media (max-width:768px){
+
+    .bottom-nav{
+        display:flex;
+        position:fixed;
+        bottom:0;
+        left:0;
+        width:100%;
+        height:65px;
+        background:#fff;
+        box-shadow:0 -2px 10px rgba(0,0,0,.12);
+        z-index:99999;
+        justify-content:space-around;
+        align-items:center;
+        border-top:1px solid #eee;
+    }
+
+    .bottom-nav .nav-item{
+        flex:1;
+        text-align:center;
+        text-decoration:none;
+        color:#555;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        font-size:12px;
+    }
+
+    .bottom-nav .nav-item i{
+        font-size:22px;
+        margin-bottom:4px;
+    }
+
+    .bottom-nav .nav-item.active,
+    .bottom-nav .nav-item:hover{
+        color:#ff4081;
+    }
+
+    body{
+        padding-bottom:70px;
+    }
+}
+</style>
 </head>
 <body>
 
@@ -1861,5 +1913,21 @@ window.addEventListener('scroll',()=>{
   nls.forEach(a=>{a.classList.remove('active');if(a.getAttribute('href')==='#'+cur)a.classList.add('active')});
 });
 </script>
+<div class="bottom-nav">
+    <a href="index.html" class="nav-item">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+    </a>
+
+    <a href="https://wa.me/917665062706" target="_blank" class="nav-item">
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp</span>
+    </a>
+
+    <a href="gallery.html" class="nav-item">
+        <i class="fas fa-images"></i>
+        <span>Gallery</span>
+    </a>
+</div>
 </body>
 </html>
