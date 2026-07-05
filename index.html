@@ -586,53 +586,74 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <style>
  /* Desktop par hide */
+/* Desktop Hide */
 .bottom-nav{
     display:none;
 }
 
-/* Sirf Mobile (768px tak) */
 @media (max-width:768px){
 
-    .bottom-nav{
-        display:flex;
-        position:fixed;
-        bottom:0;
-        left:0;
-        width:100%;
-        height:65px;
-        background:#fff;
-        box-shadow:0 -2px 10px rgba(0,0,0,.12);
-        z-index:99999;
-        justify-content:space-around;
-        align-items:center;
-        border-top:1px solid #eee;
-    }
+.bottom-nav{
+    display:flex;
+    position:fixed;
+    left:10px;
+    right:10px;
+    bottom:10px;
 
-    .bottom-nav .nav-item{
-        flex:1;
-        text-align:center;
-        text-decoration:none;
-        color:#555;
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-        font-size:12px;
-    }
+    height:60px;
+    padding:0 10px;
 
-    .bottom-nav .nav-item i{
-        font-size:22px;
-        margin-bottom:4px;
-    }
+    justify-content:space-around;
+    align-items:center;
 
-    .bottom-nav .nav-item.active,
-    .bottom-nav .nav-item:hover{
-        color:#ff4081;
-    }
+    background:rgba(255,255,255,.82);
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
 
-    body{
-        padding-bottom:70px;
-    }
+    border:1px solid rgba(255,255,255,.4);
+    border-radius:18px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+    z-index:999999;
+}
+
+.bottom-nav .nav-item{
+    flex:1;
+    text-decoration:none;
+    color:#666;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    transition:.3s;
+}
+
+.bottom-nav .nav-item i{
+    font-size:20px;
+    margin-bottom:3px;
+    transition:.3s;
+}
+
+.bottom-nav .nav-item span{
+    font-size:11px;
+    font-weight:500;
+}
+
+.bottom-nav .nav-item:hover,
+.bottom-nav .nav-item.active{
+    color:#ff2d7a;
+}
+
+.bottom-nav .nav-item:hover i,
+.bottom-nav .nav-item.active i{
+    transform:translateY(-2px);
+}
+
+body{
+    padding-bottom:90px;
+}
+
 }
 </style>
 </head>
@@ -1914,8 +1935,9 @@ window.addEventListener('scroll',()=>{
 });
 </script>
 <div class="bottom-nav">
-    <a href="index.html" class="nav-item">
-        <i class="fas fa-home"></i>
+
+    <a href="index.html" class="nav-item active">
+        <i class="fas fa-house"></i>
         <span>Home</span>
     </a>
 
@@ -1925,9 +1947,10 @@ window.addEventListener('scroll',()=>{
     </a>
 
     <a href="gallery.html" class="nav-item">
-        <i class="fas fa-images"></i>
+        <i class="far fa-images"></i>
         <span>Gallery</span>
     </a>
+
 </div>
 </body>
 </html>
