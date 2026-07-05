@@ -1732,11 +1732,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 </div>
 <script>
 (function(){
-  if(!sessionStorage.getItem('popupShown')){
-    const p=document.getElementById('welcomePopup');
-    p.style.display='flex';
-    sessionStorage.setItem('popupShown','1');
-  }
+  document.getElementById('welcomePopup').style.display='flex';
 })();
 function closePopup(){document.getElementById('welcomePopup').style.display='none';}
 </script>
