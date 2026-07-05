@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <link rel="preload" as="image" href="image/banners/banner1.png" fetchpriority="high" type="image/png" media="(min-width:641px)"/>
+<link rel="preload" as="image" href="image/banners/banner1-mobile.jpg" fetchpriority="high" type="image/jpeg" media="(max-width:640px)"/>
 <link rel="icon" type="image/x-icon" href="favicon.ico"/>
 <link rel="icon" type="image/png" sizes="192x192" href="image/favicon.png"/>
 <link rel="icon" type="image/png" sizes="512x512" href="image/favicon.png"/>
@@ -92,12 +93,13 @@
 }
 </script>
 
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
-<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/></noscript>
+<style>.fab.fa-instagram::before{content:'\f16d'}</style>
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/brands.min.css"/></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"/></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap"/></noscript>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -235,6 +237,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:ce
   .hero-mob-cta{display:none}
   .hdots{display:flex;bottom:10px}
   .hero-content{display:none}
+  /* Mobile: show only first 2 slides, rest hidden until needed */
+  .hslide:nth-child(n+3){background-image:none!important}
 }
 
 /* SECTION */
@@ -572,14 +576,13 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 }
 </style>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N4S6GZBBJX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-N4S6GZBBJX');
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N4S6GZBBJX"></script>
 </head>
 <body>
 
@@ -675,7 +678,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
   </div>
   <div class="hslides" id="hslides">
 
-    <div class="hslide" style="background-image:url('image/banners/banner1.png')">
+    <div class="hslide" id="slide0" data-bg="image/banners/banner1.png" data-bg-mobile="image/banners/banner1-mobile.jpg">
       <!-- <div class="hslide-txt">
         <span class="hslide-tag">🎂 Birthday Decoration</span>
         <div class="hslide-h">Celebrate Every <span>Birthday</span><br>With Balloon Magic</div>
@@ -687,7 +690,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
       </div> -->
     </div>
 
-    <div class="hslide" data-bg="image/banners/banner2.png">
+    <div class="hslide" data-bg="image/banners/banner2.png" data-bg-mobile="image/banners/banner2-mobile.jpg">
       <!-- <div class="hslide-txt">
         <span class="hslide-tag">❤️ Anniversary Decoration</span>
         <div class="hslide-h">Surprise Your Partner<br>with <span>Romantic Setup</span></div>
@@ -699,7 +702,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
       </div> -->
     </div>
 
-    <div class="hslide" data-bg="image/banners/banner3.png">
+    <div class="hslide" data-bg="image/banners/banner3.png" data-bg-mobile="image/banners/banner3-mobile.jpg">
       <!-- <div class="hslide-txt">
         <span class="hslide-tag">👶 Baby Shower</span>
         <div class="hslide-h">Welcome the Little One<br>with <span>Beautiful Decor</span></div>
@@ -711,7 +714,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
       </div> -->
     </div>
 
-    <div class="hslide" data-bg="image/banners/banner4.png">
+    <div class="hslide" data-bg="image/banners/banner4.png" data-bg-mobile="image/banners/banner4-mobile.jpg">
       <!-- <div class="hslide-txt">
         <span class="hslide-tag">💍 First Night Decoration</span>
         <div class="hslide-h">Make Your First Night<br><span>Magical</span></div>
@@ -723,7 +726,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
       </div> -->
     </div>
 
-    <div class="hslide" data-bg="image/banners/banner5.png">
+    <div class="hslide" data-bg="image/banners/banner5.png" data-bg-mobile="image/banners/banner5-mobile.jpg">
       <!-- <div class="hslide-txt">
         <span class="hslide-tag">🌿 Haldi Mehendi</span>
         <div class="hslide-h">Traditional <span>Haldi</span><br>Mehendi Decor</div>
@@ -734,7 +737,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         </div>
       </div> -->
     </div>
-    <div class="hslide" data-bg="image/banners/banner6.png">
+    <div class="hslide" data-bg="image/banners/banner6.png" data-bg-mobile="image/banners/banner6-mobile.jpg">
       <!-- <div class="hslide-txt">
         <span class="hslide-tag">🌸 Naming Ceremony</span>
         <div class="hslide-h">Beautiful <span>Naamkaran</span><br>Celebration</div>
@@ -745,7 +748,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         </div>
       </div> -->
     </div>
-      <div class="hslide" data-bg="image/banners/banner7.png">
+      <div class="hslide" data-bg="image/banners/banner7.png" data-bg-mobile="image/banners/banner7-mobile.jpg">
       <!-- <div class="hslide-txt">
         <span class="hslide-tag">🎪 Stage Decoration</span>
         <div class="hslide-h">Grand Stage Setups<br>for <span>Every Occasion</span></div>
@@ -757,7 +760,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
       </div> -->
     </div>
 
-    <div class="hslide" data-bg="image/banners/banner8.png">
+    <div class="hslide" data-bg="image/banners/banner8.png" data-bg-mobile="image/banners/banner8-mobile.jpg">
      
     </div>
 
@@ -1763,12 +1766,17 @@ function closePopup(){document.getElementById('welcomePopup').style.display='non
   let cur=0;
 
   // Lazy load banner backgrounds
+  const isMob=window.innerWidth<=640;
   function loadBg(idx){
     const slide=slides.querySelectorAll('.hslide')[idx];
-    if(slide&&slide.dataset.bg&&!slide.style.backgroundImage){
-      slide.style.backgroundImage="url('"+slide.dataset.bg+"')";
-    }
+    if(!slide)return;
+    if(slide._bgLoaded)return;
+    slide._bgLoaded=true;
+    const src=isMob&&slide.dataset.bgMobile?slide.dataset.bgMobile:slide.dataset.bg;
+    if(src)slide.style.backgroundImage="url('"+src+"')";
   }
+  // Load first slide immediately
+  loadBg(0);
   // Preload next slide
   function preloadNext(idx){
     loadBg((idx+1)%total);
@@ -1790,7 +1798,7 @@ function closePopup(){document.getElementById('welcomePopup').style.display='non
   }
 
   // Preload slide 2 after page load
-  window.addEventListener('load',()=>loadBg(1));
+  window.addEventListener('load',()=>{loadBg(1);loadBg(2);},{ once:true });
 
   window.hMove=dir=>go(cur+dir);
   let hauto=setInterval(()=>go(cur+1),4500);
