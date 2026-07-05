@@ -1544,7 +1544,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
     <div class="stag">Customer Reviews</div>
     <h2 class="stitle">What Our Clients Say</h2>
     <div class="sdiv"></div>
-    <p class="ssub" style="margin-top:14px">Real stories from real celebrations. See why 500+ families choose Shri Ballon Decor.</p>
+    <p class="ssub" style="margin-top:14px">Real stories from real celebrations. See why 5000+ families choose Shri Ballon Decor.</p>
   </div>
   <div class="tslider">
     <div class="ttrack" id="ttrack">
@@ -1706,6 +1706,40 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 
   </div>
 </footer>
+
+<!-- WELCOME POPUP -->
+<style>
+#wpBox{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);border:1.5px solid rgba(233,30,140,.35);border-radius:18px;padding:22px 20px 20px;max-width:340px;width:92%;text-align:center;position:relative;box-shadow:0 16px 48px rgba(0,0,0,.6)}
+@media(max-width:400px){#wpBox{padding:18px 14px 16px;border-radius:14px}}
+</style>
+<div id="welcomePopup" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(10,8,30,.78);backdrop-filter:blur(5px);align-items:center;justify-content:center;padding:12px">
+  <div id="wpBox">
+    <button onclick="closePopup()" style="position:absolute;top:10px;right:12px;background:rgba(255,255,255,.1);border:none;color:#fff;font-size:16px;cursor:pointer;width:28px;height:28px;border-radius:50%;display:grid;place-items:center">✕</button>
+    <div style="font-size:30px;margin-bottom:6px">🎈</div>
+    <h2 style="font-family:'Playfair Display',serif;color:#fff;font-size:1.2rem;margin-bottom:4px">Welcome to <em style="color:#ff6bb5;font-style:normal">Shri Balloon</em></h2>
+    <p style="color:#f7c948;font-size:.78rem;font-weight:600;margin-bottom:10px">✨ Indore's Trusted Decoration Service</p>
+    <p style="color:rgba(255,255,255,.65);font-size:.72rem;margin-bottom:10px">🎂 Birthday • 💍 Anniversary • 👶 Baby Shower • 💒 Wedding</p>
+    <div style="background:rgba(255,255,255,.06);border-radius:10px;padding:9px 12px;margin-bottom:14px;text-align:left">
+      <p style="color:#fff;font-size:.72rem;line-height:1.85">🌟 <strong style="color:#ff6bb5">Why Choose Us?</strong><br>
+      ✅ Same Day Decoration &nbsp; ✅ 50+ Themes<br>
+      ✅ Affordable Pricing &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✅ 5000+ Customers</p>
+    </div>
+    <div style="display:flex;gap:8px">
+      <a href="tel:+917665062706" onclick="closePopup()" style="flex:1;background:#e91e8c;color:#fff;padding:10px 6px;border-radius:22px;font-weight:700;font-size:12.5px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:5px">📞 Call</a>
+      <a href="https://wa.me/917665062706" onclick="closePopup()" style="flex:1;background:#25d366;color:#fff;padding:10px 6px;border-radius:22px;font-weight:700;font-size:12.5px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:5px">💬 Book Now</a>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  if(!sessionStorage.getItem('popupShown')){
+    const p=document.getElementById('welcomePopup');
+    p.style.display='flex';
+    sessionStorage.setItem('popupShown','1');
+  }
+})();
+function closePopup(){document.getElementById('welcomePopup').style.display='none';}
+</script>
 
 <!-- Floating Buttons -->
 <div class="float-btns">
