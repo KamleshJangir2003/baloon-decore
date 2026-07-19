@@ -163,6 +163,190 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 .map-container iframe{height:300px}
 .fg{grid-template-columns:1fr}
 }
+.service-areas{
+    padding:80px 20px;
+    background:#fff;
+}
+
+.service-areas .container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:48px;
+    font-weight:700;
+}
+
+.section-title span{
+    color:#e91e63;
+}
+
+.section-title p{
+    color:#666;
+    margin-top:15px;
+    font-size:18px;
+}
+
+.city-card{
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    background:#fff;
+
+    border:2px solid #f3b1d2;
+
+    border-radius:25px;
+
+    padding:45px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    overflow:hidden;
+
+}
+
+.city-content{
+    width:50%;
+}
+
+.city-badge{
+
+    display:inline-block;
+
+    background:#ffe5f2;
+
+    color:#e91e63;
+
+    padding:10px 20px;
+
+    border-radius:40px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    margin-bottom:20px;
+
+}
+
+.city-content h3{
+
+    font-size:60px;
+
+    margin-bottom:10px;
+
+}
+
+.city-tagline{
+
+    font-size:22px;
+
+    color:#666;
+
+}
+
+.city-image{
+
+    width:45%;
+
+    text-align:right;
+
+}
+
+.city-image img{
+
+    max-width:100%;
+
+}
+
+.spot-title{
+
+    text-align:center;
+
+    margin-top:60px;
+
+    margin-bottom:30px;
+
+    font-size:30px;
+
+}
+
+.spot-list{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:15px;
+
+}
+
+.spot-list a{
+
+    text-decoration:none;
+
+    color:#444;
+
+    background:#f7f7f7;
+
+    padding:12px 24px;
+
+    border-radius:50px;
+
+    transition:.3s;
+
+    border:1px solid #ddd;
+
+}
+
+.spot-list a:hover{
+
+    background:#e91e63;
+
+    color:#fff;
+
+}
+
+@media(max-width:768px){
+
+.city-card{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.city-content,
+.city-image{
+
+width:100%;
+
+}
+
+.city-content h3{
+
+font-size:40px;
+
+}
+
+.city-image{
+
+margin-top:30px;
+
+}
+
+}
 </style>
 </head>
 <body>
@@ -247,9 +431,55 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
 <!-- NAV -->
 
 <!-- HEADER -->
-<div class="ch">
-  <!-- <img src="image/banners.png" alt="Contact Banner"> -->
+<!-- ================== SERVICE AREAS ================== -->
+<section class="service-areas">
+    <div class="container">
+
+        <div class="section-title">
+    <h2>Get In <span>Touch</span></h2>
+    <p>
+        Planning a birthday, anniversary, baby shower, or any special celebration?
+        Contact Shri Balloon Decoration today for premium balloon decoration services across Indore.
+    </p>
 </div>
+
+        <div class="city-card">
+
+            <div class="city-content">
+                <span class="city-badge">EXPLORE CITY</span>
+
+                <h3>Indore</h3>
+
+                <p class="city-tagline">
+                    Cleanest City of India
+                </p>
+            </div>
+
+            <div class="city-image">
+                <img src="image/indoreimg.png" alt="Indore">
+            </div>
+
+        </div>
+
+        <h3 class="spot-title">📍 Popular Party Spots</h3>
+
+        <div class="spot-list">
+
+            <a href="#">Vijay Nagar</a>
+            <a href="#">Palasia</a>
+            <a href="#">Rau</a>
+            <a href="#">Bhawarkuan</a>
+            <a href="#">Scheme No.54</a>
+            <a href="#">Scheme No.140</a>
+            <a href="#">MR 10</a>
+            <a href="#">Khajrana</a>
+            <a href="#">Sudama Nagar</a>
+            <a href="#">Bengali Square</a>
+
+        </div>
+
+    </div>
+</section>
 
 <!-- CONTACT SECTION -->
 <div class="contact-wrap">
@@ -358,7 +588,9 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
         <textarea id="message" name="message" placeholder="Tell us about your event, preferred colors, theme, budget, etc."></textarea>
       </div>
 
-      <button type="submit" class="submit-btn">📨 Send Message</button>
+      <button type="submit" class="submit-btn">
+    💬 Book on WhatsApp
+</button>
     </form>
   </div>
 </div>
@@ -432,43 +664,49 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:60px 5% 28px}
   </div>
 </footer>
 
+<script>
+function handleSubmit(event) {
+    event.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let email = document.getElementById("email").value;
+    let eventType = document.getElementById("event").options[document.getElementById("event").selectedIndex].text;
+    let eventDate = document.getElementById("date").value;
+    let city = document.getElementById("city").value;
+    let message = document.getElementById("message").value;
+
+    let whatsappMessage =
+`🎈 *New Booking Enquiry*
+
+👤 *Name:* ${name}
+
+📞 *Phone:* ${phone}
+
+📧 *Email:* ${email}
+
+🎉 *Event Type:* ${eventType}
+
+📅 *Event Date:* ${eventDate}
+
+📍 *City:* ${city}
+
+📝 *Message:* ${message}`;
+
+    let whatsappURL = "https://wa.me/917665062706?text=" + encodeURIComponent(whatsappMessage);
+
+    window.open(whatsappURL, "_blank");
+
+    document.getElementById("contactForm").reset();
+}
+</script>
+
 <!-- Floating Buttons -->
 <div style="position:fixed;bottom:26px;right:26px;z-index:999;display:flex;flex-direction:column;gap:12px">
   <a href="tel:+917665062706" style="width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(0,0,0,.3);text-decoration:none;font-size:26px;background:#e91e8c" title="Call Now">📞</a>
   <a href="https://wa.me/917665062706" style="width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:26px;background:#25d366;animation:pulse 2s infinite" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp">💬</a>
 </div>
 
-<script>
-function handleSubmit(e) {
-  e.preventDefault();
-  const form = e.target;
-  const formData = new FormData(form);
-  
-  const name = formData.get('name');
-  const phone = formData.get('phone');
-  const email = formData.get('email');
-  const event = formData.get('event');
-  const date = formData.get('date');
-  const city = formData.get('city');
-  const message = formData.get('message');
-  
-  // Create WhatsApp message
-  let whatsappMsg = `*New Enquiry from Website*%0A%0A`;
-  whatsappMsg += `*Name:* ${name}%0A`;
-  whatsappMsg += `*Phone:* ${phone}%0A`;
-  if(email) whatsappMsg += `*Email:* ${email}%0A`;
-  whatsappMsg += `*Event Type:* ${event}%0A`;
-  if(date) whatsappMsg += `*Event Date:* ${date}%0A`;
-  whatsappMsg += `*City:* ${city}%0A`;
-  if(message) whatsappMsg += `*Message:* ${message}%0A`;
-  
-  // Redirect to WhatsApp
-  window.open(`https://wa.me/917665062706?text=${whatsappMsg}`, '_blank');
-  
-  // Reset form
-  form.reset();
-  alert('Thank you! Redirecting to WhatsApp...');
-}
-</script>
+
 </body>
 </html>
