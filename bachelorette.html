@@ -23,23 +23,158 @@
 <meta name="twitter:image" content="https://www.shriballoondecoration.com/image/banners/banner1.png"/>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.shriballoondecoration.com/"},
-    {"@type":"ListItem","position":2,"name":"Bachelorette / Haldi / Mehandi","item":"https://www.shriballoondecoration.com/bachelorette.html"}
-  ]
-}
-</script>
+  "@context":"https://schema.org",
+  "@graph":[
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Bachelorette Haldi Mehndi Decoration in Indore",
-  "description": "Fun pre-wedding decoration in Indore. Bachelorette, haldi and mehndi setups. Serving Vijay Nagar, Palasia, Nipania, Rajendra Nagar and all Indore areas.",
-  "provider": {"@type": "LocalBusiness", "name": "Shri Balloon Decoration", "telephone": "+917665062706", "address": {"@type": "PostalAddress", "addressLocality": "Indore", "addressRegion": "Madhya Pradesh", "addressCountry": "IN"}},
-  "areaServed": ["Indore","Vijay Nagar","Palasia","Nipania","Rajendra Nagar","Rau","Khajrana","Lasudia","Bengali Square","Super Corridor","Scheme No 54","Scheme No 78","Mahalaxmi Nagar","Sudama Nagar","Navlakha","Pipliyahana","Silicon City","Dewas Naka","Bhawarkua","LIG","MIG","Patnipura","Geeta Bhawan","Musakhedi","Annapurna","Kanadia Road","Airport Road","MR10","Ring Road"]
+    {
+      "@type":"Organization",
+      "@id":"https://www.shriballoondecoration.com/#organization",
+      "name":"Shri Balloon Decoration",
+      "url":"https://www.shriballoondecoration.com/",
+      "logo":{
+        "@type":"ImageObject",
+        "url":"https://www.shriballoondecoration.com/favicon.ico"
+      },
+      "telephone":"+91-7665062706",
+      "email":"shriballondecortiion@gmail.com",
+      "sameAs":[
+        "https://www.instagram.com/shriballondecor_indore/",
+        "https://www.facebook.com/profile.php?id=61591807917699"
+      ]
+    },
+
+    {
+      "@type":"LocalBusiness",
+      "@id":"https://www.shriballoondecoration.com/#business",
+      "name":"Shri Balloon Decoration",
+      "image":"https://www.shriballoondecoration.com/image/banners/banner1.png",
+      "url":"https://www.shriballoondecoration.com/",
+      "telephone":"+91-7665062706",
+      "email":"shriballondecortiion@gmail.com",
+      "priceRange":"₹₹",
+      "address":{
+        "@type":"PostalAddress",
+        "addressLocality":"Indore",
+        "addressRegion":"Madhya Pradesh",
+        "addressCountry":"IN"
+      },
+      "hasMap":"https://www.google.com/maps?cid=4630938310602126184",
+      "openingHours":"Mo-Su 00:00-23:59",
+      "areaServed":{
+        "@type":"City",
+        "name":"Indore"
+      },
+      "sameAs":[
+        "https://www.instagram.com/shriballondecor_indore/",
+        "https://www.facebook.com/profile.php?id=61591807917699"
+      ]
+    },
+
+    {
+      "@type":"WebSite",
+      "@id":"https://www.shriballoondecoration.com/#website",
+      "url":"https://www.shriballoondecoration.com/",
+      "name":"Shri Balloon Decoration",
+      "publisher":{
+        "@id":"https://www.shriballoondecoration.com/#organization"
+      },
+      "inLanguage":"en-IN"
+    },
+
+    {
+      "@type":"WebPage",
+      "@id":"https://www.shriballoondecoration.com/bachelorette.html",
+      "url":"https://www.shriballoondecoration.com/bachelorette.html",
+      "name":"Bachelorette, Haldi & Mehndi Decoration in Indore",
+      "description":"Professional Bachelorette, Haldi and Mehndi Decoration in Indore with bride-to-be setup, marigold decor, floral backdrops and customized themes.",
+      "isPartOf":{
+        "@id":"https://www.shriballoondecoration.com/#website"
+      },
+      "breadcrumb":{
+        "@id":"https://www.shriballoondecoration.com/bachelorette.html#breadcrumb"
+      }
+    },
+
+    {
+      "@type":"Service",
+      "@id":"https://www.shriballoondecoration.com/bachelorette.html#service",
+      "serviceType":"Bachelorette, Haldi & Mehndi Decoration",
+      "name":"Bachelorette, Haldi & Mehndi Decoration in Indore",
+      "provider":{
+        "@id":"https://www.shriballoondecoration.com/#business"
+      },
+      "areaServed":{
+        "@type":"City",
+        "name":"Indore"
+      },
+      "url":"https://www.shriballoondecoration.com/bachelorette.html",
+      "description":"Best Bachelorette, Haldi and Mehndi Decoration service in Indore including Bride To Be setup, floral decoration, marigold backdrop, mehndi stage decoration, balloon decoration and customized themes."
+    },
+
+    {
+      "@type":"BreadcrumbList",
+      "@id":"https://www.shriballoondecoration.com/bachelorette.html#breadcrumb",
+      "itemListElement":[
+        {
+          "@type":"ListItem",
+          "position":1,
+          "name":"Home",
+          "item":"https://www.shriballoondecoration.com/"
+        },
+        {
+          "@type":"ListItem",
+          "position":2,
+          "name":"Bachelorette, Haldi & Mehndi Decoration",
+          "item":"https://www.shriballoondecoration.com/bachelorette.html"
+        }
+      ]
+    },
+
+    {
+      "@type":"FAQPage",
+      "@id":"https://www.shriballoondecoration.com/bachelorette.html#faq",
+      "mainEntity":[
+
+        {
+          "@type":"Question",
+          "name":"Do you provide Haldi Decoration in Indore?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Yes. We provide beautiful Haldi decoration services across all areas of Indore with marigold flowers, floral backdrops and customized setups."
+          }
+        },
+
+        {
+          "@type":"Question",
+          "name":"Do you provide Mehndi Decoration in Indore?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Yes. We provide Mehndi decoration with floral themes, boho backdrops, bride seating and customized decoration."
+          }
+        },
+
+        {
+          "@type":"Question",
+          "name":"Do you decorate Bride To Be and Bachelorette parties?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Yes. We provide Bride To Be, Bridal Shower and Bachelorette party decoration with balloons, foil balloons, photo booth and customized themes."
+          }
+        },
+
+        {
+          "@type":"Question",
+          "name":"Do you provide home and banquet decoration?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Yes. We decorate homes, hotels, banquet halls, restaurants and outdoor venues throughout Indore."
+          }
+        }
+
+      ]
+    }
+
+  ]
 }
 </script>
 <link rel="stylesheet" href="category.css"/>
@@ -265,10 +400,10 @@ flex-direction:column;
 </script>
 <footer id="contact">
   <div class="fg">
-    <div class="fbrand"><div class="flogo"><div class="fi">🎈</div><span>Shri</span></div><p>India's most loved balloon & event decoration service across 50+ cities.</p><div class="soc"><a href="#">f</a><a href="#">in</a><a href="#">▶</a><a href="#">📷</a></div></div>
+    <div class="fbrand"><div class="flogo"><div class="fi">🎈</div><span>Shri</span></div><p>Indore's trusted balloon decoration service for birthdays, anniversaries, baby showers, weddings, and all special events. Creating unforgettable celebrations with premium decorations and same-day booking</p><div class="soc"><a href="#">f</a><a href="#">in</a><a href="#">▶</a><a href="#">📷</a></div></div>
     <div class="fcol"><h4>All Categories</h4><ul><li><a href="birthday.html">Birthday</a></li><li><a href="kids-birthday.html">Kids Birthday</a></li><li><a href="baby-shower.html">Baby Shower</a></li><li><a href="anniversary.html">Anniversary</a></li><li><a href="first-night.html">First Night</a></li><li><a href="stage.html">Stage Decoration</a></li><li><a href="welcome-baby.html">Welcome Baby</a></li><li><a href="naming.html">Naming Ceremony</a></li></ul></div>
     <div class="fcol"><h4>More Services</h4><ul><li><a href="housewarming.html">House Warming</a></li><li><a href="corporate.html">Corporate</a></li><li><a href="car.html">Car Decoration</a></li><li><a href="bachelorette.html">Bachelorette</a></li><li><a href="festival.html">Festival</a></li><li><a href="pet.html">Pet Decoration</a></li><li><a href="new-opening.html">New Opening</a></li><li><a href="showroom.html">Showroom</a></li></ul></div>
-    <div class="fcol"><h4>Contact Us</h4><div class="fci"><span class="icon">📞</span>+91 76650 62706</div><div class="fci"><span class="icon">✉️</span>hello@Shriservices.com</div><div class="fci"><span class="icon">📍</span>Indore , India</div><div class="fci"><span class="icon">🕐</span>Mon–Sun: Open 24 Hours</div></div>
+    <div class="fcol"><h4>Contact Us</h4><div class="fci"><span class="icon">📞</span>+91 76650 62706</div><div class="fci"><span class="icon">✉️</span>shriballondecortiion@gmail.com</div><div class="fci"><span class="icon">📍</span>Indore , India</div><div class="fci"><span class="icon">🕐</span>Mon–Sun: Open 24 Hours</div></div>
   </div>
   <div class="fbot"><span>
   © 2026 Shri Event & Balloon Decoration Services. All Rights Reserved. Developed by

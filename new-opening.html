@@ -23,23 +23,150 @@
 <meta name="twitter:image" content="https://www.shriballoondecoration.com/image/banners/banner1.png"/>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.shriballoondecoration.com/"},
-    {"@type":"ListItem","position":2,"name":"New Opening Decoration","item":"https://www.shriballoondecoration.com/new-opening.html"}
-  ]
-}
-</script>
+  "@context":"https://schema.org",
+  "@graph":[
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "New Shop Opening Decoration in Indore",
-  "description": "Professional new shop opening and grand opening decoration in Indore. Shop launch, ribbon cutting and inauguration balloon arches. Serving Vijay Nagar, Palasia, Nipania and all Indore areas.",
-  "provider": {"@type": "LocalBusiness", "name": "Shri Balloon Decoration", "telephone": "+917665062706", "address": {"@type": "PostalAddress", "addressLocality": "Indore", "addressRegion": "Madhya Pradesh", "addressCountry": "IN"}},
-  "areaServed": ["Indore","Vijay Nagar","Palasia","Nipania","Rajendra Nagar","Rau","Khajrana","Lasudia","Bengali Square","Super Corridor","Scheme No 54","Scheme No 78","Mahalaxmi Nagar","Sudama Nagar","Navlakha","Pipliyahana","Silicon City","Dewas Naka","Bhawarkua","LIG","MIG","Patnipura","Geeta Bhawan","Musakhedi","Annapurna","Kanadia Road","Airport Road","MR10","Ring Road"]
+    {
+      "@type":"Organization",
+      "@id":"https://www.shriballoondecoration.com/#organization",
+      "name":"Shri Balloon Decoration",
+      "url":"https://www.shriballoondecoration.com/",
+      "logo":{
+        "@type":"ImageObject",
+        "url":"https://www.shriballoondecoration.com/favicon.ico"
+      },
+      "telephone":"+91-7665062706",
+      "email":"shriballondecortiion@gmail.com",
+      "sameAs":[
+        "https://www.instagram.com/shriballondecor_indore/",
+        "https://www.facebook.com/profile.php?id=61591807917699"
+      ]
+    },
+
+    {
+      "@type":"LocalBusiness",
+      "@id":"https://www.shriballoondecoration.com/#business",
+      "name":"Shri Balloon Decoration",
+      "image":"https://www.shriballoondecoration.com/image/banners/banner1.png",
+      "url":"https://www.shriballoondecoration.com/",
+      "telephone":"+91-7665062706",
+      "email":"shriballondecortiion@gmail.com",
+      "priceRange":"₹₹",
+      "address":{
+        "@type":"PostalAddress",
+        "addressLocality":"Indore",
+        "addressRegion":"Madhya Pradesh",
+        "addressCountry":"IN"
+      },
+      "hasMap":"https://www.google.com/maps?cid=4630938310602126184",
+      "openingHours":"Mo-Su 00:00-23:59",
+      "areaServed":{
+        "@type":"City",
+        "name":"Indore"
+      }
+    },
+
+    {
+      "@type":"WebSite",
+      "@id":"https://www.shriballoondecoration.com/#website",
+      "url":"https://www.shriballoondecoration.com/",
+      "name":"Shri Balloon Decoration"
+    },
+
+    {
+      "@type":"WebPage",
+      "@id":"https://www.shriballoondecoration.com/new-opening.html",
+      "url":"https://www.shriballoondecoration.com/new-opening.html",
+      "name":"New Shop Opening Decoration in Indore | Grand Opening Decoration",
+      "description":"Professional New Shop Opening Decoration in Indore including Grand Opening Decoration, Shop Launch Decoration, Showroom Opening Decoration, Restaurant Opening Decoration, Ribbon Cutting Decoration, Corporate Office Launch Decoration and Balloon Arch Decoration.",
+      "isPartOf":{
+        "@id":"https://www.shriballoondecoration.com/#website"
+      },
+      "breadcrumb":{
+        "@id":"https://www.shriballoondecoration.com/new-opening.html#breadcrumb"
+      }
+    },
+
+    {
+      "@type":"Service",
+      "@id":"https://www.shriballoondecoration.com/new-opening.html#service",
+      "serviceType":"New Opening Decoration",
+      "name":"New Shop Opening Decoration in Indore",
+      "provider":{
+        "@id":"https://www.shriballoondecoration.com/#business"
+      },
+      "url":"https://www.shriballoondecoration.com/new-opening.html",
+      "areaServed":{
+        "@type":"City",
+        "name":"Indore"
+      },
+      "description":"Professional New Shop Opening Decoration in Indore including Grand Opening Decoration, Shop Launch Decoration, Showroom Opening Decoration, Restaurant Opening Decoration, Cafe Opening Decoration, Clinic Opening Decoration, Boutique Opening Decoration, Gym Opening Decoration, Corporate Office Launch Decoration, Ribbon Cutting Ceremony Decoration, Balloon Arch Decoration and Customized Business Opening Decoration."
+    },
+
+    {
+      "@type":"BreadcrumbList",
+      "@id":"https://www.shriballoondecoration.com/new-opening.html#breadcrumb",
+      "itemListElement":[
+        {
+          "@type":"ListItem",
+          "position":1,
+          "name":"Home",
+          "item":"https://www.shriballoondecoration.com/"
+        },
+        {
+          "@type":"ListItem",
+          "position":2,
+          "name":"New Opening Decoration",
+          "item":"https://www.shriballoondecoration.com/new-opening.html"
+        }
+      ]
+    },
+
+    {
+      "@type":"FAQPage",
+      "@id":"https://www.shriballoondecoration.com/new-opening.html#faq",
+      "mainEntity":[
+
+        {
+          "@type":"Question",
+          "name":"Do you provide New Shop Opening Decoration in Indore?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Yes. We provide professional new shop opening and grand opening decoration services across Indore."
+          }
+        },
+
+        {
+          "@type":"Question",
+          "name":"Do you provide ribbon cutting ceremony decoration?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Yes. Every package includes ribbon cutting setup, balloon arch and inauguration decoration."
+          }
+        },
+
+        {
+          "@type":"Question",
+          "name":"Can you decorate restaurants, clinics and showrooms?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Yes. We decorate restaurants, cafes, clinics, gyms, boutiques, offices and showrooms for grand openings."
+          }
+        },
+
+        {
+          "@type":"Question",
+          "name":"Which areas do you serve in Indore?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"We provide new opening decoration services in Vijay Nagar, Palasia, Nipania, Rau, Rajendra Nagar, Bengali Square, MR10, Ring Road and all nearby areas of Indore."
+          }
+        }
+
+      ]
+    }
+
+  ]
 }
 </script>
 <link rel="stylesheet" href="category.css"/>
@@ -289,10 +416,10 @@ flex-direction:column;
 </script>
 <footer id="contact">
   <div class="fg">
-    <div class="fbrand"><div class="flogo"><div class="fi">🎈</div><span>Shri</span></div><p>India's most loved balloon & event decoration service across 50+ cities.</p><div class="soc"><a href="#">f</a><a href="#">in</a><a href="#">▶</a><a href="#">📷</a></div></div>
+    <div class="fbrand"><div class="flogo"><div class="fi">🎈</div><span>Shri</span></div><p>Indore's trusted balloon decoration service for birthdays, anniversaries, baby showers, weddings, and all special events. Creating unforgettable celebrations with premium decorations and same-day booking</p><div class="soc"><a href="#">f</a><a href="#">in</a><a href="#">▶</a><a href="#">📷</a></div></div>
     <div class="fcol"><h4>All Categories</h4><ul><li><a href="birthday.html">Birthday</a></li><li><a href="kids-birthday.html">Kids Birthday</a></li><li><a href="baby-shower.html">Baby Shower</a></li><li><a href="anniversary.html">Anniversary</a></li><li><a href="first-night.html">First Night</a></li><li><a href="stage.html">Stage Decoration</a></li><li><a href="welcome-baby.html">Welcome Baby</a></li><li><a href="naming.html">Naming Ceremony</a></li></ul></div>
     <div class="fcol"><h4>More Services</h4><ul><li><a href="housewarming.html">House Warming</a></li><li><a href="corporate.html">Corporate</a></li><li><a href="car.html">Car Decoration</a></li><li><a href="bachelorette.html">Bachelorette</a></li><li><a href="festival.html">Festival</a></li><li><a href="pet.html">Pet Decoration</a></li><li><a href="new-opening.html">New Opening</a></li><li><a href="showroom.html">Showroom</a></li></ul></div>
-    <div class="fcol"><h4>Contact Us</h4><div class="fci"><span class="icon">📞</span>+91 76650 62706</div><div class="fci"><span class="icon">✉️</span>hello@Shriservices.com</div><div class="fci"><span class="icon">📍</span>Indore , India</div><div class="fci"><span class="icon">🕐</span>Mon–Sun: Open 24 Hours</div></div>
+    <div class="fcol"><h4>Contact Us</h4><div class="fci"><span class="icon">📞</span>+91 76650 62706</div><div class="fci"><span class="icon">✉️</span>shriballondecortiion@gmail.com</div><div class="fci"><span class="icon">📍</span>Indore , India</div><div class="fci"><span class="icon">🕐</span>Mon–Sun: Open 24 Hours</div></div>
   </div>
   <div class="fbot"><span>
   © 2026 Shri Event & Balloon Decoration Services. All Rights Reserved. Developed by

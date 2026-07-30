@@ -23,23 +23,158 @@
 <meta name="twitter:image" content="https://www.shriballoondecoration.com/image/banners/banner1.png"/>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.shriballoondecoration.com/"},
-    {"@type":"ListItem","position":2,"name":"Birthday Decoration Indore","item":"https://www.shriballoondecoration.com/birthday.html"}
-  ]
-}
-</script>
+  "@context":"https://schema.org",
+  "@graph":[
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Birthday Balloon Decoration",
-  "description": "Top birthday balloon decoration in Indore. Balloon arch, room setup, theme party.",
-  "provider": {"@type": "LocalBusiness", "name": "Shri Balloon Decoration", "telephone": "+917665062706"},
-  "areaServed": "Indore, India"
+    {
+      "@type":"Organization",
+      "@id":"https://www.shriballoondecoration.com/#organization",
+      "name":"Shri Balloon Decoration",
+      "url":"https://www.shriballoondecoration.com/",
+      "logo":{
+        "@type":"ImageObject",
+        "url":"https://www.shriballoondecoration.com/favicon.ico"
+      },
+      "telephone":"+91-7665062706",
+      "email":"shriballondecortiion@gmail.com",
+      "sameAs":[
+        "https://www.instagram.com/shriballondecor_indore/",
+        "https://www.facebook.com/profile.php?id=61591807917699"
+      ]
+    },
+
+    {
+      "@type":"LocalBusiness",
+      "@id":"https://www.shriballoondecoration.com/#business",
+      "name":"Shri Balloon Decoration",
+      "image":"https://www.shriballoondecoration.com/image/banners/banner1.png",
+      "url":"https://www.shriballoondecoration.com/",
+      "telephone":"+91-7665062706",
+      "email":"shriballondecortiion@gmail.com",
+      "priceRange":"₹₹",
+      "address":{
+        "@type":"PostalAddress",
+        "addressLocality":"Indore",
+        "addressRegion":"Madhya Pradesh",
+        "addressCountry":"IN"
+      },
+      "hasMap":"https://www.google.com/maps?cid=4630938310602126184",
+      "openingHours":"Mo-Su 00:00-23:59",
+      "areaServed":{
+        "@type":"City",
+        "name":"Indore"
+      },
+      "sameAs":[
+        "https://www.instagram.com/shriballondecor_indore/",
+        "https://www.facebook.com/profile.php?id=61591807917699"
+      ]
+    },
+
+    {
+      "@type":"WebSite",
+      "@id":"https://www.shriballoondecoration.com/#website",
+      "url":"https://www.shriballoondecoration.com/",
+      "name":"Shri Balloon Decoration",
+      "publisher":{
+        "@id":"https://www.shriballoondecoration.com/#organization"
+      },
+      "inLanguage":"en-IN"
+    },
+
+    {
+      "@type":"WebPage",
+      "@id":"https://www.shriballoondecoration.com/birthday.html",
+      "url":"https://www.shriballoondecoration.com/birthday.html",
+      "name":"Birthday Decoration in Indore | Birthday Balloon Decoration | Birthday Party Decorator",
+      "description":"Best Birthday Decoration in Indore with Birthday Balloon Decoration, Birthday Party Decoration, Surprise Birthday Decoration, Birthday Room Decoration, Kids Birthday Decoration, Home Birthday Decoration, Hotel Birthday Decoration and Theme Birthday Decoration.",
+      "isPartOf":{
+        "@id":"https://www.shriballoondecoration.com/#website"
+      },
+      "breadcrumb":{
+        "@id":"https://www.shriballoondecoration.com/birthday.html#breadcrumb"
+      }
+    },
+
+    {
+      "@type":"Service",
+      "@id":"https://www.shriballoondecoration.com/birthday.html#service",
+      "serviceType":"Birthday Decoration",
+      "name":"Birthday Balloon Decoration in Indore",
+      "provider":{
+        "@id":"https://www.shriballoondecoration.com/#business"
+      },
+      "areaServed":{
+        "@type":"City",
+        "name":"Indore"
+      },
+      "url":"https://www.shriballoondecoration.com/birthday.html",
+      "description":"Professional Birthday Decoration in Indore including Birthday Balloon Decoration, Birthday Party Decoration, Birthday Room Decoration, Surprise Birthday Decoration, Kids Birthday Decoration, Home Birthday Decoration, Hotel Birthday Decoration, Balloon Arch Decoration, Theme Birthday Decoration, Balloon Backdrop, Balloon Wall, LED Decoration, Same Day Birthday Decoration and Event Decoration."
+    },
+
+    {
+      "@type":"BreadcrumbList",
+      "@id":"https://www.shriballoondecoration.com/birthday.html#breadcrumb",
+      "itemListElement":[
+        {
+          "@type":"ListItem",
+          "position":1,
+          "name":"Home",
+          "item":"https://www.shriballoondecoration.com/"
+        },
+        {
+          "@type":"ListItem",
+          "position":2,
+          "name":"Birthday Decoration",
+          "item":"https://www.shriballoondecoration.com/birthday.html"
+        }
+      ]
+    },
+
+    {
+      "@type":"FAQPage",
+      "@id":"https://www.shriballoondecoration.com/birthday.html#faq",
+      "mainEntity":[
+
+        {
+          "@type":"Question",
+          "name":"What is the cost of Birthday Decoration in Indore?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Birthday decoration packages in Indore are available for every budget. Contact Shri Balloon Decoration for the latest pricing and customized packages."
+          }
+        },
+
+        {
+          "@type":"Question",
+          "name":"Do you provide Surprise Birthday Room Decoration in Indore?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Yes. We provide surprise birthday room decoration at homes, hotels, apartments and banquet halls across Indore."
+          }
+        },
+
+        {
+          "@type":"Question",
+          "name":"Do you provide Kids Birthday Theme Decoration?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Yes. We provide Unicorn, Cocomelon, Boss Baby, Frozen, Spiderman, Jungle Theme, Car Theme, Barbie Theme and many other customized birthday themes."
+          }
+        },
+
+        {
+          "@type":"Question",
+          "name":"Which areas do you serve in Indore?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"We provide birthday decoration services in Vijay Nagar, Palasia, Nipania, Rau, Bengali Square, Scheme No.54, Scheme No.78, Khajrana, Lasudia, MR10, Ring Road and all nearby areas of Indore."
+          }
+        }
+
+      ]
+    }
+
+  ]
 }
 </script>
 <link rel="stylesheet" href="category.css"/>
@@ -421,7 +556,7 @@ flex-direction:column;
     </ul></div>
     <div class="fcol"><h4>Contact Us</h4>
       <div class="fci"><span class="icon">📞</span>+91 76650 62706</div>
-      <div class="fci"><span class="icon">✉️</span>hello@Shriservices.com</div>
+      <div class="fci"><span class="icon">✉️</span>shriballondecortiion@gmail.com</div>
       <div class="fci"><span class="icon">📍</span>Indore , India</div>
       <div class="fci"><span class="icon">🕐</span>Mon–Sun: Open 24 Hours</div>
       <div style="margin-top:14px"><a href="https://wa.me/917665062706" style="background:var(--pink);color:#fff;padding:10px 20px;border-radius:22px;text-decoration:none;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:7px">💬 Chat on WhatsApp</a></div>

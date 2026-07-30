@@ -23,23 +23,150 @@
 <meta name="twitter:image" content="https://www.shriballoondecoration.com/image/banners/banner1.png"/>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.shriballoondecoration.com/"},
-    {"@type":"ListItem","position":2,"name":"Car Decoration","item":"https://www.shriballoondecoration.com/car.html"}
-  ]
-}
-</script>
+  "@context":"https://schema.org",
+  "@graph":[
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Car Decoration in Indore",
-  "description": "Professional car decoration in Indore for weddings, engagements and birthdays. Fresh flowers, ribbons, balloons and custom boards. Serving Vijay Nagar, Palasia, Nipania and all Indore areas.",
-  "provider": {"@type": "LocalBusiness", "name": "Shri Balloon Decoration", "telephone": "+917665062706", "address": {"@type": "PostalAddress", "addressLocality": "Indore", "addressRegion": "Madhya Pradesh", "addressCountry": "IN"}},
-  "areaServed": ["Indore","Vijay Nagar","Palasia","Nipania","Rajendra Nagar","Rau","Khajrana","Lasudia","Bengali Square","Super Corridor","Scheme No 54","Scheme No 78","Mahalaxmi Nagar","Sudama Nagar","Navlakha","Pipliyahana","Silicon City","Dewas Naka","Bhawarkua","LIG","MIG","Patnipura","Geeta Bhawan","Musakhedi","Annapurna","Kanadia Road","Airport Road","MR10","Ring Road"]
+    {
+      "@type":"Organization",
+      "@id":"https://www.shriballoondecoration.com/#organization",
+      "name":"Shri Balloon Decoration",
+      "url":"https://www.shriballoondecoration.com/",
+      "logo":{
+        "@type":"ImageObject",
+        "url":"https://www.shriballoondecoration.com/favicon.ico"
+      },
+      "telephone":"+91-7665062706",
+      "email":"shriballondecortiion@gmail.com",
+      "sameAs":[
+        "https://www.instagram.com/shriballondecor_indore/",
+        "https://www.facebook.com/profile.php?id=61591807917699"
+      ]
+    },
+
+    {
+      "@type":"LocalBusiness",
+      "@id":"https://www.shriballoondecoration.com/#business",
+      "name":"Shri Balloon Decoration",
+      "image":"https://www.shriballoondecoration.com/image/banners/banner1.png",
+      "url":"https://www.shriballoondecoration.com/",
+      "telephone":"+91-7665062706",
+      "email":"shriballondecortiion@gmail.com",
+      "priceRange":"₹₹",
+      "address":{
+        "@type":"PostalAddress",
+        "addressLocality":"Indore",
+        "addressRegion":"Madhya Pradesh",
+        "addressCountry":"IN"
+      },
+      "hasMap":"https://www.google.com/maps?cid=4630938310602126184",
+      "openingHours":"Mo-Su 00:00-23:59",
+      "areaServed":{
+        "@type":"City",
+        "name":"Indore"
+      }
+    },
+
+    {
+      "@type":"WebSite",
+      "@id":"https://www.shriballoondecoration.com/#website",
+      "url":"https://www.shriballoondecoration.com/",
+      "name":"Shri Balloon Decoration"
+    },
+
+    {
+      "@type":"WebPage",
+      "@id":"https://www.shriballoondecoration.com/car.html",
+      "url":"https://www.shriballoondecoration.com/car.html",
+      "name":"Car Decoration in Indore | Wedding Car Decoration | Bridal Car Decoration",
+      "description":"Best Car Decoration in Indore including Wedding Car Decoration, Bridal Car Decoration, Luxury Car Decoration, Birthday Car Decoration, Flower Car Decoration, Engagement Car Decoration, Fresh Flower Car Decoration and Same Day Car Decoration.",
+      "isPartOf":{
+        "@id":"https://www.shriballoondecoration.com/#website"
+      },
+      "breadcrumb":{
+        "@id":"https://www.shriballoondecoration.com/car.html#breadcrumb"
+      }
+    },
+
+    {
+      "@type":"Service",
+      "@id":"https://www.shriballoondecoration.com/car.html#service",
+      "serviceType":"Car Decoration",
+      "name":"Car Decoration in Indore",
+      "provider":{
+        "@id":"https://www.shriballoondecoration.com/#business"
+      },
+      "url":"https://www.shriballoondecoration.com/car.html",
+      "areaServed":{
+        "@type":"City",
+        "name":"Indore"
+      },
+      "description":"Professional Car Decoration in Indore including Wedding Car Decoration, Bridal Car Decoration, Luxury Car Decoration, Flower Car Decoration, Fresh Flower Car Decoration, Ribbon Car Decoration, Engagement Car Decoration, Anniversary Car Decoration, Birthday Car Decoration, Surprise Car Decoration, Premium Car Decoration and Customized Car Decoration."
+    },
+
+    {
+      "@type":"BreadcrumbList",
+      "@id":"https://www.shriballoondecoration.com/car.html#breadcrumb",
+      "itemListElement":[
+        {
+          "@type":"ListItem",
+          "position":1,
+          "name":"Home",
+          "item":"https://www.shriballoondecoration.com/"
+        },
+        {
+          "@type":"ListItem",
+          "position":2,
+          "name":"Car Decoration",
+          "item":"https://www.shriballoondecoration.com/car.html"
+        }
+      ]
+    },
+
+    {
+      "@type":"FAQPage",
+      "@id":"https://www.shriballoondecoration.com/car.html#faq",
+      "mainEntity":[
+
+        {
+          "@type":"Question",
+          "name":"Do you provide Wedding Car Decoration in Indore?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Yes. We provide wedding car decoration with fresh flowers, ribbons, balloons and premium bridal themes across Indore."
+          }
+        },
+
+        {
+          "@type":"Question",
+          "name":"Do you decorate Bridal Cars?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Yes. We provide luxury bridal car decoration with roses, orchids, premium flowers, LED boards and customized designs."
+          }
+        },
+
+        {
+          "@type":"Question",
+          "name":"Can you decorate birthday surprise cars?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Yes. We provide birthday surprise car decoration with balloons, foil balloons, flowers and personalized decorations."
+          }
+        },
+
+        {
+          "@type":"Question",
+          "name":"Which areas do you serve in Indore?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"We provide car decoration services in Vijay Nagar, Palasia, Nipania, Rau, Rajendra Nagar, Khajrana, Bengali Square, MR10, Ring Road and all nearby areas of Indore."
+          }
+        }
+
+      ]
+    }
+
+  ]
 }
 </script>
 <link rel="stylesheet" href="category.css"/>
@@ -285,10 +412,10 @@ flex-direction:column;
 </script>
 <footer id="contact">
   <div class="fg">
-    <div class="fbrand"><div class="flogo"><div class="fi">🎈</div><span>Shri</span></div><p>India's most loved balloon & event decoration service across 50+ cities.</p><div class="soc"><a href="#">f</a><a href="#">in</a><a href="#">▶</a><a href="#">📷</a></div></div>
+    <div class="fbrand"><div class="flogo"><div class="fi">🎈</div><span>Shri</span></div><p>Indore's trusted balloon decoration service for birthdays, anniversaries, baby showers, weddings, and all special events. Creating unforgettable celebrations with premium decorations and same-day booking</p><div class="soc"><a href="#">f</a><a href="#">in</a><a href="#">▶</a><a href="#">📷</a></div></div>
     <div class="fcol"><h4>All Categories</h4><ul><li><a href="birthday.html">Birthday</a></li><li><a href="kids-birthday.html">Kids Birthday</a></li><li><a href="baby-shower.html">Baby Shower</a></li><li><a href="anniversary.html">Anniversary</a></li><li><a href="first-night.html">First Night</a></li><li><a href="stage.html">Stage Decoration</a></li><li><a href="welcome-baby.html">Welcome Baby</a></li><li><a href="naming.html">Naming Ceremony</a></li></ul></div>
     <div class="fcol"><h4>More Services</h4><ul><li><a href="housewarming.html">House Warming</a></li><li><a href="corporate.html">Corporate</a></li><li><a href="car.html">Car Decoration</a></li><li><a href="bachelorette.html">Bachelorette</a></li><li><a href="festival.html">Festival</a></li><li><a href="pet.html">Pet Decoration</a></li><li><a href="new-opening.html">New Opening</a></li><li><a href="showroom.html">Showroom</a></li></ul></div>
-    <div class="fcol"><h4>Contact Us</h4><div class="fci"><span class="icon">📞</span>+91 76650 62706</div><div class="fci"><span class="icon">✉️</span>hello@Shriservices.com</div><div class="fci"><span class="icon">📍</span>Indore , India</div><div class="fci"><span class="icon">🕐</span>Mon–Sun: Open 24 Hours</div></div>
+    <div class="fcol"><h4>Contact Us</h4><div class="fci"><span class="icon">📞</span>+91 76650 62706</div><div class="fci"><span class="icon">✉️</span>shriballondecortiion@gmail.com</div><div class="fci"><span class="icon">📍</span>Indore , India</div><div class="fci"><span class="icon">🕐</span>Mon–Sun: Open 24 Hours</div></div>
   </div>
   <div class="fbot"><span>
   © 2026 Shri Event & Balloon Decoration Services. All Rights Reserved. Developed by
