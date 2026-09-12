@@ -32,7 +32,9 @@ def update_nav_buttons(content):
     # Replace single Book Now button with Call + Book Now
     pattern = r'<a href="https://wa\.me/917665062706" class="nav-cta">💬 Book Now</a>'
     replacement = '''<div style="display:flex;gap:8px;align-items:center">
-    <a href="tel:+917665062706" class="nav-cta" style="background:#e91e8c">📞 Call</a>
+    <a href="tel:+917665062706"
+   onclick="return gtag_report_conversion('tel:+917665062706');"
+   class="nav-cta" style="background:#e91e8c">📞 Call</a>
     <a href="https://wa.me/917665062706" class="nav-cta" style="background:#25d366">💬 Book Now</a>
   </div>'''
     content = re.sub(pattern, replacement, content)
@@ -43,7 +45,11 @@ def update_mobile_menu_buttons(content):
     # Find and replace mobile menu WhatsApp button
     pattern = r'<div style="padding:20px;width:100%;max-width:380px;margin-top:8px">\s*<a href="https://wa\.me/917665062706"[^>]*>💬 Book Now on WhatsApp</a>\s*</div>'
     replacement = '''<div style="padding:20px;width:100%;max-width:380px;margin-top:8px;display:flex;flex-direction:column;gap:10px">
-    <a href="tel:+917665062706" style="display:block;text-align:center;background:#e91e8c;color:#fff;padding:14px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none">📞 Call Now</a>
+   <a href="tel:+917665062706"
+   onclick="return gtag_report_conversion('tel:+917665062706');"
+   style="display:block;text-align:center;background:#e91e8c;color:#fff;padding:14px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none">
+   📞 Call Now
+</a>
     <a href="https://wa.me/917665062706" style="display:block;text-align:center;background:#25d366;color:#fff;padding:14px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none">💬 Book Now on WhatsApp</a>
   </div>'''
     content = re.sub(pattern, replacement, content, flags=re.DOTALL)

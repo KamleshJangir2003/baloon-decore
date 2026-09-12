@@ -16,7 +16,9 @@ old_button = r'<a href="https://wa.me/917665062706" class="wa" target="_blank">�
 
 new_buttons = '''<!-- Floating Buttons -->
 <div class="float-btns">
-  <a href="tel:+917665062706" class="float-btn call" title="Call Now">📞</a>
+  <a href="tel:+917665062706"
+   onclick="return gtag_report_conversion('tel:+917665062706');"
+   class="float-btn call" title="Call Now">📞</a>
   <a href="https://wa.me/917665062706" class="float-btn wa" target="_blank" title="Chat on WhatsApp">💬</a>
 </div>'''
 
