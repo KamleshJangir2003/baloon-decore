@@ -6,5 +6,13 @@ Disallow: /update_all_buttons.py
 Disallow: /update_buttons.py
 Disallow: /update_headers.py
 Disallow: /add_schema.ps1
+Disallow: /fix_contact.ps1
+Disallow: /fix_faq.ps1
+Disallow: /fix_festival.ps1
+Disallow: /fix_gallery.ps1
+Disallow: /fix_newopening.ps1
+Disallow: /fix_pet.ps1
+Disallow: /fix_showroom.ps1
+Disallow: /seo_fix.ps1
 
 Sitemap: https://www.shriballoondecoration.com/sitemap.xml
