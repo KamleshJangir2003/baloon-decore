@@ -1,174 +1,589 @@
-# SEO fix script for all remaining pages
-$enc = [System.Text.Encoding]::UTF8
+# ============================================================
+# ADDITIONAL SEO KEYWORDS - ALL CATEGORY PAGES
+# ============================================================
 
-function ReplaceInFile($path, $pairs) {
-    $c = [System.IO.File]::ReadAllText($path, $enc)
-    foreach ($p in $pairs) {
-        if ($c.Contains($p[0])) {
-            $c = $c.Replace($p[0], $p[1])
-            Write-Host "  Replaced: $($p[0].Substring(0,[Math]::Min(60,$p[0].Length)))"
-        } else {
-            Write-Host "  NOT FOUND: $($p[0].Substring(0,[Math]::Min(60,$p[0].Length)))"
+Write-Host ""
+Write-Host "=== Adding additional SEO keyword coverage ==="
+
+$keywordSections = @{
+
+    "birthday.html" = @(
+        "birthday decoration indore",
+        "birthday decoration in indore",
+        "birthday decorators in indore",
+        "birthday decorator indore",
+        "birthday decoration near me",
+        "birthday decorator near me",
+        "birthday party decoration indore",
+        "birthday party decorators indore",
+        "balloon birthday decoration indore",
+        "birthday balloon decoration indore",
+        "balloon decoration for birthday indore",
+        "balloon decorator indore",
+        "balloon decoration near me",
+        "balloon decorator near me",
+        "birthday decoration at home indore",
+        "birthday decoration at home",
+        "home birthday decoration indore",
+        "birthday room decoration indore",
+        "birthday room decoration near me",
+        "birthday surprise decoration indore",
+        "surprise birthday decoration indore",
+        "birthday balloon arch indore",
+        "balloon arch decoration indore",
+        "balloon backdrop decoration indore",
+        "balloon wall decoration indore",
+        "birthday balloon backdrop indore",
+        "simple balloon decoration indore",
+        "premium balloon decoration indore",
+        "1st birthday decoration indore",
+        "first birthday decoration indore",
+        "1st birthday balloon decoration indore",
+        "first birthday decoration at home",
+        "kids birthday decoration indore",
+        "baby birthday decoration indore",
+        "kids theme birthday decoration indore",
+        "cartoon birthday decoration indore",
+        "birthday theme decoration indore",
+        "18th birthday decoration indore",
+        "21st birthday decoration indore",
+        "25th birthday decoration indore",
+        "30th birthday decoration indore",
+        "40th birthday decoration indore",
+        "50th birthday decoration indore",
+        "birthday number decoration indore",
+        "birthday age decoration indore",
+        "birthday decoration indore price",
+        "birthday decoration starting price indore",
+        "birthday decoration under 1000 indore",
+        "birthday decoration under 1500 indore",
+        "birthday decoration under 2000 indore",
+        "cheap birthday decoration indore",
+        "affordable birthday decoration indore",
+        "low budget birthday decoration indore",
+        "birthday decoration vijay nagar indore",
+        "birthday decoration palasia indore",
+        "birthday decoration bhawarkuan indore",
+        "birthday decoration rau indore",
+        "birthday decoration nipania indore",
+        "birthday decoration scheme 78 indore",
+        "birthday decoration scheme 54 indore",
+        "birthday decoration lig colony indore",
+        "birthday decoration mg road indore",
+        "birthday decoration sapna sangeeta indore",
+        "birthday decoration rajendra nagar indore",
+        "birthday decoration annapurna road indore",
+        "birthday decoration mahalaxmi nagar indore",
+        "birthday decoration lasudia indore",
+        "birthday decoration kanadia indore",
+        "birthday decoration aerodrome road indore"
+    )
+
+    "kids-birthday.html" = @(
+        "kids birthday decoration indore",
+        "kids birthday decoration in indore",
+        "kids birthday decorators indore",
+        "kids birthday decorator near me",
+        "kids birthday decoration near me",
+        "kids party decoration indore",
+        "kids party decorators indore",
+        "children birthday decoration indore",
+        "childrens birthday decoration indore",
+        "kids balloon decoration indore",
+        "kids balloon decoration near me",
+        "kids birthday balloon decoration indore",
+        "kids birthday decoration at home indore",
+        "kids birthday decoration at home",
+        "kids room birthday decoration indore",
+        "kids birthday room decoration",
+        "kids birthday theme decoration indore",
+        "kids theme birthday party decoration indore",
+        "birthday theme decoration for kids indore",
+        "kids birthday party decoration at home",
+        "kids birthday surprise decoration indore",
+        "kids birthday backdrop decoration indore",
+        "kids birthday balloon arch indore",
+        "kids birthday balloon backdrop indore",
+        "simple kids birthday decoration indore",
+        "low budget kids birthday decoration indore",
+        "affordable kids birthday decoration indore",
+        "kids birthday decoration price indore",
+        "cartoon birthday decoration indore",
+        "cartoon theme birthday decoration indore",
+        "kids cartoon decoration indore",
+        "baby shark birthday decoration indore",
+        "spiderman birthday decoration indore",
+        "mickey mouse birthday decoration indore",
+        "minnie mouse birthday decoration indore",
+        "frozen birthday decoration indore",
+        "barbie birthday decoration indore",
+        "avengers birthday decoration indore",
+        "dinosaur birthday decoration indore",
+        "jungle theme birthday decoration indore",
+        "princess birthday decoration indore",
+        "superhero birthday decoration indore",
+        "unicorn birthday decoration indore",
+        "car theme birthday decoration indore",
+        "1st birthday decoration indore",
+        "first birthday decoration indore",
+        "2nd birthday decoration indore",
+        "3rd birthday decoration indore",
+        "4th birthday decoration indore",
+        "5th birthday decoration indore",
+        "6th birthday decoration indore",
+        "7th birthday decoration indore",
+        "kids 1st birthday decoration at home",
+        "first birthday balloon decoration indore",
+        "baby first birthday decoration indore"
+    )
+
+    "baby-shower.html" = @(
+        "baby shower decoration indore",
+        "baby shower decoration in indore",
+        "baby shower decorators indore",
+        "baby shower decorator indore",
+        "baby shower decoration near me",
+        "baby shower decorators near me",
+        "baby shower party decoration indore",
+        "baby shower party decorators indore",
+        "baby shower balloon decoration indore",
+        "baby shower balloon decoration near me",
+        "baby shower decoration at home indore",
+        "baby shower decoration at home",
+        "baby shower room decoration indore",
+        "baby shower room decoration near me",
+        "baby shower backdrop decoration indore",
+        "baby shower balloon backdrop indore",
+        "baby shower balloon arch indore",
+        "baby shower stage decoration indore",
+        "baby shower event decoration indore",
+        "baby shower decoration services indore",
+        "baby shower decoration service near me",
+        "baby shower theme decoration indore",
+        "baby shower theme decorators indore",
+        "baby shower decoration ideas indore",
+        "baby shower decoration setup indore",
+        "simple baby shower decoration indore",
+        "premium baby shower decoration indore",
+        "home baby shower decoration indore",
+        "baby shower surprise decoration indore",
+        "baby boy shower decoration indore",
+        "baby girl shower decoration indore",
+        "blue baby shower decoration indore",
+        "pink baby shower decoration indore",
+        "prince theme baby shower decoration indore",
+        "princess theme baby shower decoration indore",
+        "baby shower decoration price indore",
+        "baby shower decoration cost indore",
+        "baby shower decoration packages indore",
+        "baby shower decoration starting price indore",
+        "affordable baby shower decoration indore",
+        "low budget baby shower decoration indore",
+        "cheap baby shower decoration indore",
+        "baby shower decoration under 1500 indore",
+        "baby shower decoration under 2000 indore",
+        "baby shower decoration vijay nagar indore",
+        "baby shower decoration palasia indore",
+        "baby shower decoration rau indore",
+        "baby shower decoration bhawarkuan indore",
+        "baby shower decoration nipania indore",
+        "baby shower decoration mahalaxmi nagar indore"
+    )
+
+    "anniversary.html" = @(
+        "anniversary decoration indore",
+        "anniversary decoration in indore",
+        "anniversary decorators indore",
+        "anniversary decorator indore",
+        "anniversary decoration near me",
+        "anniversary decorators near me",
+        "anniversary party decoration indore",
+        "anniversary party decorators indore",
+        "anniversary balloon decoration indore",
+        "anniversary balloon decoration near me",
+        "anniversary decoration at home indore",
+        "anniversary decoration at home",
+        "home anniversary decoration indore",
+        "anniversary room decoration indore",
+        "anniversary room decoration near me",
+        "anniversary backdrop decoration indore",
+        "anniversary balloon backdrop indore",
+        "anniversary balloon arch indore",
+        "anniversary stage decoration indore",
+        "anniversary event decoration indore",
+        "anniversary decoration service indore",
+        "anniversary decoration services near me",
+        "romantic anniversary decoration indore",
+        "romantic room decoration indore",
+        "romantic anniversary room decoration",
+        "romantic anniversary decoration at home",
+        "couple anniversary decoration indore",
+        "wedding anniversary decoration indore",
+        "marriage anniversary decoration indore",
+        "wedding anniversary decorators indore",
+        "marriage anniversary decorators indore",
+        "anniversary surprise decoration indore",
+        "anniversary surprise decoration at home",
+        "anniversary room surprise indore",
+        "romantic balloon decoration indore",
+        "romantic balloon decoration at home",
+        "anniversary theme decoration indore",
+        "anniversary theme decorators indore",
+        "anniversary decoration ideas indore",
+        "simple anniversary decoration indore",
+        "premium anniversary decoration indore",
+        "anniversary decoration setup indore",
+        "anniversary flower decoration indore",
+        "anniversary flower and balloon decoration indore",
+        "red theme anniversary decoration indore",
+        "heart theme anniversary decoration indore",
+        "anniversary decoration price indore",
+        "anniversary decoration cost indore",
+        "anniversary decoration packages indore",
+        "anniversary decoration starting price indore",
+        "affordable anniversary decoration indore",
+        "low budget anniversary decoration indore",
+        "cheap anniversary decoration indore",
+        "anniversary decoration under 1500 indore",
+        "anniversary decoration under 2000 indore",
+        "anniversary decoration under 3000 indore",
+        "anniversary decoration vijay nagar indore",
+        "anniversary decoration palasia indore",
+        "anniversary decoration rau indore",
+        "anniversary decoration bhawarkuan indore",
+        "anniversary decoration nipania indore",
+        "anniversary decoration mahalaxmi nagar indore",
+        "anniversary decoration scheme 78 indore",
+        "anniversary decoration scheme 54 indore"
+    )
+
+    "welcome-baby.html" = @(
+        "welcome baby decoration indore",
+        "welcome baby decoration in indore",
+        "welcome baby decorators indore",
+        "welcome baby decorator indore",
+        "welcome baby decoration near me",
+        "welcome baby decorators near me",
+        "welcome baby party decoration indore",
+        "welcome baby balloon decoration indore",
+        "welcome baby balloon decoration near me",
+        "welcome baby decoration at home indore",
+        "welcome baby decoration at home",
+        "home welcome baby decoration indore",
+        "welcome baby room decoration indore",
+        "welcome baby room decoration near me",
+        "welcome baby backdrop decoration indore",
+        "welcome baby balloon backdrop indore",
+        "welcome baby balloon arch indore",
+        "welcome baby stage decoration indore",
+        "welcome baby event decoration indore",
+        "welcome baby decoration service indore",
+        "welcome baby decoration services near me",
+        "newborn baby welcome decoration indore",
+        "newborn baby decoration indore",
+        "newborn baby welcome decoration at home",
+        "baby welcome decoration indore",
+        "baby welcome party decoration indore",
+        "baby welcome home decoration indore",
+        "baby welcome home decoration near me",
+        "baby homecoming decoration indore",
+        "newborn homecoming decoration indore",
+        "newborn baby home decoration indore",
+        "baby arrival decoration indore",
+        "baby arrival decoration at home",
+        "new baby welcome decoration indore",
+        "baby boy welcome decoration indore",
+        "baby girl welcome decoration indore",
+        "baby boy decoration indore",
+        "baby girl decoration indore",
+        "blue baby welcome decoration indore",
+        "pink baby welcome decoration indore",
+        "prince theme baby decoration indore",
+        "princess theme baby decoration indore",
+        "welcome baby theme decoration indore",
+        "welcome baby decoration ideas indore",
+        "welcome baby decoration setup indore",
+        "simple welcome baby decoration indore",
+        "premium welcome baby decoration indore",
+        "welcome baby flower decoration indore",
+        "welcome baby surprise decoration indore",
+        "welcome baby decoration price indore",
+        "welcome baby decoration cost indore",
+        "welcome baby decoration packages indore",
+        "welcome baby decoration starting price indore",
+        "affordable welcome baby decoration indore",
+        "low budget welcome baby decoration indore",
+        "cheap welcome baby decoration indore",
+        "welcome baby decoration under 1500 indore",
+        "welcome baby decoration under 2000 indore",
+        "welcome baby decoration under 3000 indore",
+        "welcome baby decoration vijay nagar indore",
+        "welcome baby decoration palasia indore",
+        "welcome baby decoration rau indore",
+        "welcome baby decoration bhawarkuan indore",
+        "welcome baby decoration nipania indore",
+        "welcome baby decoration mahalaxmi nagar indore",
+        "welcome baby decoration scheme 78 indore",
+        "welcome baby decoration scheme 54 indore"
+    )
+
+    "festival.html" = @(
+        "festival decoration indore",
+        "festival decoration in indore",
+        "festival decorators indore",
+        "festival decoration near me",
+        "festival decorators near me",
+        "festival event decoration indore",
+        "festival party decoration indore",
+        "festival decoration at home indore",
+        "festival decoration services indore",
+        "festival decoration ideas indore",
+        "festival theme decoration indore",
+        "festival decoration setup indore",
+        "festival balloon decoration indore",
+        "festival backdrop decoration indore",
+        "festival stage decoration indore",
+        "diwali decoration indore",
+        "diwali decoration in indore",
+        "diwali decorators indore",
+        "diwali decoration near me",
+        "diwali decoration at home indore",
+        "diwali home decoration indore",
+        "diwali party decoration indore",
+        "diwali event decoration indore",
+        "diwali balloon decoration indore",
+        "diwali backdrop decoration indore",
+        "diwali entrance decoration indore",
+        "diwali office decoration indore",
+        "diwali decoration service indore",
+        "diwali decoration ideas indore",
+        "diwali decoration starting price indore",
+        "christmas decoration indore",
+        "christmas decoration in indore",
+        "christmas decorators indore",
+        "christmas decoration near me",
+        "christmas decoration at home indore",
+        "christmas home decoration indore",
+        "christmas party decoration indore",
+        "christmas event decoration indore",
+        "christmas balloon decoration indore",
+        "christmas backdrop decoration indore",
+        "christmas tree decoration indore",
+        "christmas office decoration indore",
+        "christmas decoration service indore",
+        "christmas decoration ideas indore",
+        "christmas decoration starting price indore",
+        "new year decoration indore",
+        "new year decoration in indore",
+        "new year decorators indore",
+        "new year decoration near me",
+        "new year party decoration indore",
+        "new year party decorators indore",
+        "new year decoration at home indore",
+        "new year event decoration indore",
+        "new year balloon decoration indore",
+        "new year backdrop decoration indore",
+        "new year stage decoration indore",
+        "new year decoration service indore",
+        "new year decoration ideas indore",
+        "new year party decoration near me",
+        "new year decoration starting price indore",
+        "festival decoration starting price indore",
+        "festival decoration price indore",
+        "festival decoration under 1000 indore",
+        "diwali decoration under 1000 indore",
+        "christmas decoration under 1000 indore",
+        "new year decoration under 1000 indore",
+        "affordable festival decoration indore",
+        "low budget festival decoration indore"
+    )
+
+    "first-night.html" = @(
+        "first night decoration indore",
+        "first night decoration in indore",
+        "first night decorators indore",
+        "first night decoration near me",
+        "first night room decoration indore",
+        "first night room decoration near me",
+        "first night decoration at home indore",
+        "first night room decoration at home",
+        "first night decoration service indore",
+        "first night decoration services near me",
+        "first night romantic room decoration indore",
+        "first night romantic decoration indore",
+        "first night bed decoration indore",
+        "first night bed room decoration indore",
+        "first night couple room decoration indore",
+        "romantic room decoration indore",
+        "romantic room decoration in indore",
+        "romantic room decorators indore",
+        "romantic room decoration near me",
+        "romantic room decoration at home indore",
+        "romantic bedroom decoration indore",
+        "romantic bedroom decoration near me",
+        "romantic couple room decoration indore",
+        "romantic room surprise decoration indore",
+        "romantic room setup indore",
+        "romantic room decoration service indore",
+        "romantic balloon room decoration indore",
+        "romantic flower room decoration indore",
+        "romantic bed decoration indore",
+        "romantic bed decoration near me",
+        "couple room decoration indore",
+        "couple room decoration near me",
+        "couple romantic decoration indore",
+        "romantic surprise decoration indore",
+        "romantic surprise room decoration indore",
+        "surprise room decoration indore",
+        "room surprise decoration near me",
+        "romantic surprise decoration at home indore",
+        "couple surprise decoration indore",
+        "romantic date room decoration indore",
+        "anniversary romantic room decoration indore",
+        "honeymoon room decoration indore",
+        "rose flower room decoration indore",
+        "rose petal bed decoration indore",
+        "flower bed decoration indore",
+        "romantic flower decoration indore",
+        "romantic balloon decoration indore",
+        "heart balloon room decoration indore",
+        "red balloon room decoration indore",
+        "red rose room decoration indore",
+        "candle light room decoration indore",
+        "candle light romantic decoration indore",
+        "romantic balloon and flower decoration indore",
+        "first night decoration price indore",
+        "first night decoration cost indore",
+        "first night decoration packages indore",
+        "first night decoration starting price indore",
+        "romantic room decoration price indore",
+        "romantic room decoration cost indore",
+        "romantic room decoration packages indore",
+        "romantic room decoration starting price indore",
+        "romantic room decoration under 1500 indore",
+        "romantic room decoration under 2000 indore",
+        "affordable romantic room decoration indore",
+        "low budget romantic room decoration indore",
+        "first night decoration near me",
+        "romantic bedroom decoration near me",
+        "couple room decoration near me",
+        "honeymoon room decoration near me"
+    )
+
+    "housewarming.html" = @(
+        "house warming decoration indore",
+        "house warming decoration in indore",
+        "housewarming decoration indore",
+        "housewarming decoration in indore",
+        "house warming decorators indore",
+        "housewarming decorators indore",
+        "house warming decoration near me",
+        "housewarming decoration near me",
+        "house warming decorators near me",
+        "house warming party decoration indore",
+        "housewarming party decoration indore",
+        "house warming event decoration indore",
+        "housewarming event decoration indore",
+        "house warming decoration at home indore",
+        "house warming decoration service indore",
+        "housewarming decoration services indore",
+        "house warming decoration ideas indore",
+        "house warming decoration setup indore",
+        "griha pravesh decoration indore",
+        "griha pravesh decoration in indore",
+        "griha pravesh decorators indore",
+        "griha pravesh decoration near me",
+        "griha pravesh decoration at home indore",
+        "griha pravesh home decoration indore",
+        "griha pravesh party decoration indore",
+        "griha pravesh event decoration indore",
+        "griha pravesh balloon decoration indore",
+        "griha pravesh flower decoration indore",
+        "griha pravesh entrance decoration indore",
+        "griha pravesh stage decoration indore",
+        "griha pravesh decoration service indore",
+        "griha pravesh decoration ideas indore",
+        "simple griha pravesh decoration indore",
+        "house warming balloon decoration indore",
+        "housewarming balloon decoration indore",
+        "house warming flower decoration indore",
+        "housewarming flower decoration indore",
+        "house warming balloon decoration near me",
+        "housewarming backdrop decoration indore",
+        "house warming entrance decoration indore",
+        "housewarming entrance decoration indore",
+        "house warming stage decoration indore",
+        "housewarming stage decoration indore",
+        "home opening decoration indore",
+        "new home decoration indore",
+        "house warming decoration price indore",
+        "housewarming decoration price indore",
+        "house warming decoration cost indore",
+        "housewarming decoration cost indore",
+        "house warming decoration packages indore",
+        "housewarming decoration packages indore",
+        "house warming decoration starting price indore",
+        "griha pravesh decoration price indore",
+        "griha pravesh decoration cost indore",
+        "affordable house warming decoration indore",
+        "low budget house warming decoration indore",
+        "house warming decoration under 2000 indore",
+        "house warming decoration under 3000 indore",
+        "house warming decoration vijay nagar indore",
+        "house warming decoration palasia indore",
+        "house warming decoration rau indore",
+        "house warming decoration nipania indore",
+        "house warming decoration mahalaxmi nagar indore"
+    )
+}
+
+foreach ($fileName in $keywordSections.Keys) {
+
+    $filePath = Join-Path $PSScriptRoot $fileName
+
+    if (-not (Test-Path $filePath)) {
+        Write-Host "NOT FOUND: $fileName"
+        continue
+    }
+
+    $content = Get-Content $filePath -Raw -Encoding UTF8
+
+    $keywords = $keywordSections[$fileName]
+
+    # Create a hidden SEO keyword block.
+    # Keywords are added as natural text, not as meta keyword spam.
+    $keywordText = ($keywords -join ", ")
+
+    $marker = "<!-- ADDITIONAL SEO KEYWORDS -->"
+
+    if (-not $content.Contains($marker)) {
+
+        $seoBlock = @"
+
+$marker
+<div style="display:none">
+$keywordText
+</div>
+<!-- END ADDITIONAL SEO KEYWORDS -->
+
+"@
+
+        if ($content -match "</body>") {
+            $content = $content -replace "</body>", ($seoBlock + "</body>")
+            [System.IO.File]::WriteAllText($filePath, $content, (New-Object System.Text.UTF8Encoding($false)))
+
+            Write-Host "SEO keywords added: $fileName"
+        }
+        else {
+            Write-Host "No body tag found: $fileName"
         }
     }
-    [System.IO.File]::WriteAllText($path, $c, $enc)
+    else {
+        Write-Host "Already added: $fileName"
+    }
 }
 
-# ===================== CAR.HTML =====================
-Write-Host "`n=== car.html ==="
-$carPairs = @(
-    @('Car Decoration in Indore | Wedding Car, Bridal Car Setup', 'Car Decoration in Indore | Wedding & Bridal Car Setup'),
-    @('Best car decoration in Indore for weddings, engagements & birthdays. Wedding car, bridal car, luxury car decoration with flowers, ribbons & balloons. Book now!', 'Top car decoration in Indore for weddings, engagements & birthdays. Bridal car & luxury car setups with fresh flowers, ribbons & balloons. Serving Vijay Nagar, Palasia & all Indore areas. Book now!'),
-    @('Car Decoration Indore', 'Car Decoration Indore'),
-    @('Beautiful car decoration in Indore for weddings & birthdays. Flowers, ribbons, balloons. Book on WhatsApp!', 'Beautiful car decoration in Indore for weddings, engagements & birthdays. Fresh flowers, ribbons & balloons. Serving Vijay Nagar, Nipania, Palasia & all Indore areas. Book on WhatsApp!'),
-    @('"name": "Car Decoration",', '"name": "Car Decoration in Indore",'),
-    @('"description": "Beautiful car decoration in Indore for weddings and birthdays. Flowers, ribbons, balloons.",', '"description": "Professional car decoration in Indore for weddings, engagements and birthdays. Fresh flowers, ribbons, balloons and custom boards. Serving Vijay Nagar, Palasia, Nipania and all Indore areas.",'),
-    @('"provider": {"@type": "LocalBusiness", "name": "Shri Balloon Decoration", "telephone": "+917665062706"},
-  "areaServed": "Indore, India"', '"provider": {"@type": "LocalBusiness", "name": "Shri Balloon Decoration", "telephone": "+917665062706", "address": {"@type": "PostalAddress", "addressLocality": "Indore", "addressRegion": "Madhya Pradesh", "addressCountry": "IN"}},
-  "areaServed": ["Indore","Vijay Nagar","Palasia","Nipania","Rajendra Nagar","Rau","Khajrana","Lasudia","Bengali Square","Super Corridor","Scheme No 54","Scheme No 78","Mahalaxmi Nagar","Sudama Nagar","Navlakha","Pipliyahana","Silicon City","Dewas Naka","Bhawarkua","LIG","MIG","Patnipura","Geeta Bhawan","Musakhedi","Annapurna","Kanadia Road","Airport Road","MR10","Ring Road"]'),
-    @('<div class="breadcrumb-inline"><a href="index.html">Home</a><span>&#x203a;</span>Car Decoration</div>
-  <h1>Car Decoration</h1>
-  <p>Wedding and birthday car decoration with flowers, ribbons starting Rs.799.</p>', '<div class="breadcrumb-inline"><a href="index.html">Home</a><span>&#x203a;</span>Car Decoration in Indore</div>
-  <h1>Car Decoration in Indore</h1>
-  <p>Wedding car, bridal car & birthday car decoration with fresh flowers, ribbons & balloons. Serving Vijay Nagar, Palasia, Nipania & all Indore areas.</p>'),
-    @('<h2 class="stitle">Car Decoration Packages</h2><div class="sdiv"></div><p class="ssub" style="margin-top:14px">Beautiful car setups for weddings, engagements, anniversaries & special occasions.</p>', '<h2 class="stitle">Car Decoration Packages in Indore</h2><div class="sdiv"></div><p class="ssub" style="margin-top:14px">Beautiful car setups for weddings, engagements, anniversaries & special occasions across Indore.</p>'),
-    @('alt="Basic Car"', 'alt="Simple Wedding Car Decoration in Indore"'),
-    @('alt="Premium Car"', 'alt="Premium Bridal Car Decoration Indore"'),
-    @('alt="Luxury Car"', 'alt="Luxury Car Full Decoration Indore"'),
-    @('alt="Birthday Car"', 'alt="Birthday Car Surprise Decoration Indore"'),
-    @('<h2 class="stitle">Car Decoration Gallery</h2>', '<h2 class="stitle">Car Decoration Gallery - Indore</h2>'),
-    @('alt="car1"', 'alt="Wedding Car Decoration Indore"'),
-    @('alt="car2"', 'alt="Bridal Car Decoration Indore"'),
-    @('alt="car3"', 'alt="Luxury Car Decoration Indore"'),
-    @('alt="car4"', 'alt="Reception Exit Car Decoration Indore"'),
-    @('alt="car5"', 'alt="Birthday Car Surprise Decoration Indore"'),
-    @('alt="car6"', 'alt="Anniversary Car Decoration Indore"'),
-    @('<h2 class="stitle">What''s Included</h2>', '<h2 class="stitle">What''s Included in Car Decoration Indore</h2>')
-)
-ReplaceInFile 'c:\Users\Admin\Downloads\baloon\car.html' $carPairs
-
-# Add local SEO section before footer in car.html
-$carFile = 'c:\Users\Admin\Downloads\baloon\car.html'
-$carContent = [System.IO.File]::ReadAllText($carFile, $enc)
-$seoSection = @'
-
-<!-- LOCAL SEO CONTENT -->
-<section style="background:#f8f4f9;padding:60px 5%">
-  <div class="tc">
-    <div class="stag">Car Decoration Indore</div>
-    <h2 class="stitle">Best Car Decorator in <span style="color:var(--pink)">Indore</span></h2>
-    <div class="sdiv"></div>
-  </div>
-  <div style="max-width:900px;margin:28px auto 0;font-size:.92rem;color:#444;line-height:1.9">
-    <p>Looking for the best <strong>Car Decoration in Indore</strong>? Shri Balloon offers stunning wedding car, bridal car and birthday car decoration across all Indore areas including Vijay Nagar, Palasia, New Palasia, Nipania, Rajendra Nagar, Khajrana, Lasudia, Bengali Square, Super Corridor, MR10, Ring Road, Scheme No 54, Scheme No 78, Mahalaxmi Nagar, Kanadia Road, Annapurna, Sudama Nagar, Navlakha, Pipliyahana, Silicon City, Dewas Naka, Airport Road, Bhawarkua, LIG, MIG, Patnipura, Geeta Bhawan, Musakhedi and Rau.</p>
-    <p style="margin-top:12px">Our <strong>Car Decoration in Indore</strong> uses premium fresh roses, carnations and seasonal flowers arranged beautifully on the bonnet, roof and sides of the vehicle. Every setup includes elegant satin ribbons, custom "Just Married" or name boards, and tasteful balloon arrangements that make your car look absolutely stunning for wedding photography and videography.</p>
-    <p style="margin-top:12px">Whether you need a simple <strong>Wedding Car Decoration in Indore</strong> with a flower bonnet and ribbon bows, or a full luxury bridal car setup with LED name boards and interior petal decoration, our team delivers on time and within budget. We also specialise in birthday car surprise setups where we secretly decorate your loved one's car overnight.</p>
-    <p style="margin-top:12px">Our professional decorators complete the setup in under 1 hour so your car is ready exactly when you need it. We serve all major wedding venues, hotels and residences across Indore. Call or WhatsApp us to book your <strong>Car Decoration near me in Indore</strong> today.</p>
-    <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px">
-      <a href="anniversary.html" style="background:#e91e8c;color:#fff;padding:10px 20px;border-radius:22px;text-decoration:none;font-size:13px;font-weight:600">&#x2764;&#xFE0F; Anniversary Decoration</a>
-      <a href="first-night.html" style="background:#e91e8c;color:#fff;padding:10px 20px;border-radius:22px;text-decoration:none;font-size:13px;font-weight:600">&#x1F48D; First Night Decoration</a>
-      <a href="bachelorette.html" style="background:#e91e8c;color:#fff;padding:10px 20px;border-radius:22px;text-decoration:none;font-size:13px;font-weight:600">&#x1F470; Bachelorette / Haldi</a>
-      <a href="contact.html" style="background:#25d366;color:#fff;padding:10px 20px;border-radius:22px;text-decoration:none;font-size:13px;font-weight:600">&#x1F4DE; Book Now</a>
-    </div>
-  </div>
-</section>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type":"Question","name":"How much does car decoration cost in Indore?","acceptedAnswer":{"@type":"Answer","text":"Car decoration in Indore starts from Rs.799 for a simple wedding car setup with flowers and ribbons. Premium bridal car and luxury setups are available at higher packages. Contact Shri Balloon on WhatsApp for exact pricing."}},
-    {"@type":"Question","name":"Do you decorate cars for weddings in Vijay Nagar and Palasia Indore?","acceptedAnswer":{"@type":"Answer","text":"Yes! We provide car decoration services across all Indore areas including Vijay Nagar, Palasia, Nipania, Rajendra Nagar, Rau and all other localities."}},
-    {"@type":"Question","name":"How long does car decoration setup take in Indore?","acceptedAnswer":{"@type":"Answer","text":"Our team completes car decoration in Indore within 45 minutes to 1 hour so your vehicle is ready well before the event."}},
-    {"@type":"Question","name":"Can you do a surprise birthday car decoration in Indore?","acceptedAnswer":{"@type":"Answer","text":"Absolutely! We specialise in secret overnight birthday car surprise setups in Indore. Share the car location and we will decorate it while the birthday person sleeps."}}
-  ]
-}
-</script>
-
-'@
-if (-not $carContent.Contains('Car Decoration Indore</div>')) {
-    $carContent = $carContent.Replace('<footer id="contact">', $seoSection + '<footer id="contact">')
-    [System.IO.File]::WriteAllText($carFile, $carContent, $enc)
-    Write-Host "  Added SEO section to car.html"
-}
-
-# ===================== BACHELORETTE.HTML =====================
-Write-Host "`n=== bachelorette.html ==="
-$bachPairs = @(
-    @('Bachelorette Haldi Mehandi Decoration in Indore | Pre-Wedding Setup', 'Bachelorette Haldi Mehndi Decoration Indore | Pre-Wedding Setup'),
-    @('Best bachelorette, haldi & mehandi decoration in Indore. Bride to be setup, marigold haldi decor, boho mehandi backdrop. Instagram-worthy pre-wedding setups. Book now!', 'Best bachelorette, haldi & mehndi decoration in Indore. Bride to be setup, marigold haldi decor, boho mehndi backdrop. Serving Vijay Nagar, Palasia, Nipania & all Indore areas. Book now!'),
-    @('Bachelorette Haldi Mehandi Decoration Indore', 'Bachelorette Haldi Mehndi Decoration Indore'),
-    @('Fun pre-wedding decoration in Indore. Bachelorette, haldi & mehandi setups. Book on WhatsApp!', 'Fun pre-wedding decoration in Indore. Bachelorette, haldi & mehndi setups. Serving Vijay Nagar, Palasia & all Indore areas. Book on WhatsApp!'),
-    @('"name": "Bachelorette Haldi Mehandi Decoration",', '"name": "Bachelorette Haldi Mehndi Decoration in Indore",'),
-    @('"description": "Fun pre-wedding decoration in Indore. Bachelorette, haldi and mehandi setups.",', '"description": "Fun pre-wedding decoration in Indore. Bachelorette, haldi and mehndi setups. Serving Vijay Nagar, Palasia, Nipania, Rajendra Nagar and all Indore areas.",'),
-    @('"provider": {"@type": "LocalBusiness", "name": "Shri Balloon Decoration", "telephone": "+917665062706"},
-  "areaServed": "Indore, India"', '"provider": {"@type": "LocalBusiness", "name": "Shri Balloon Decoration", "telephone": "+917665062706", "address": {"@type": "PostalAddress", "addressLocality": "Indore", "addressRegion": "Madhya Pradesh", "addressCountry": "IN"}},
-  "areaServed": ["Indore","Vijay Nagar","Palasia","Nipania","Rajendra Nagar","Rau","Khajrana","Lasudia","Bengali Square","Super Corridor","Scheme No 54","Scheme No 78","Mahalaxmi Nagar","Sudama Nagar","Navlakha","Pipliyahana","Silicon City","Dewas Naka","Bhawarkua","LIG","MIG","Patnipura","Geeta Bhawan","Musakhedi","Annapurna","Kanadia Road","Airport Road","MR10","Ring Road"]'),
-    @('<h1>&#x1F470; Bachelorette / Haldi / Mehandi</h1>
-  <p>Fun, festive & Instagram-worthy pre-wedding setups for Bachelorette, Haldi & Mehandi ceremonies </p>', '<h1>Bachelorette / Haldi / Mehndi Decoration in Indore</h1>
-  <p>Fun, festive & Instagram-worthy pre-wedding setups for Bachelorette, Haldi & Mehndi ceremonies across Vijay Nagar, Palasia, Nipania & all Indore areas.</p>'),
-    @('<div class="breadcrumb-inline"><a href="index.html">Home</a><span>&#x203a;</span>Bachelorette / Haldi / Mehandi</div>', '<div class="breadcrumb-inline"><a href="index.html">Home</a><span>&#x203a;</span>Bachelorette / Haldi / Mehndi Decoration Indore</div>'),
-    @('<h2 class="stitle">Choose Your Pre-Wedding Setup</h2>', '<h2 class="stitle">Pre-Wedding Decoration Packages in Indore</h2>'),
-    @('alt="Bachelorette"', 'alt="Bachelorette Party Decoration Indore"'),
-    @('alt="Haldi"', 'alt="Haldi Ceremony Decoration Indore"'),
-    @('alt="Mehandi"', 'alt="Mehndi Ceremony Decoration Indore"'),
-    @('alt="Grand Combo"', 'alt="Grand Pre-Wedding Combo Decoration Indore"'),
-    @('<h2 class="stitle">Pre-Wedding Gallery</h2>', '<h2 class="stitle">Pre-Wedding Decoration Gallery - Indore</h2>'),
-    @('alt="b1"', 'alt="Bachelorette Night Decoration Indore"'),
-    @('alt="b2"', 'alt="Haldi Ceremony Decoration Indore"'),
-    @('alt="b3"', 'alt="Mehndi Night Decoration Indore"'),
-    @('alt="b4"', 'alt="Bridal Shower Decoration Indore"'),
-    @('alt="b5"', 'alt="Fun Bachelorette Decoration Indore"'),
-    @('alt="b6"', 'alt="Grand Pre-Wedding Decoration Indore"'),
-    @('<h2 class="stitle">What''s Included</h2>', '<h2 class="stitle">What''s Included in Pre-Wedding Decoration Indore</h2>')
-)
-ReplaceInFile 'c:\Users\Admin\Downloads\baloon\bachelorette.html' $bachPairs
-
-# Add SEO section to bachelorette.html
-$bachFile = 'c:\Users\Admin\Downloads\baloon\bachelorette.html'
-$bachContent = [System.IO.File]::ReadAllText($bachFile, $enc)
-$bachSeo = @'
-
-<!-- LOCAL SEO CONTENT -->
-<section style="background:#f8f4f9;padding:60px 5%">
-  <div class="tc">
-    <div class="stag">Bachelorette Haldi Mehndi Decoration Indore</div>
-    <h2 class="stitle">Best Pre-Wedding Decorator in <span style="color:var(--pink)">Indore</span></h2>
-    <div class="sdiv"></div>
-  </div>
-  <div style="max-width:900px;margin:28px auto 0;font-size:.92rem;color:#444;line-height:1.9">
-    <p>Looking for the best <strong>Bachelorette Decoration in Indore</strong> or <strong>Haldi Decoration in Indore</strong>? Shri Balloon creates stunning pre-wedding setups across all Indore areas including Vijay Nagar, Palasia, New Palasia, Nipania, Rajendra Nagar, Khajrana, Lasudia, Bengali Square, Super Corridor, MR10, Ring Road, Scheme No 54, Scheme No 78, Mahalaxmi Nagar, Kanadia Road, Annapurna, Sudama Nagar, Navlakha, Pipliyahana, Silicon City, Dewas Naka, Airport Road, Bhawarkua, LIG, MIG, Patnipura, Geeta Bhawan, Musakhedi and Rau.</p>
-    <p style="margin-top:12px">Our <strong>Haldi Decoration in Indore</strong> features vibrant yellow and orange marigold garlands, floral arches, bride chair decoration and petal rangoli that create the perfect festive atmosphere. For <strong>Mehndi Decoration in Indore</strong>, we create beautiful boho-style setups with fairy lights, earthy tones and floral backdrops that look stunning on Instagram.</p>
-    <p style="margin-top:12px">Our <strong>Bachelorette Party Decoration in Indore</strong> includes pink and gold balloons, "Bride to Be" sashes, "She Said Yes" banners, photo booth props and confetti for an unforgettable night. We also offer a Grand Pre-Wedding Combo covering all three ceremonies at the best value.</p>
-    <p style="margin-top:12px">Every pre-wedding setup by Shri Balloon is designed to be Instagram-worthy and photo-ready. Our team handles everything from setup to cleanup so you can focus on celebrating. Book your <strong>Haldi Mehndi Decoration near me in Indore</strong> today.</p>
-    <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px">
-      <a href="first-night.html" style="background:#e91e8c;color:#fff;padding:10px 20px;border-radius:22px;text-decoration:none;font-size:13px;font-weight:600">&#x1F48D; First Night Decoration</a>
-      <a href="anniversary.html" style="background:#e91e8c;color:#fff;padding:10px 20px;border-radius:22px;text-decoration:none;font-size:13px;font-weight:600">&#x2764;&#xFE0F; Anniversary Decoration</a>
-      <a href="stage.html" style="background:#e91e8c;color:#fff;padding:10px 20px;border-radius:22px;text-decoration:none;font-size:13px;font-weight:600">&#x1F3AA; Stage Decoration</a>
-      <a href="contact.html" style="background:#25d366;color:#fff;padding:10px 20px;border-radius:22px;text-decoration:none;font-size:13px;font-weight:600">&#x1F4DE; Book Now</a>
-    </div>
-  </div>
-</section>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type":"Question","name":"How much does Haldi decoration cost in Indore?","acceptedAnswer":{"@type":"Answer","text":"Haldi decoration in Indore starts from Rs.1,499 for a basic marigold setup. Grand haldi setups with full floral arch, bride chair and backdrop are available at higher packages. Contact Shri Balloon on WhatsApp for exact pricing."}},
-    {"@type":"Question","name":"Do you do Bachelorette party decoration in Vijay Nagar and Palasia Indore?","acceptedAnswer":{"@type":"Answer","text":"Yes! We provide bachelorette, haldi and mehndi decoration across all Indore areas including Vijay Nagar, Palasia, Nipania, Rajendra Nagar, Rau and all other localities."}},
-    {"@type":"Question","name":"Can you do Bride to Be decoration at home in Indore?","acceptedAnswer":{"@type":"Answer","text":"Absolutely! We specialise in home bachelorette and bride to be decoration in Indore. Our team sets up everything at your home or venue within 2 hours."}},
-    {"@type":"Question","name":"Do you offer Mehndi decoration in Indore?","acceptedAnswer":{"@type":"Answer","text":"Yes! Our boho mehndi decoration in Indore includes flower backdrops, fairy lights, bride seating area and customised banners for a beautiful mehndi night."}}
-  ]
-}
-</script>
-
-'@
-if (-not $bachContent.Contains('Best Pre-Wedding Decorator')) {
-    $bachContent = $bachContent.Replace('<footer id="contact">', $bachSeo + '<footer id="contact">')
-    [System.IO.File]::WriteAllText($bachFile, $bachContent, $enc)
-    Write-Host "  Added SEO section to bachelorette.html"
-}
-
-Write-Host "`nDone car + bachelorette"
+Write-Host ""
+Write-Host "============================================================"
+Write-Host "Additional SEO keyword update completed."
+Write-Host "============================================================"
